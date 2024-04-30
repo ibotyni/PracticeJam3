@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cf6vaiwhbvcjh"]
+[gd_scene load_steps=18 format=3 uid="uid://cf6vaiwhbvcjh"]
 
 [ext_resource type="Texture2D" uid="uid://cvaj6ouggha03" path="res://Assets/Tilesheet/colored.png" id="1_tv4rm"]
 [ext_resource type="PackedScene" uid="uid://rvqwkmaacjb0" path="res://Scenes/character_body_2d.tscn" id="2_7yv3a"]
@@ -7,9 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://ttf6iupbg7ak" path="res://Assets/Enemies/EnemyC.png" id="4_mi8w6"]
 [ext_resource type="Texture2D" uid="uid://bv115rhfyuhhw" path="res://Assets/Enemies/EnemyB.png" id="5_r468j"]
 [ext_resource type="Texture2D" uid="uid://d2iny7bwh0l4u" path="res://Tilemap/reticle.png" id="7_3ndr0"]
-[ext_resource type="Script" path="res://Scenes/aiming_reticle.gd" id="8_yvjo2"]
-[ext_resource type="Script" path="res://Scenes/reticle_holder.gd" id="9_ckiam"]
-[ext_resource type="Script" path="res://Scenes/bullet.gd" id="10_ftn85"]
+[ext_resource type="Script" path="res://Scripts/aiming_reticle.gd" id="8_yvjo2"]
+[ext_resource type="Script" path="res://Scripts/reticle_holder.gd" id="9_ckiam"]
+[ext_resource type="Script" path="res://Scripts/bullet.gd" id="10_ftn85"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t0uoi"]
 texture = ExtResource("1_tv4rm")
