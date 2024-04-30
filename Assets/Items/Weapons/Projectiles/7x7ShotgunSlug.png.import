@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bv115rhfyuhhw"
-path="res://.godot/imported/EnemyB.png-96564182bff6c819ba3c92e2ff59e6b0.ctex"
+uid="uid://b7g81t1bpqwe1"
+path="res://.godot/imported/7x7ShotgunSlug.png-564956022343366b3c088059f058bdca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Enemies/EnemyB.png"
-dest_files=["res://.godot/imported/EnemyB.png-96564182bff6c819ba3c92e2ff59e6b0.ctex"]
+source_file="res://Assets/Items/Weapons/Projectiles/7x7ShotgunSlug.png"
+dest_files=["res://.godot/imported/7x7ShotgunSlug.png-564956022343366b3c088059f058bdca.ctex"]
 
 [params]
 

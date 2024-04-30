@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cf6vaiwhbvcjh"]
+[gd_scene load_steps=8 format=3 uid="uid://cf6vaiwhbvcjh"]
 
 [ext_resource type="Texture2D" uid="uid://cvaj6ouggha03" path="res://Assets/Tilesheet/colored.png" id="1_tv4rm"]
 [ext_resource type="PackedScene" uid="uid://rvqwkmaacjb0" path="res://Scenes/character_body_2d.tscn" id="2_7yv3a"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ttf6iupbg7ak"
-path="res://.godot/imported/EnemyC.png-af0c02c95929cccbc9afbc7e3f808d9d.ctex"
+uid="uid://co6m7u2l7qbrj"
+path="res://.godot/imported/9x13SpearWith9x13MagicSpritesheet.png-03e40df6f287664552a9d679ec21b8b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Enemies/EnemyC.png"
-dest_files=["res://.godot/imported/EnemyC.png-af0c02c95929cccbc9afbc7e3f808d9d.ctex"]
+source_file="res://Assets/Items/Weapons/Projectiles/9x13SpearWith9x13MagicSpritesheet.png"
+dest_files=["res://.godot/imported/9x13SpearWith9x13MagicSpritesheet.png-03e40df6f287664552a9d679ec21b8b5.ctex"]
 
 [params]
 
