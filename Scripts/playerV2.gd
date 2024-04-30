@@ -1,19 +1,39 @@
 extends CharacterBody2D
-@export var speed = 100
-
-func get_input():
-	var input_direction = Input.get_vector("Move_Left", "Move_Right", "Move_Up", "Move_Down")
-	velocity = input_direction * speed
-
-func _physics_process(delta):
-#Initial Variant of Code, left for posterity.
-	#var input_vector = Vector2.ZERO
-	#input_vector.x = Input.get_action_strength("Move_Right") - Input.get_action_strength("Move_Left")
-	#input_vector.y = Input.get_action_strength("Move_Down") - Input.get_action_strength("Move_Up")
-	#print(input_vector)
-	#nput_vector.normalized()
-	#if input_vector:
-	#	velocity = input_vector * speed
-	#move_and_slide()
-	get_input()
+ 
+var direction : Vector2 = Vector2.ZERO
+var swing : bool = false
+ 
+@onready var animation_tree = $AnimationTree
+ 
+func _physics_process(_delta):
+	if not swing:
+		velocity = direction * 75
+	else:
+		velocity = Vector2.ZERO
 	move_and_slide()
+ 
+func _process(_delta):
+	direction = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
+ 
+	if direction != Vector2.ZERO and not swing:
+		set_walking(true)
+		update_blend_position()
+	else:
+		set_walking(false)
+ 
+	if Input.is_action_just_pressed("swing"):
+		set_swing(true)
+ 
+func set_swing(value = false):
+	swing = value
+	animation_tree["parameters/conditions/swing"] = value
+ 
+func set_walking(value):
+	
+	animation_tree["parameters/conditions/is_walking"] = value
+	animation_tree["parameters/conditions/idle"] = not value
+ 
+func update_blend_position():
+	animation_tree["parameters/attack/blend_position"] = direction
+	animation_tree["parameters/idle/blend_position"] = direction
+	animation_tree["parameters/walk/blend_position"] = direction
