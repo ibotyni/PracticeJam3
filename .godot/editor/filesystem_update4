@@ -1,7 +1,0 @@
-res://Scenes/level_1.tscn
-res://Scenes/character_body_2d.tscn
-res://Scenes/mainMenu.tscn
-res://Scenes/Main_Menu.tscn
-res://Scripts/Main_Menu.gd
-res://Scenes/Pause_Menu.tscn
-res://Scripts/PauseMenu.gd
