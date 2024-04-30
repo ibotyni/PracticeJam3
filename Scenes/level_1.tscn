@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cf6vaiwhbvcjh"]
+[gd_scene load_steps=8 format=3 uid="uid://cf6vaiwhbvcjh"]
 
 [ext_resource type="Texture2D" uid="uid://cvaj6ouggha03" path="res://Assets/Tilesheet/colored.png" id="1_tv4rm"]
 [ext_resource type="PackedScene" uid="uid://rvqwkmaacjb0" path="res://Scenes/character_body_2d.tscn" id="2_7yv3a"]
+[ext_resource type="PackedScene" uid="uid://bjvqhi585w773" path="res://Scenes/Pause_Menu.tscn" id="3_hxwrx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t0uoi"]
 texture = ExtResource("1_tv4rm")
@@ -1213,6 +1214,13 @@ normal = Vector2(0.99998, -0.0062761)
 normal = Vector2(0.00627645, 0.99998)
 
 [node name="Level_1" type="Node2D"]
+
+[node name="GameManager" type="Node" parent="."]
+
+[node name="PauseMenu" parent="GameManager" instance=ExtResource("3_hxwrx")]
+process_mode = 2
+visible = false
+script = null
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_7d6i4")
