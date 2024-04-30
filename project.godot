@@ -24,9 +24,11 @@ window/size/viewport_height=430
 
 folder_colors={
 "res://Assets/": "red",
+"res://Prefabs/": "yellow",
 "res://Scenes/": "blue",
 "res://Scripts/": "green",
-"res://Tilemap/": "purple"
+"res://Tilemap/": "purple",
+"res://mockup assets/": "orange"
 }
 
 [input]

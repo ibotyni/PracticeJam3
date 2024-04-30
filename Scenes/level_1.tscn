@@ -1,11 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cf6vaiwhbvcjh"]
+[gd_scene load_steps=8 format=3 uid="uid://cf6vaiwhbvcjh"]
 
 [ext_resource type="Texture2D" uid="uid://cvaj6ouggha03" path="res://Assets/Tilesheet/colored.png" id="1_tv4rm"]
 [ext_resource type="PackedScene" uid="uid://rvqwkmaacjb0" path="res://Scenes/character_body_2d.tscn" id="2_7yv3a"]
 [ext_resource type="PackedScene" uid="uid://bjvqhi585w773" path="res://Scenes/Pause_Menu.tscn" id="3_hxwrx"]
-[ext_resource type="Texture2D" uid="uid://d3onrbh7a3s50" path="res://Assets/Enemies/EnemyA.png" id="3_wpeab"]
-[ext_resource type="Texture2D" uid="uid://ttf6iupbg7ak" path="res://Assets/Enemies/EnemyC.png" id="4_mi8w6"]
-[ext_resource type="Texture2D" uid="uid://bv115rhfyuhhw" path="res://Assets/Enemies/EnemyB.png" id="5_r468j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t0uoi"]
 texture = ExtResource("1_tv4rm")
@@ -1267,15 +1264,3 @@ rotation = -3.13532
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World Borders/StaticBody2D4"]
 shape = SubResource("WorldBoundaryShape2D_sab72")
-
-[node name="EnemyA" type="Sprite2D" parent="."]
-position = Vector2(252, 198)
-texture = ExtResource("3_wpeab")
-
-[node name="EnemyC" type="Sprite2D" parent="."]
-position = Vector2(293, 197)
-texture = ExtResource("4_mi8w6")
-
-[node name="EnemyB" type="Sprite2D" parent="."]
-position = Vector2(274, 197)
-texture = ExtResource("5_r468j")
