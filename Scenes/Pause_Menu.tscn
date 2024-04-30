@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjvqhi585w773"]
+
+[ext_resource type="Script" path="res://Scripts/PauseMenu.gd" id="1_fnh43"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fnh43")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="CenterContainer" type="CenterContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="Control/CenterContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CenterContainer/BoxContainer"]
+layout_mode = 2
+
+[node name="PauseButtonQuit" type="Button" parent="Control/CenterContainer/BoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="PauseButtonQuit2" type="Button" parent="Control/CenterContainer/BoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Resume"
