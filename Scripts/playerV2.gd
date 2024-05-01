@@ -13,11 +13,13 @@ var health := 100:
 		# Temporary setter function for debugging
 		print("player health: ", health)
 
+
 func _physics_process(_delta):
 	if not swing:
 		velocity = direction * 75
 	else:
 		velocity = Vector2.ZERO
+
 	move_and_slide()
 
 func _process(_delta):
@@ -29,12 +31,8 @@ func _process(_delta):
 	else:
 		set_walking(Vector2.ZERO)
 	
-	if Input.is_action_just_pressed("swing"):
-		set_swing(true)
 
-func set_swing(value = false):
-	swing = value
-	#animation_tree["parameters/conditions/swing"] = value
+
 
 func set_walking(value):
 	if value[1] == -1: # 0,-1

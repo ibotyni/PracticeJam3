@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d3gfbbklauegb" path="res://mockup assets/Character Sprites/Idle/Idle_Down.png" id="4_bdlae"]
 [ext_resource type="Texture2D" uid="uid://dvh4qnh66awp4" path="res://mockup assets/Character Sprites/Idle/UpIdle.png" id="5_f05h4"]
 [ext_resource type="Texture2D" uid="uid://ogtjfdlm0ca2" path="res://mockup assets/Character Sprites/Walk/Walk_Down.png" id="6_jxcdq"]
-[ext_resource type="Texture2D" uid="uid://b4ijt3opb51jf" path="res://mockup assets/Character Sprites/Walk/Walk_Left.png" id="7_ln1qa"]
+[ext_resource type="Texture2D" uid="uid://6xo1vf7i5gwb" path="res://mockup assets/Character Sprites/Walk/Walk_Left.png" id="7_ln1qa"]
 [ext_resource type="Texture2D" uid="uid://daalq1akb3omv" path="res://mockup assets/Character Sprites/Walk/Walk_Right.png" id="8_ke15h"]
 [ext_resource type="Texture2D" uid="uid://mwidddosout7" path="res://mockup assets/Character Sprites/Walk/Walk_Up.png" id="9_3237c"]
 
@@ -115,23 +115,23 @@ region = Rect2(48, 0, 16, 24)
 atlas = ExtResource("6_jxcdq")
 region = Rect2(64, 0, 16, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gimb7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ij72"]
 atlas = ExtResource("7_ln1qa")
 region = Rect2(0, 0, 16, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y3414"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lb7e"]
 atlas = ExtResource("7_ln1qa")
 region = Rect2(16, 0, 16, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tqw8c"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4f1uq"]
 atlas = ExtResource("7_ln1qa")
 region = Rect2(32, 0, 16, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1c6tk"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hj2j5"]
 atlas = ExtResource("7_ln1qa")
 region = Rect2(48, 0, 16, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fgq7o"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4flh7"]
 atlas = ExtResource("7_ln1qa")
 region = Rect2(64, 0, 16, 24)
 
@@ -279,19 +279,19 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gimb7")
+"texture": SubResource("AtlasTexture_1ij72")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_y3414")
+"texture": SubResource("AtlasTexture_0lb7e")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tqw8c")
+"texture": SubResource("AtlasTexture_4f1uq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1c6tk")
+"texture": SubResource("AtlasTexture_hj2j5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fgq7o")
+"texture": SubResource("AtlasTexture_4flh7")
 }],
 "loop": true,
 "name": &"Walk_Left",
@@ -665,8 +665,7 @@ shape = SubResource("RectangleShape2D_s67ck")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_35t4q")
-animation = &"Idle_Right"
-frame_progress = 0.742502
+animation = &"Walk_Left"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
 libraries = {
