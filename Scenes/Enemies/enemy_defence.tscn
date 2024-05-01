@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b00n7rc3wmigr" path="res://Scenes/Enemies/enemy_shot.tscn" id="2_p4574"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qdivo"]
-size = Vector2(14, 24)
+size = Vector2(14, 12)
 
 [node name="EnemyDefence" type="CharacterBody2D"]
 collision_layer = 4
@@ -18,6 +18,7 @@ texture = ExtResource("1_02qpk")
 hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_qdivo")
 
 [node name="ReloadTimer" type="Timer" parent="."]

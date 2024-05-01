@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://mwidddosout7" path="res://mockup assets/Character Sprites/Walk/Walk_Up.png" id="9_3237c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s67ck"]
-size = Vector2(9, 24)
+size = Vector2(7, 12.5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1jdsy"]
 atlas = ExtResource("4_bdlae")
@@ -644,7 +644,7 @@ states/walk/node = SubResource("AnimationNodeBlendSpace2D_gnwfx")
 states/walk/position = Vector2(553, 130)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_8i6kr"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_4lhfs"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_558xl"), "idle", "swing", SubResource("AnimationNodeStateMachineTransition_sucs4"), "swing", "idle", SubResource("AnimationNodeStateMachineTransition_l4b5e")]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
 position = Vector2(0, -7)
 collision_mask = 6
 script = ExtResource("1_uv3vu")
@@ -662,12 +662,11 @@ texture = ExtResource("3_5k8f6")
 [node name="Aim" type="Marker2D" parent="ReticleHolder/Sprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0)
+position = Vector2(0.5, 7.25)
 shape = SubResource("RectangleShape2D_s67ck")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_35t4q")
-animation = &"Idle_down"
 animation = &"Walk_Left"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
