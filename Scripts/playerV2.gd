@@ -14,7 +14,7 @@ func _physics_process(_delta):
 	move_and_slide()
 
 func _process(_delta):
-	direction = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
+	direction = Input.get_vector("Move_Left","Move_Right","Move_Up","Move_Down")
 	
 	if direction != Vector2.ZERO and not swing:
 		set_walking(direction)
