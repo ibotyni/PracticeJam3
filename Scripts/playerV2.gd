@@ -7,6 +7,16 @@ var swing : bool = false
 var last_direction = "Down"
 @export var Bullet : PackedScene
 
+func _ready():
+	var tilemap_rect = get_parent().get_parent().get_node("TileMap2").get_used_rect()
+	var tilemap_cell_size = get_parent().get_parent().get_node("TileMap2").tile_set.tile_size
+	$Camera2D.limit_left = tilemap_rect.position.x * tilemap_cell_size.x
+	$Camera2D.limit_right = tilemap_rect.end.x * tilemap_cell_size.x
+	$Camera2D.limit_left = tilemap_rect.position.y * tilemap_cell_size.y
+	$Camera2D.limit_right = tilemap_rect.end.y * tilemap_cell_size.y
+
+# TODO: Player Spawn Position: Currently not working.
+
 var health := 100:
 	set(new_health):
 		health = new_health
@@ -31,8 +41,8 @@ func _process(_delta):
 	else:
 		set_walking(Vector2.ZERO)
 	
-	if Input.is_action_just_pressed("swing"):
-		set_swing(true)
+	#if Input.is_action_just_pressed("swing"):
+		#set_swing(true)
 		
 	if Input.is_action_just_pressed("Primary_Attack"):
 		shoot()
