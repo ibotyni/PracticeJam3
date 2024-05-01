@@ -18,6 +18,7 @@ position = Vector2(214, 197)
 
 [node name="Camera2D" type="Camera2D" parent="GameManager/CharacterBody2D"]
 position = Vector2(0, 1)
+scale = Vector2(1.18346, 1.14159)
 zoom = Vector2(2, 2)
 limit_left = 0
 limit_top = 0
