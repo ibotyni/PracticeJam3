@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 var direction : Vector2 = Vector2.ZERO
 var swing : bool = false
@@ -6,8 +7,11 @@ var swing : bool = false
 var last_direction = "Down"
 @export var Bullet : PackedScene
 
-
-
+var health := 100:
+	set(new_health):
+		health = new_health
+		# Temporary setter function for debugging
+		print("player health: ", health)
 
 
 func _physics_process(_delta):
@@ -15,10 +19,7 @@ func _physics_process(_delta):
 		velocity = direction * 75
 	else:
 		velocity = Vector2.ZERO
-	if not swing:
-		velocity = direction * 75
-	else:
-		velocity = Vector2.ZERO
+
 	move_and_slide()
 
 func _process(_delta):
@@ -53,5 +54,3 @@ func set_walking(value):
 	#animation_tree["parameters/attack/blend_position"] = direction
 	#animation_tree["parameters/idle/blend_position"] = direction
 	#animation_tree["parameters/walk/blend_position"] = direction
-
-

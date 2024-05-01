@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://djb3hcy3d5j5r"
+path="res://.godot/imported/practise jam 3 menu.mp3-cb4d9ac9d98bc9e4269f3f4770a1dffe.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/practise jam 3 menu.mp3"
+dest_files=["res://.godot/imported/practise jam 3 menu.mp3-cb4d9ac9d98bc9e4269f3f4770a1dffe.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
