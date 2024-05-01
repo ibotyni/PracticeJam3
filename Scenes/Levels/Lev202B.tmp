@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cf6vaiwhbvcjh"]
+[gd_scene load_steps=5 format=3 uid="uid://cf6vaiwhbvcjh"]
 
 [ext_resource type="PackedScene" uid="uid://rvqwkmaacjb0" path="res://Scenes/character_body_2d.tscn" id="2_7yv3a"]
 [ext_resource type="PackedScene" uid="uid://bkqnv1peac3qr" path="res://Tilemap/tile_map.tscn" id="2_gcvfm"]
 [ext_resource type="PackedScene" uid="uid://bjvqhi585w773" path="res://Scenes/Pause_Menu.tscn" id="3_hxwrx"]
 [ext_resource type="PackedScene" uid="uid://crfccy8a2tem2" path="res://Tilemap/tile_map_2.tscn" id="4_sri3l"]
-[ext_resource type="PackedScene" uid="uid://bpq7apxll8c5p" path="res://Scenes/Enemies/enemy_defence.tscn" id="5_xbacx"]
 
 [node name="Level_1" type="Node2D"]
 
@@ -12,14 +11,15 @@
 
 [node name="PauseMenu" parent="GameManager" instance=ExtResource("3_hxwrx")]
 process_mode = 2
+visible = false
 script = null
 
 [node name="TileMap" parent="." instance=ExtResource("2_gcvfm")]
 
-[node name="Player" parent="." instance=ExtResource("2_7yv3a")]
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_7yv3a")]
 position = Vector2(214, 197)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(0, 1)
 zoom = Vector2(2, 2)
 limit_left = 0
@@ -29,6 +29,3 @@ limit_bottom = 430
 position_smoothing_enabled = true
 
 [node name="TileMap2" parent="." instance=ExtResource("4_sri3l")]
-
-[node name="EnemyDefence" parent="." node_paths=PackedStringArray("target") instance=ExtResource("5_xbacx")]
-target = NodePath("../Player")

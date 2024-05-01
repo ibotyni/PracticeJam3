@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 var direction : Vector2 = Vector2.ZERO
 var swing : bool = false
@@ -6,6 +7,11 @@ var swing : bool = false
 var last_direction = "Down"
 @export var Bullet : PackedScene
 
+var health := 100:
+	set(new_health):
+		health = new_health
+		# Temporary setter function for debugging
+		print("player health: ", health)
 
 func _physics_process(_delta):
 	if not swing:
