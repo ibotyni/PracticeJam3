@@ -12,11 +12,6 @@ func _physics_process(_delta):
 		velocity = direction * 75
 	else:
 		velocity = Vector2.ZERO
-func _physics_process(_delta):
-	if not swing:
-		velocity = direction * 75
-	else:
-		velocity = Vector2.ZERO
 	move_and_slide()
 
 func _process(_delta):

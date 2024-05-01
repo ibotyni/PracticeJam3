@@ -1,7 +1,9 @@
-[gd_scene load_steps=78 format=3 uid="uid://rvqwkmaacjb0"]
+[gd_scene load_steps=80 format=3 uid="uid://rvqwkmaacjb0"]
 
 [ext_resource type="Script" path="res://Scripts/playerV2.gd" id="1_uv3vu"]
+[ext_resource type="Script" path="res://Scripts/reticle_holder.gd" id="2_a8td1"]
 [ext_resource type="Texture2D" uid="uid://badxt3odgl54d" path="res://mockup assets/Character Sprites/Idle/Idle_Left.png" id="2_k5cip"]
+[ext_resource type="Texture2D" uid="uid://d2iny7bwh0l4u" path="res://Tilemap/reticle.png" id="3_5k8f6"]
 [ext_resource type="Texture2D" uid="uid://dqw0od2qs7aqe" path="res://mockup assets/Character Sprites/Idle/Idle_Right.png" id="3_6lnbi"]
 [ext_resource type="Texture2D" uid="uid://d3gfbbklauegb" path="res://mockup assets/Character Sprites/Idle/Idle_Down.png" id="4_bdlae"]
 [ext_resource type="Texture2D" uid="uid://dvh4qnh66awp4" path="res://mockup assets/Character Sprites/Idle/UpIdle.png" id="5_f05h4"]
@@ -644,6 +646,17 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 [node name="CharacterBody2D" type="CharacterBody2D"]
 position = Vector2(0, -7)
 script = ExtResource("1_uv3vu")
+
+[node name="ReticleHolder" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 16, 0)
+default_color = Color(1, 1, 1, 0)
+script = ExtResource("2_a8td1")
+
+[node name="Sprite2D" type="Sprite2D" parent="ReticleHolder"]
+position = Vector2(16, 0)
+texture = ExtResource("3_5k8f6")
+
+[node name="Marker2D" type="Marker2D" parent="ReticleHolder/Sprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0)
