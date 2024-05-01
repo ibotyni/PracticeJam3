@@ -11,7 +11,6 @@
 
 [node name="PauseMenu" parent="GameManager" instance=ExtResource("1_gjtlm")]
 process_mode = 2
-visible = false
 script = null
 
 [node name="CharacterBody2D" parent="GameManager" instance=ExtResource("2_t3efx")]
