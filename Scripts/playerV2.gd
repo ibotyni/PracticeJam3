@@ -6,6 +6,17 @@ var swing : bool = false
 var last_direction = "Down"
 @export var Bullet : PackedScene
 
+var direction : Vector2 = Vector2.ZERO
+var swing : bool = false
+
+var last_direction = "Down"
+
+
+func _physics_process(_delta):
+	if not swing:
+		velocity = direction * 75
+	else:
+		velocity = Vector2.ZERO
 func _physics_process(_delta):
 	if not swing:
 		velocity = direction * 75
