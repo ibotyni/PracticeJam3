@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bpq7apxll8c5p"]
+
+[ext_resource type="Texture2D" uid="uid://hkrj575y2sdc" path="res://Assets/Enemies/EnemyAll.png" id="1_02qpk"]
+[ext_resource type="Script" path="res://Scripts/Enemies/enemy_defence.gd" id="1_r4cgj"]
+[ext_resource type="PackedScene" uid="uid://b00n7rc3wmigr" path="res://Scenes/Enemies/enemy_shot.tscn" id="2_p4574"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qdivo"]
+size = Vector2(14, 24)
+
+[node name="EnemyDefence" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_r4cgj")
+SHOT_SCENE = ExtResource("2_p4574")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_02qpk")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qdivo")
+
+[node name="ReloadTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
