@@ -1,0 +1,15 @@
+[gd_resource type="Resource" format=3 uid="uid://7rh0pguycb7k"]
+
+[resource]
+metadata/weapon_name = ""
+metadata/damage = 0
+metadata/ProjectileSpeed = 0.0
+metadata/hasChargeAttack = false
+metadata/ChargeAttackExtraDamage = 0
+metadata/isAutomatic = false
+metadata/FireRate = 0.0
+metadata/Recoil = 0.0
+metadata/Accuracy = 0.0
+metadata/hasMag = false
+metadata/MaxMagCapacity = 0
+metadata/ReloadTime = 0.0
