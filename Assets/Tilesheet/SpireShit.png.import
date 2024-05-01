@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcl1natiaxaf5"
-path="res://.godot/imported/double door.png-019e6d3fc5264ae3dd04c937de0624f5.ctex"
+uid="uid://ccpflaa57o804"
+path="res://.godot/imported/SpireShit.png-47ef8805bd882197a06849e7b1c982d8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mockup assets/double door.png"
-dest_files=["res://.godot/imported/double door.png-019e6d3fc5264ae3dd04c937de0624f5.ctex"]
+source_file="res://Assets/Tilesheet/SpireShit.png"
+dest_files=["res://.godot/imported/SpireShit.png-47ef8805bd882197a06849e7b1c982d8.ctex"]
 
 [params]
 
