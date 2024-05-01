@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cmvul552ynuxw"]
+[gd_scene load_steps=3 format=3 uid="uid://cmvul552ynuxw"]
 
 [ext_resource type="Script" path="res://Scripts/Main_Menu.gd" id="1_0gics"]
+[ext_resource type="AudioStream" uid="uid://djb3hcy3d5j5r" path="res://Assets/Audio/practise jam 3 menu.mp3" id="2_el6tg"]
 
 [node name="Node" type="Node"]
 
@@ -112,6 +113,10 @@ vertical_alignment = 1
 [node name="ButtonSettingsBack" type="Button" parent="CanvasLayer/Settings/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Back"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_el6tg")
+autoplay = true
 
 [connection signal="pressed" from="CanvasLayer/Main/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ButtonStart" to="CanvasLayer" method="_on_button_start_pressed"]
 [connection signal="pressed" from="CanvasLayer/Main/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ButtonOptions" to="CanvasLayer" method="_on_button_options_pressed"]
