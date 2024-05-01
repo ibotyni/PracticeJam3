@@ -31,10 +31,18 @@ func _process(_delta):
 	
 	if Input.is_action_just_pressed("swing"):
 		set_swing(true)
-
+		
+	if Input.is_action_just_pressed("Primary_Attack"):
+		shoot()
+			
 func set_swing(value = false):
 	swing = value
 	#animation_tree["parameters/conditions/swing"] = value
+
+func shoot():
+	var bullet = Bullet.instantiate()
+	owner.add_child(bullet)
+	bullet.transform = $ReticleHolder/Sprite2D/Aim.global_transform
 
 func set_walking(value):
 	if value[1] == -1: # 0,-1
