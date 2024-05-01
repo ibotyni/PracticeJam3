@@ -8,6 +8,8 @@ enum STATES { READY, FIRING, RELOADING }
 
 @export var target: Player = null
 @export var SHOT_SCENE: PackedScene
+
+@onready var nav: NavigationAgent2D = $NavigationAgent2D
 @onready var reload_timer = $ReloadTimer
 
 var state := STATES.READY
@@ -19,6 +21,9 @@ var health := 50:
 		health = val
 var damage := 5
 
+func _ready():
+	call_deferred("actor_setup")
+
 func _physics_process(delta):
 	if target:
 		move_towards_target(delta)
@@ -26,19 +31,19 @@ func _physics_process(delta):
 		move_and_slide()
 
 func move_towards_target(delta) -> void:
-	var move_direction = Vector2.ZERO
 	var distance_to_player := position.distance_to(target.position)
 	
 	# tries to keep distance from the player
 	if distance_to_player > 100.0:
-		move_direction = (target.position - position).normalized()
+		nav.target_position = target.position
 	elif distance_to_player < 60:
-		move_direction = (position - target.position).normalized()
+		nav.target_position = target.position - position
 	else:
-		move_direction = Vector2.ZERO
-	
-	velocity = velocity.move_toward(move_direction * move_speed, 100 * delta)
-			
+		velocity = Vector2.ZERO
+		return
+		
+	var next_path_pos: Vector2 = nav.get_next_path_position()
+	velocity = position.direction_to(next_path_pos) * move_speed
 
 func shoot_player(delta) -> void:
 	if state != STATES.READY:
@@ -59,3 +64,10 @@ func shoot_player(delta) -> void:
 
 func death() -> void:
 	queue_free()
+
+func actor_setup():
+	# Wait for the first physics frame so the NavigationServer can sync.
+	await get_tree().physics_frame
+
+	# Now that the navigation map is no longer empty, set the movement target.
+	nav.target_position = target.position
