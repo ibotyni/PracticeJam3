@@ -1,0 +1,19 @@
+[gd_resource type="Resource" format=3 uid="uid://c4x84qhjcqs4g"]
+
+[resource]
+resource_name = "LV1Bow"
+metadata/BaseDamage = 10
+metadata/Range = 50
+metadata/ProjectileSpeed = 650.0
+metadata/hasMagazine = false
+metadata/MaxMagSize = 0
+metadata/isAutomatic = false
+metadata/FireRate = 0.0
+metadata/Recoil = 0.0
+metadata/ReloadTime = 0.0
+metadata/hasChargeAttack = true
+metadata/ExtraHalfChargeDamage = 15
+metadata/ExtraFullChargeDamage = 50
+metadata/FullChargeTime = 3.0
+metadata/ChargeProjectileRange = 70
+metadata/ChargeProjectileSpeed = 750.0

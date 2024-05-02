@@ -1,0 +1,17 @@
+[gd_resource type="Resource" format=3 uid="uid://dwt8uvknb6se8"]
+
+[resource]
+resource_name = "WeaponDataTemplate"
+metadata/BaseDamage = 0
+metadata/Range = 0
+metadata/ProjectileSpeed = 0.0
+metadata/hasMagazine = false
+metadata/MaxMagSize = 0
+metadata/isAutomatic = false
+metadata/FireRate = 0.0
+metadata/Recoil = 0.0
+metadata/ReloadTime = 0.0
+metadata/hasChargeAttack = false
+metadata/ExtraHalfChargeDamage = 0
+metadata/ExtraFullChargeDamage = 0
+metadata/FullChargeTime = 0.0
