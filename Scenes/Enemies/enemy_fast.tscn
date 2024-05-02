@@ -1,16 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4bxrwywrc3kc"]
+[gd_scene load_steps=6 format=3 uid="uid://b4bxrwywrc3kc"]
 
-[ext_resource type="Script" path="res://Scripts/Enemies/enemy_fast.gd" id="1_l31ql"]
+[ext_resource type="Script" path="res://Scripts/Enemies/enemy.gd" id="1_srquh"]
 [ext_resource type="PackedScene" uid="uid://b00n7rc3wmigr" path="res://Scenes/Enemies/enemy_shot.tscn" id="2_8btjr"]
 [ext_resource type="Texture2D" uid="uid://hkrj575y2sdc" path="res://Assets/Enemies/EnemyAll.png" id="3_ctoky"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_26v4a"]
 size = Vector2(16, 13)
 
-[node name="EnemyFast" type="CharacterBody2D" groups=["enemies"]]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dmj77"]
+size = Vector2(14, 3)
+
+[node name="EnemyFast" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 3
-script = ExtResource("1_l31ql")
+script = ExtResource("1_srquh")
 SHOT_SCENE = ExtResource("2_8btjr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -24,6 +27,16 @@ frame = 2
 
 [node name="ReloadTimer" type="Timer" parent="."]
 wait_time = 0.5
+one_shot = true
+
+[node name="FeetHitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FeetHitbox"]
+position = Vector2(0, 10.5)
+shape = SubResource("RectangleShape2D_dmj77")
+
+[node name="InvulnerabilityTimer" type="Timer" parent="."]
+wait_time = 0.25
 one_shot = true
 
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
