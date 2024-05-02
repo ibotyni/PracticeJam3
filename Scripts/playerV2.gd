@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 var direction : Vector2 = Vector2.ZERO
 var swing : bool = false
