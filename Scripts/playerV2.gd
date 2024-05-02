@@ -3,16 +3,28 @@ class_name Player
 
 var direction : Vector2 = Vector2.ZERO
 var swing : bool = false
+var is_invulnerable: bool = false
 
 var last_direction = "Down"
 @export var Bullet : PackedScene
+@onready var invul_timer = $InvulnerabilityTimer
+@onready var player_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var feet_hitbox: Area2D = $FeetHitbox
 
 var health := 100:
 	set(new_health):
-		health = new_health
 		# Temporary setter function for debugging
-		print("player health: ", health)
+		if !is_invulnerable:
+			health = new_health
+			make_invulnerable()
+			print("player health: ", health)
 
+# Turns off player hitbox and makes him red
+func make_invulnerable() -> void:
+	is_invulnerable = true
+	feet_hitbox.monitorable = false
+	player_sprite.modulate = Color.RED
+	invul_timer.start()
 
 func _physics_process(_delta):
 	if not swing:
@@ -66,3 +78,12 @@ func set_walking(value):
 	#animation_tree["parameters/attack/blend_position"] = direction
 	#animation_tree["parameters/idle/blend_position"] = direction
 	#animation_tree["parameters/walk/blend_position"] = direction
+
+func die() -> void:
+	print("game over")
+
+func _on_invulnerability_timer_timeout():
+	is_invulnerable = false
+	player_sprite.modulate = Color.WHITE
+	feet_hitbox.monitorable = true
+	
