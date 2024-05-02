@@ -107,11 +107,8 @@ func set_walking(value):
 	#animation_tree["parameters/idle/blend_position"] = direction
 	#animation_tree["parameters/walk/blend_position"] = direction
 
-func _on_timer_timeout():
+func _on_reload_timer_timeout():
 	state = STATES.READY
-
-func die() -> void:
-	print("game over")
 
 func _on_invulnerability_timer_timeout():
 	is_invulnerable = false

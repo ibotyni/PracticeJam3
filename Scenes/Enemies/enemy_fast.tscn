@@ -16,16 +16,16 @@ collision_mask = 3
 script = ExtResource("1_srquh")
 SHOT_SCENE = ExtResource("2_8btjr")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["enemy"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5.5)
 shape = SubResource("RectangleShape2D_26v4a")
 
-[node name="Sprite2D" type="Sprite2D" parent="." groups=["enemy"]]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_ctoky")
 hframes = 4
 frame = 2
 
-[node name="ReloadTimer" type="Timer" parent="." groups=["enemy"]]
+[node name="ReloadTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
 
@@ -39,16 +39,7 @@ shape = SubResource("RectangleShape2D_dmj77")
 wait_time = 0.25
 one_shot = true
 
-[node name="FeetHitbox" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FeetHitbox"]
-position = Vector2(0, 10.5)
-shape = SubResource("RectangleShape2D_dmj77")
-
-[node name="InvulnerabilityTimer" type="Timer" parent="."]
-wait_time = 0.25
-one_shot = true
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." groups=["enemy"]]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
+[connection signal="timeout" from="InvulnerabilityTimer" to="." method="end_invulnerable"]

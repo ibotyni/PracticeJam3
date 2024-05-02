@@ -696,4 +696,8 @@ one_shot = true
 position = Vector2(0.5, 10.5)
 shape = SubResource("RectangleShape2D_i303n")
 
+[node name="ReloadTimer" type="Timer" parent="."]
+wait_time = 0.5
+
 [connection signal="timeout" from="InvulnerabilityTimer" to="." method="_on_invulnerability_timer_timeout"]
+[connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]

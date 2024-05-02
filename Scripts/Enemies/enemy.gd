@@ -22,7 +22,7 @@ var move_speed := SPEED
 var health := 50:
 	set(val):
 		if val <= 0:
-			die()
+			death()
 		health = val
 		print("enemy health: ", health)
 
@@ -63,7 +63,7 @@ func move_towards_target(delta) -> void:
 		return
 		
 	var next_path_pos: Vector2 = nav.get_next_path_position()
-	velocity = position.direction_to(next_path_pos) * move_speed
+	velocity = global_position.direction_to(next_path_pos) * move_speed
 
 func shoot_player(delta) -> void:
 	if state != STATES.READY:
@@ -85,15 +85,18 @@ func shoot_player(delta) -> void:
 	state = STATES.RELOADING
 	reload_timer.start()
 
-func die() -> void:
-	hide()
+func death() -> void:
+	queue_free()
 
 func actor_setup():
 	# Wait for the first physics frame so the NavigationServer can sync.
 	await get_tree().physics_frame
 
 	# Now that the navigation map is no longer empty, set the movement target.
-	nav.target_position = target.position
+	if !target:
+		nav.target_position = Vector2.ZERO
+	else:
+		nav.target_position = target.position
 
 # sets health and makes sprite blink red and invulnerable
 func take_damage(dmg) -> void:

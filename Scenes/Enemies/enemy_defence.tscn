@@ -38,4 +38,7 @@ shape = SubResource("RectangleShape2D_cf7w1")
 wait_time = 0.25
 one_shot = true
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
+[connection signal="timeout" from="InvulnerabilityTimer" to="." method="end_invulnerable"]

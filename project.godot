@@ -15,10 +15,6 @@ run/main_scene="res://Scenes/Levels/AreaFiftyTat.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
-[autoload]
-
-GlobalSoundPlayer="*res://Scenes/Global_Sound_Player.tscn"
-
 [display]
 
 window/size/viewport_width=640
