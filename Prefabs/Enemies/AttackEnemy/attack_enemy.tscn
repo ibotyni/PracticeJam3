@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://hkrj575y2sdc" path="res://Assets/Enemies/EnemyAll.png" id="1_nsogn"]
 
-[node name="AttackEnemy" type="Sprite2D"]
+[node name="AttackEnemy" type="Sprite2D" groups=["enemy"]]
 texture = ExtResource("1_nsogn")
 region_enabled = true
 region_rect = Rect2(16, 2.08165e-12, 16, 24)

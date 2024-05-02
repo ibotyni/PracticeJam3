@@ -7,24 +7,24 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_26v4a"]
 size = Vector2(16, 24)
 
-[node name="EnemyFast" type="CharacterBody2D" groups=["enemies"]]
+[node name="EnemyFast" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_l31ql")
 SHOT_SCENE = ExtResource("2_8btjr")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["enemy"]]
 shape = SubResource("RectangleShape2D_26v4a")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["enemy"]]
 texture = ExtResource("3_ctoky")
 hframes = 4
 frame = 2
 
-[node name="ReloadTimer" type="Timer" parent="."]
+[node name="ReloadTimer" type="Timer" parent="." groups=["enemy"]]
 wait_time = 0.5
 one_shot = true
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." groups=["enemy"]]
 
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]

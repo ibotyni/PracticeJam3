@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bkqnv1peac3qr" path="res://Tilemap/tile_map.tscn" id="2_yojso"]
 [ext_resource type="PackedScene" uid="uid://rvqwkmaacjb0" path="res://Scenes/character_body_2d.tscn" id="3_vo8lw"]
 [ext_resource type="PackedScene" uid="uid://crfccy8a2tem2" path="res://Tilemap/tile_map_2.tscn" id="4_61sgv"]
-[ext_resource type="PackedScene" uid="uid://41r7tnp8xgu0" path="res://DatabaseStructure/Items/Weapons/FloorLoot/weapon_item_template.tscn" id="5_78et1"]
+[ext_resource type="PackedScene" uid="uid://41r7tnp8xgu0" path="res://Prefabs&Databases/Items/Weapons/FloorLoot/weapon_item_template.tscn" id="5_78et1"]
 
 [node name="Level_1" type="Node2D"]
 
