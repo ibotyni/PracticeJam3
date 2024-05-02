@@ -1,6 +1,7 @@
-[gd_scene load_steps=80 format=3 uid="uid://rvqwkmaacjb0"]
+[gd_scene load_steps=81 format=3 uid="uid://rvqwkmaacjb0"]
 
 [ext_resource type="Script" path="res://Scripts/playerV2.gd" id="1_uv3vu"]
+[ext_resource type="PackedScene" uid="uid://mur837omox7r" path="res://Scenes/Primary_Bullet.tscn" id="2_5jlgv"]
 [ext_resource type="Script" path="res://Scripts/reticle_holder.gd" id="2_a8td1"]
 [ext_resource type="Texture2D" uid="uid://badxt3odgl54d" path="res://mockup assets/Character Sprites/Idle/Idle_Left.png" id="2_k5cip"]
 [ext_resource type="Texture2D" uid="uid://d2iny7bwh0l4u" path="res://Tilemap/reticle.png" id="3_5k8f6"]
@@ -8,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://d3gfbbklauegb" path="res://mockup assets/Character Sprites/Idle/Idle_Down.png" id="4_bdlae"]
 [ext_resource type="Texture2D" uid="uid://dvh4qnh66awp4" path="res://mockup assets/Character Sprites/Idle/UpIdle.png" id="5_f05h4"]
 [ext_resource type="Texture2D" uid="uid://ogtjfdlm0ca2" path="res://mockup assets/Character Sprites/Walk/Walk_Down.png" id="6_jxcdq"]
-[ext_resource type="Texture2D" uid="uid://b4ijt3opb51jf" path="res://mockup assets/Character Sprites/Walk/Walk_Left.png" id="7_ln1qa"]
+[ext_resource type="Texture2D" uid="uid://6xo1vf7i5gwb" path="res://mockup assets/Character Sprites/Walk/Walk_Left.png" id="7_ln1qa"]
 [ext_resource type="Texture2D" uid="uid://daalq1akb3omv" path="res://mockup assets/Character Sprites/Walk/Walk_Right.png" id="8_ke15h"]
 [ext_resource type="Texture2D" uid="uid://mwidddosout7" path="res://mockup assets/Character Sprites/Walk/Walk_Up.png" id="9_3237c"]
 
@@ -115,23 +116,23 @@ region = Rect2(48, 0, 16, 24)
 atlas = ExtResource("6_jxcdq")
 region = Rect2(64, 0, 16, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gimb7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ij72"]
 atlas = ExtResource("7_ln1qa")
 region = Rect2(0, 0, 16, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y3414"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lb7e"]
 atlas = ExtResource("7_ln1qa")
 region = Rect2(16, 0, 16, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tqw8c"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4f1uq"]
 atlas = ExtResource("7_ln1qa")
 region = Rect2(32, 0, 16, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1c6tk"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hj2j5"]
 atlas = ExtResource("7_ln1qa")
 region = Rect2(48, 0, 16, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fgq7o"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4flh7"]
 atlas = ExtResource("7_ln1qa")
 region = Rect2(64, 0, 16, 24)
 
@@ -279,19 +280,19 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gimb7")
+"texture": SubResource("AtlasTexture_1ij72")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_y3414")
+"texture": SubResource("AtlasTexture_0lb7e")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tqw8c")
+"texture": SubResource("AtlasTexture_4f1uq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1c6tk")
+"texture": SubResource("AtlasTexture_hj2j5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fgq7o")
+"texture": SubResource("AtlasTexture_4flh7")
 }],
 "loop": true,
 "name": &"Walk_Left",
@@ -647,6 +648,7 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 position = Vector2(0, -7)
 collision_mask = 22
 script = ExtResource("1_uv3vu")
+Bullet = ExtResource("2_5jlgv")
 
 [node name="ReticleHolder" type="Line2D" parent="." groups=["player"]]
 points = PackedVector2Array(0, 0, 16, 0)
@@ -657,7 +659,7 @@ script = ExtResource("2_a8td1")
 position = Vector2(16, 0)
 texture = ExtResource("3_5k8f6")
 
-[node name="Marker2D" type="Marker2D" parent="ReticleHolder/Sprite2D" groups=["player"]]
+[node name="Aim" type="Marker2D" parent="ReticleHolder/Sprite2D" groups=["player"]]
 
 [node name="PlayerBodyCollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]
 z_index = 5
@@ -666,8 +668,8 @@ shape = SubResource("RectangleShape2D_s67ck")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["player"]]
 sprite_frames = SubResource("SpriteFrames_35t4q")
-animation = &"Idle_Right"
-frame_progress = 0.742502
+animation = &"Idle_down"
+animation = &"Walk_Left"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D" groups=["player"]]
 libraries = {
