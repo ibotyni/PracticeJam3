@@ -28,4 +28,5 @@ func check_for_pickup():
 			 # ... You can add more cases for other types of items
 
 func get_overlapping_areas():
+	# TODO
 	return []
