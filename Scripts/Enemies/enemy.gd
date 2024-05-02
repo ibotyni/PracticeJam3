@@ -3,23 +3,23 @@ class_name Enemy
 # Base class for all enemies
 
 const SPEED := 25.0
-
 enum STATES { READY, FIRING, RELOADING }
 
 @export var target: Player = null
 @export var SHOT_SCENE: PackedScene
+@export var damage := 5
+@export var health := 150:
+	set(val):
+		if val <= 0:
+			death()
+		health = val
+		print("enemy health: ", health)
 
 @onready var nav: NavigationAgent2D = $NavigationAgent2D
 @onready var reload_timer = $ReloadTimer
 
 var state := STATES.READY
 var move_speed := SPEED
-var health := 50:
-	set(val):
-		if val <= 0:
-			death()
-		health = val
-var damage := 5
 
 func _ready():
 	call_deferred("actor_setup")
@@ -31,6 +31,8 @@ func _physics_process(delta):
 		move_and_slide()
 
 func move_towards_target(delta) -> void:
+	if(!target):
+		return
 	var distance_to_player := position.distance_to(target.position)
 	
 	# tries to keep distance from the player
@@ -49,6 +51,9 @@ func shoot_player(delta) -> void:
 	if state != STATES.READY:
 		return
 	
+	if(!target):
+		return
+		
 	state = STATES.FIRING
 	# create a shot at our position and set it's direction
 	var shot = SHOT_SCENE.instantiate()
@@ -63,7 +68,7 @@ func shoot_player(delta) -> void:
 	reload_timer.start()
 
 func death() -> void:
-	queue_free()
+	hide()
 
 func actor_setup():
 	# Wait for the first physics frame so the NavigationServer can sync.

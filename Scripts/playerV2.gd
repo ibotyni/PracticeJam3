@@ -1,11 +1,23 @@
 extends CharacterBody2D
 class_name Player
 
+enum STATES { READY, FIRING, RELOADING }
+
+@export var Bullet : PackedScene
+@export var health := 100:
+	set(new_health):
+		if new_health <= 0:
+			death()
+		health = new_health
+		# Temporary setter function for debugging
+		print("player health: ", health)
+		
+@onready var reload_timer = $ReloadTimer
+
 var direction : Vector2 = Vector2.ZERO
 var swing : bool = false
-
 var last_direction = "Down"
-@export var Bullet : PackedScene
+var state = STATES.READY
 
 func _ready():
 	var tilemap_rect = get_parent().get_parent().get_node("TileMap2").get_used_rect()
@@ -16,12 +28,6 @@ func _ready():
 	$Camera2D.limit_right = tilemap_rect.end.y * tilemap_cell_size.y
 
 # TODO: Player Spawn Position: Currently not working.
-
-var health := 100:
-	set(new_health):
-		health = new_health
-		# Temporary setter function for debugging
-		print("player health: ", health)
 
 func _physics_process(_delta):
 	if not swing:
@@ -46,17 +52,27 @@ func _process(_delta):
 	#if Input.is_action_just_pressed("swing"):
 		#set_swing(true)
 		
-	if Input.is_action_just_pressed("Primary_Attack"):
+	if Input.is_action_pressed("Primary_Attack"):
 		shoot()
 			
 func set_swing(value = false):
 	swing = value
 	#animation_tree["parameters/conditions/swing"] = value
+	
+func death() -> void:
+	queue_free()
 
 func shoot():
+	if state != STATES.READY:
+		return
+	state = STATES.FIRING
 	var bullet = Bullet.instantiate()
 	owner.add_child(bullet)
 	bullet.transform = $ReticleHolder/Sprite2D/Aim.global_transform
+	
+	reload_timer.start()
+	state = STATES.RELOADING
+	
 
 func set_walking(value):
 	if value[1] == -1: # 0,-1
@@ -79,4 +95,5 @@ func set_walking(value):
 	#animation_tree["parameters/idle/blend_position"] = direction
 	#animation_tree["parameters/walk/blend_position"] = direction
 
-
+func _on_timer_timeout():
+	state = STATES.READY
