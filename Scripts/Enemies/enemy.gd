@@ -3,26 +3,44 @@ class_name Enemy
 # Base class for all enemies
 
 const SPEED := 25.0
+enum TYPE { FAST, ATTACK, DEFENCE }
 enum STATES { READY, FIRING, RELOADING }
 
-@export var target: Player = null
+@export var enemy_type: TYPE = TYPE.FAST
+@export var target: Player
 @export var SHOT_SCENE: PackedScene
 @export var damage := 5
-@export var health := 150:
+#@export var health := 150
+
+@onready var reload_timer = $ReloadTimer
+@onready var sprite: Sprite2D = $Sprite2D
+@onready var feet_hitbox: Area2D = $FeetHitbox
+@onready var invul_timer = $InvulnerabilityTimer
+
+var state := STATES.READY
+var move_speed := SPEED
+var health := 50:
 	set(val):
 		if val <= 0:
-			death()
+			die()
 		health = val
 		print("enemy health: ", health)
 
 @onready var nav: NavigationAgent2D = $NavigationAgent2D
-@onready var reload_timer = $ReloadTimer
 
-var state := STATES.READY
-var move_speed := SPEED
+var is_invul := false
 
 func _ready():
 	call_deferred("actor_setup")
+
+	# change enemy parameters depending on type
+	match enemy_type:
+		TYPE.FAST:
+			move_speed += 10
+		TYPE.DEFENCE:
+			health += 25
+		TYPE.ATTACK:
+			damage += 10
 
 func _physics_process(delta):
 	if target:
@@ -67,7 +85,7 @@ func shoot_player(delta) -> void:
 	state = STATES.RELOADING
 	reload_timer.start()
 
-func death() -> void:
+func die() -> void:
 	hide()
 
 func actor_setup():
@@ -76,3 +94,20 @@ func actor_setup():
 
 	# Now that the navigation map is no longer empty, set the movement target.
 	nav.target_position = target.position
+
+# sets health and makes sprite blink red and invulnerable
+func take_damage(dmg) -> void:
+	if !is_invul:
+		health -= dmg
+		sprite.modulate = Color.RED
+		is_invul = true
+		feet_hitbox.monitorable = false
+		invul_timer.start()
+
+func end_invulnerable() -> void:
+	sprite.modulate = Color.WHITE
+	is_invul = false
+	feet_hitbox.monitorable = true
+
+func _on_reload_timer_timeout():
+	state = STATES.READY

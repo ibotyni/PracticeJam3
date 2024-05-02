@@ -99,6 +99,7 @@ swing={
 2d_physics/layer_3="enemies"
 2d_physics/layer_4="projectiles"
 2d_physics/layer_5="items"
+2d_physics/layer_6="hazards"
 2d_physics/main_scene="res://Scenes/Levels/AreaFiftyTat.tscn"
 
 [physics]

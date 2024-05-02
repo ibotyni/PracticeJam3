@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://brn7pahgq847t"]
+
+[ext_resource type="Texture2D" uid="uid://ccpflaa57o804" path="res://Assets/Tilesheet/SpireShit.png" id="1_27plc"]
+[ext_resource type="Script" path="res://Scripts/Hazards/cracked_floor.gd" id="1_rfq3r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nlsi2"]
+size = Vector2(14, 14)
+
+[node name="CrackedFloor" type="Area2D"]
+collision_layer = 16
+collision_mask = 5
+script = ExtResource("1_rfq3r")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_27plc")
+hframes = 10
+vframes = 10
+frame = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_nlsi2")
+
+[node name="CollapseTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="CollapseTimer" to="." method="collapse"]

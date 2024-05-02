@@ -2,15 +2,21 @@ extends CharacterBody2D
 class_name Player
 
 enum STATES { READY, FIRING, RELOADING }
+var is_invulnerable: bool = false
 
 @export var Bullet : PackedScene
+@onready var invul_timer = $InvulnerabilityTimer
+@onready var player_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var feet_hitbox: Area2D = $FeetHitbox
 @export var health := 100:
 	set(new_health):
 		if new_health <= 0:
 			death()
-		health = new_health
 		# Temporary setter function for debugging
-		print("player health: ", health)
+		if !is_invulnerable:
+			health = new_health
+			make_invulnerable()
+			print("player health: ", health)
 		
 @onready var reload_timer = $ReloadTimer
 
@@ -28,6 +34,12 @@ func _ready():
 	$Camera2D.limit_right = tilemap_rect.end.y * tilemap_cell_size.y
 
 # TODO: Player Spawn Position: Currently not working.
+# Turns off player hitbox and makes him red
+func make_invulnerable() -> void:
+	is_invulnerable = true
+	feet_hitbox.monitorable = false
+	player_sprite.modulate = Color.RED
+	invul_timer.start()
 
 func _physics_process(_delta):
 	if not swing:
@@ -97,3 +109,12 @@ func set_walking(value):
 
 func _on_timer_timeout():
 	state = STATES.READY
+
+func die() -> void:
+	print("game over")
+
+func _on_invulnerability_timer_timeout():
+	is_invulnerable = false
+	player_sprite.modulate = Color.WHITE
+	feet_hitbox.monitorable = true
+	
