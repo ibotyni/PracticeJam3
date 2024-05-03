@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpe0vkonjvayk"]
-
-[ext_resource type="Texture2D" uid="uid://dq37fvl5sd7uk" path="res://Assets/Items/Weapons/Projectiles/9x9GrenadeWith9x9MagicSpritesheet.png" id="1_gne8e"]
-
-[node name="Grenade" type="Sprite2D"]
-texture = ExtResource("1_gne8e")
-region_enabled = true
-region_rect = Rect2(2.08165e-12, 2.08165e-12, 9, 9)

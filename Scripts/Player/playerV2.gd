@@ -1,27 +1,46 @@
 extends CharacterBody2D
 class_name Player
 
+enum STATES { READY, FIRING, RELOADING }
+var is_invulnerable: bool = false
+
+@export var Bullet : PackedScene
+@onready var invul_timer = $InvulnerabilityTimer
+@onready var player_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var feet_hitbox: Area2D = $FeetHitbox
+@export var health := 100:
+	set(new_health):
+		if new_health <= 0:
+			death()
+		# Temporary setter function for debugging
+		if !is_invulnerable:
+			health = new_health
+			make_invulnerable()
+			print("player health: ", health)
+		
+@onready var reload_timer = $ReloadTimer
+
 var direction : Vector2 = Vector2.ZERO
 var swing : bool = false
-
 var last_direction = "Down"
-@export var Bullet : PackedScene
+var state = STATES.READY
 
 func _ready():
 	var tilemap_rect = get_parent().get_parent().get_node("TileMap2").get_used_rect()
 	var tilemap_cell_size = get_parent().get_parent().get_node("TileMap2").tile_set.tile_size
-	$Camera2D.limit_left = tilemap_rect.position.x * tilemap_cell_size.x
-	$Camera2D.limit_right = tilemap_rect.end.x * tilemap_cell_size.x
-	$Camera2D.limit_left = tilemap_rect.position.y * tilemap_cell_size.y
-	$Camera2D.limit_right = tilemap_rect.end.y * tilemap_cell_size.y
+	if $Camera2D != null:
+		$Camera2D.limit_left = tilemap_rect.position.x * tilemap_cell_size.x
+		$Camera2D.limit_right = tilemap_rect.end.x * tilemap_cell_size.x
+		$Camera2D.limit_left = tilemap_rect.position.y * tilemap_cell_size.y
+		$Camera2D.limit_right = tilemap_rect.end.y * tilemap_cell_size.y
 
 # TODO: Player Spawn Position: Currently not working.
-
-var health := 100:
-	set(new_health):
-		health = new_health
-		# Temporary setter function for debugging
-		print("player health: ", health)
+# Turns off player hitbox and makes him red
+func make_invulnerable() -> void:
+	is_invulnerable = true
+	feet_hitbox.set_deferred("monitorable", false)
+	player_sprite.modulate = Color.RED
+	invul_timer.start()
 
 func _physics_process(_delta):
 	if not swing:
@@ -46,17 +65,27 @@ func _process(_delta):
 	#if Input.is_action_just_pressed("swing"):
 		#set_swing(true)
 		
-	if Input.is_action_just_pressed("Primary_Attack"):
+	if Input.is_action_pressed("Primary_Attack"):
 		shoot()
 			
 func set_swing(value = false):
 	swing = value
 	#animation_tree["parameters/conditions/swing"] = value
+	
+func death() -> void:
+	queue_free()
 
 func shoot():
+	if state != STATES.READY:
+		return
+	state = STATES.FIRING
 	var bullet = Bullet.instantiate()
 	owner.add_child(bullet)
 	bullet.transform = $ReticleHolder/Sprite2D/Aim.global_transform
+	
+	reload_timer.start()
+	state = STATES.RELOADING
+	
 
 func set_walking(value):
 	if value[1] == -1: # 0,-1
@@ -79,4 +108,11 @@ func set_walking(value):
 	#animation_tree["parameters/idle/blend_position"] = direction
 	#animation_tree["parameters/walk/blend_position"] = direction
 
+func _on_reload_timer_timeout():
+	state = STATES.READY
 
+func _on_invulnerability_timer_timeout():
+	is_invulnerable = false
+	player_sprite.modulate = Color.WHITE
+	feet_hitbox.monitorable = true
+	

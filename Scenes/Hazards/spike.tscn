@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://6xf6wjukjwhj"]
+
+[ext_resource type="Texture2D" uid="uid://ccpflaa57o804" path="res://Assets/Tilesheet/SpireShit.png" id="1_g0o6h"]
+[ext_resource type="Script" path="res://Scripts/Hazards/spike.gd" id="1_sruif"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qpfha"]
+size = Vector2(16, 16)
+
+[node name="Spike" type="Area2D"]
+collision_layer = 16
+collision_mask = 5
+script = ExtResource("1_sruif")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qpfha")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_g0o6h")
+hframes = 10
+vframes = 10
+frame = 8
+
+[node name="DamageTimer" type="Timer" parent="."]
+wait_time = 0.25
+
+[connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]
