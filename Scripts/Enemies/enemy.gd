@@ -86,6 +86,8 @@ func shoot_player(delta) -> void:
 	reload_timer.start()
 
 func death() -> void:
+	if get_tree().get_nodes_in_group("enemy").size() == 1:
+		print("level complete")
 	queue_free()
 
 func actor_setup():
