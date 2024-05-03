@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://c80d5bhm05s63"]
-
-[ext_resource type="Texture2D" uid="uid://c05bbi6pwmw5" path="res://Assets/Items/Weapons/Projectiles/7x5ArrowAndRifleBullet.png" id="1_pe3yh"]
-
-[node name="RifleBulletProjectile" type="Sprite2D"]
-texture = ExtResource("1_pe3yh")
-region_enabled = true
-region_rect = Rect2(2.08165e-12, 2.08165e-12, 7, 5)

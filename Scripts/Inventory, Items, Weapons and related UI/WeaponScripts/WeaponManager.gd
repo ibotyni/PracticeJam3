@@ -1,11 +1,11 @@
 extends Node
 
+var inventory = []
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func add_weapon(weapon):
+	inventory.append(weapon)
+	print("Inventory contents: ", inventory) 
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _on_Player_picked_up_item(item):
+	print("Received item in WeaponManager: ", item)  
+	add_weapon(item) 

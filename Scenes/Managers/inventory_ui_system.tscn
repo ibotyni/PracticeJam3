@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://dnhp3fgfs6en2"]
+
+[ext_resource type="Script" path="res://Scripts/Inventory, Items, Weapons and related UI/InventorySystem.gd" id="1_aayk7"]
+[ext_resource type="Texture2D" uid="uid://bitkya0mahmel" path="res://Assets/Items/Weapons/WeaponUI/WeaponBoxActive.png" id="2_xhwr5"]
+[ext_resource type="Texture2D" uid="uid://c1unp7v88fqus" path="res://Assets/Items/Potions&Coins/PotionIcon.png" id="3_vfweu"]
+[ext_resource type="Texture2D" uid="uid://esclk2v4r5ll" path="res://Assets/Items/Potions&Coins/CoinPickup.png" id="4_1vmdd"]
+
+[node name="InventoryUISystem" type="Node"]
+script = ExtResource("1_aayk7")
+
+[node name="HBoxContainer (Main Container)" type="HBoxContainer" parent="."]
+offset_left = 150.0
+offset_right = 206.0
+offset_bottom = 43.0
+
+[node name="VBoxContainer (Weapon)" type="VBoxContainer" parent="HBoxContainer (Main Container)"]
+layout_mode = 2
+
+[node name="TextureRect(Weapon Icon)" type="TextureRect" parent="HBoxContainer (Main Container)/VBoxContainer (Weapon)"]
+layout_mode = 2
+texture = ExtResource("2_xhwr5")
+
+[node name="Label (Weapon Name)" type="Label" parent="HBoxContainer (Main Container)/VBoxContainer (Weapon)"]
+layout_mode = 2
+text = "x"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer (Potion)" type="VBoxContainer" parent="HBoxContainer (Main Container)"]
+layout_mode = 2
+
+[node name="TextureRect(Potion Icon)" type="TextureRect" parent="HBoxContainer (Main Container)/VBoxContainer (Potion)"]
+layout_mode = 2
+texture = ExtResource("3_vfweu")
+
+[node name="Label (Potion Count)" type="Label" parent="HBoxContainer (Main Container)/VBoxContainer (Potion)"]
+layout_mode = 2
+text = "x"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer (Coins)" type="VBoxContainer" parent="HBoxContainer (Main Container)"]
+layout_mode = 2
+
+[node name="TextureRect(Coins Icon)" type="TextureRect" parent="HBoxContainer (Main Container)/VBoxContainer (Coins)"]
+layout_mode = 2
+texture = ExtResource("4_1vmdd")
+
+[node name="Label (Coin Count)" type="Label" parent="HBoxContainer (Main Container)/VBoxContainer (Coins)"]
+layout_mode = 2
+text = "x"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b3otbejhkq8lt"]
-
-[ext_resource type="Texture2D" uid="uid://co6m7u2l7qbrj" path="res://Assets/Items/Weapons/Projectiles/9x13SpearWith9x13MagicSpritesheet.png" id="1_3fnfh"]
-
-[node name="JavelinProjectile" type="Sprite2D"]
-texture = ExtResource("1_3fnfh")
-region_enabled = true
-region_rect = Rect2(2.08165e-12, 2.08165e-12, 13, 9)

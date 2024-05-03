@@ -1,11 +1,16 @@
 extends Node
-class_name InventorySystem
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	# Adjust spacing and main margins as needed
+	var margin = 10 
+
+	# Get a reference to the HBoxContainer
+	var hbox_container = get_node("HBoxContainer (Main Container)")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+	# Get references to child containers
+	var weapon_container = hbox_container.get_node("HBoxContainer (Main Container)/VBoxContainer (Weapon)")
+	var potion_container = hbox_container.get_node("HBoxContainer (Main Container)/VBoxContainer (Potion)")
+	var coin_container = hbox_container.get_node("HBoxContainer (Main Container)/VBoxContainer (Coins)")
+
+
