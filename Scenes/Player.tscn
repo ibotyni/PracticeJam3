@@ -364,7 +364,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["Idle_down"]
+"values": ["Idle_Down"]
 }
 
 [sub_resource type="Animation" id="Animation_3kdhh"]
@@ -575,7 +575,7 @@ animation = &"Idle_Left"
 animation = &"Idle_Right"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4gjg6"]
-animation = &"Idle_down"
+animation = &"Idle_Down"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n6r8p"]
 animation = &"Idle_up"

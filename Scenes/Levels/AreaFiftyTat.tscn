@@ -20,7 +20,7 @@ script = null
 position = Vector2(214, 197)
 
 [node name="AnimatedSprite2D" parent="GameManager/Player" index="2"]
-animation = &"Idle_down"
+animation = &"Idle_Down"
 
 [node name="InventoryUISystem" parent="GameManager/Player/Camera2D" index="0" instance=ExtResource("4_3ac3m")]
 
