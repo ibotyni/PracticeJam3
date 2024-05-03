@@ -104,7 +104,7 @@ func take_damage(dmg) -> void:
 		health -= dmg
 		sprite.modulate = Color.RED
 		is_invul = true
-		feet_hitbox.monitorable = false
+		feet_hitbox.set_deferred("monitorable", false)
 		invul_timer.start()
 
 func end_invulnerable() -> void:
