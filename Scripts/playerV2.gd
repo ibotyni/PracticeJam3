@@ -28,16 +28,17 @@ var state = STATES.READY
 func _ready():
 	var tilemap_rect = get_parent().get_parent().get_node("TileMap2").get_used_rect()
 	var tilemap_cell_size = get_parent().get_parent().get_node("TileMap2").tile_set.tile_size
-	$Camera2D.limit_left = tilemap_rect.position.x * tilemap_cell_size.x
-	$Camera2D.limit_right = tilemap_rect.end.x * tilemap_cell_size.x
-	$Camera2D.limit_left = tilemap_rect.position.y * tilemap_cell_size.y
-	$Camera2D.limit_right = tilemap_rect.end.y * tilemap_cell_size.y
+	if $Camera2D != null:
+		$Camera2D.limit_left = tilemap_rect.position.x * tilemap_cell_size.x
+		$Camera2D.limit_right = tilemap_rect.end.x * tilemap_cell_size.x
+		$Camera2D.limit_left = tilemap_rect.position.y * tilemap_cell_size.y
+		$Camera2D.limit_right = tilemap_rect.end.y * tilemap_cell_size.y
 
 # TODO: Player Spawn Position: Currently not working.
 # Turns off player hitbox and makes him red
 func make_invulnerable() -> void:
 	is_invulnerable = true
-	feet_hitbox.monitorable = false
+	feet_hitbox.set_deferred("monitorable", false)
 	player_sprite.modulate = Color.RED
 	invul_timer.start()
 
