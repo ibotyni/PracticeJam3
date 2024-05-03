@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://iwwkjlwlo8an"]
+
+[ext_resource type="PackedScene" uid="uid://rvqwkmaacjb0" path="res://Scenes/Player/character_body_2d.tscn" id="1_syf65"]
+[ext_resource type="PackedScene" uid="uid://bjvqhi585w773" path="res://Scenes/Pause_Menu.tscn" id="2_tau8p"]
+
+[node name="GameManager" type="Node"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_syf65")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("2_tau8p")]

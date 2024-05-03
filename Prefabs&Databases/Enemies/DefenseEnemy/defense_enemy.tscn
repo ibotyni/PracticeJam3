@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://8lgexw5dcylo"]
-
-[ext_resource type="Texture2D" uid="uid://hkrj575y2sdc" path="res://Assets/Enemies/EnemyAll.png" id="1_fsq7p"]
-
-[node name="DefenseEnemy" type="Sprite2D"]
-texture = ExtResource("1_fsq7p")
-region_enabled = true
-region_rect = Rect2(2.08165e-12, 2.08165e-12, 16, 24)

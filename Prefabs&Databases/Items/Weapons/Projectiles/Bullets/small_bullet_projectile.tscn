@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bd0au23mkannv"]
-
-[ext_resource type="Texture2D" uid="uid://b2turojsjci7x" path="res://Assets/Items/Weapons/Projectiles/3x3Pellets.png" id="1_cei2o"]
-
-[node name="SmallBulletProjectile" type="Sprite2D"]
-texture = ExtResource("1_cei2o")
-region_enabled = true
-region_rect = Rect2(2.08165e-12, 2.08165e-12, 3, 3)
