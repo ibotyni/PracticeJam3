@@ -12,11 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://6xo1vf7i5gwb" path="res://mockup assets/Character Sprites/Walk/Walk_Left.png" id="7_ln1qa"]
 [ext_resource type="Texture2D" uid="uid://daalq1akb3omv" path="res://mockup assets/Character Sprites/Walk/Walk_Right.png" id="8_ke15h"]
 [ext_resource type="Texture2D" uid="uid://mwidddosout7" path="res://mockup assets/Character Sprites/Walk/Walk_Up.png" id="9_3237c"]
-<<<<<<<< HEAD:Scenes/Player.tscn
-========
 [ext_resource type="PackedScene" uid="uid://bjvqhi585w773" path="res://Scenes/Pause_Menu.tscn" id="13_hc75q"]
 [ext_resource type="Script" path="res://Scripts/Inventory, Items, Weapons and related UI/PlayerInteraction.gd" id="14_0vbsm"]
->>>>>>>> pr/23:Scenes/Player/character_body_2d.tscn
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s67ck"]
 size = Vector2(11, 11)
@@ -649,17 +646,10 @@ states/walk/node = SubResource("AnimationNodeBlendSpace2D_gnwfx")
 states/walk/position = Vector2(553, 130)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_8i6kr"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_4lhfs"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_558xl"), "idle", "swing", SubResource("AnimationNodeStateMachineTransition_sucs4"), "swing", "idle", SubResource("AnimationNodeStateMachineTransition_l4b5e")]
 
-<<<<<<<< HEAD:Scenes/Player.tscn
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i303n"]
-size = Vector2(9, 3)
-
-[node name="CharacterBody2D" type="CharacterBody2D"]
-========
 [sub_resource type="CircleShape2D" id="CircleShape2D_lm5tn"]
 radius = 17.1172
 
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["player"]]
->>>>>>>> pr/23:Scenes/Player/character_body_2d.tscn
 position = Vector2(0, -7)
 collision_mask = 6
 script = ExtResource("1_jcfhl")
@@ -702,19 +692,6 @@ parameters/walk/blend_position = Vector2(0.0560846, -0.0132159)
 [node name="InvulnerabilityTimer" type="Timer" parent="."]
 one_shot = true
 
-<<<<<<<< HEAD:Scenes/Player.tscn
-[node name="FeetHitbox" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FeetHitbox"]
-position = Vector2(0.5, 10.5)
-shape = SubResource("RectangleShape2D_i303n")
-
-[node name="ReloadTimer" type="Timer" parent="."]
-wait_time = 0.5
-
-[connection signal="timeout" from="InvulnerabilityTimer" to="." method="_on_invulnerability_timer_timeout"]
-[connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
-========
 [node name="PauseMenu" parent="." instance=ExtResource("13_hc75q")]
 
 [node name="InteractionFunction" type="Area2D" parent="." groups=["player"]]
@@ -735,4 +712,3 @@ limit_top = -15
 limit_right = 450
 limit_bottom = 450
 position_smoothing_enabled = true
->>>>>>>> pr/23:Scenes/Player/character_body_2d.tscn
