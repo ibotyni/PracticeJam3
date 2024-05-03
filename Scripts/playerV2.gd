@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Player
 
+signal healthChanged
+
 enum STATES { READY, FIRING, RELOADING }
 var is_invulnerable: bool = false
 
@@ -15,6 +17,7 @@ var is_invulnerable: bool = false
 		# Temporary setter function for debugging
 		if !is_invulnerable:
 			health = new_health
+			healthChanged.emit()
 			make_invulnerable()
 			print("player health: ", health)
 		
