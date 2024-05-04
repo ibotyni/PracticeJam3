@@ -12,7 +12,6 @@ var is_invulnerable: bool = false
 @onready var feet_hitbox: Area2D = $FeetHitbox
 
 @export var health := 100:
-
 	set(new_health):
 		if new_health <= 0:
 			death()
@@ -69,7 +68,7 @@ func set_swing(value = false):
 	#animation_tree["parameters/conditions/swing"] = value
 	
 func death() -> void:
-	queue_free()
+	print("You died");
 
 func shoot():
 	if state != STATES.READY:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b1ben26grm853"]
+[gd_scene load_steps=22 format=3 uid="uid://c3xsyrvrkda6s"]
 
 [ext_resource type="Texture2D" uid="uid://bitkya0mahmel" path="res://Assets/Items/Weapons/WeaponUI/WeaponBoxActive.png" id="1_d5bo7"]
 [ext_resource type="Shader" path="res://Assets/Materials/ColourChange.gdshader" id="2_cj5bj"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c1unp7v88fqus" path="res://Assets/Items/Potions&Coins/PotionIcon.png" id="5_gkfwg"]
 [ext_resource type="Texture2D" uid="uid://ca0t80ifomfp1" path="res://Assets/User_Interface/HealthbarBorder.png" id="6_6us1w"]
 [ext_resource type="Texture2D" uid="uid://yff8igqtbdva" path="res://Assets/User_Interface/HealthbarFill.png" id="7_gimla"]
+[ext_resource type="Script" path="res://Scripts/health.gd" id="10_6eorf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wwoxq"]
 shader = ExtResource("2_cj5bj")
@@ -50,13 +51,9 @@ shader_parameter/custom_color = Color(0.894118, 0.839216, 0.447059, 1)
 shader = ExtResource("2_cj5bj")
 shader_parameter/custom_color = Color(1, 1, 0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_isefd"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k0u01"]
 shader = ExtResource("2_cj5bj")
-shader_parameter/custom_color = Color(1, 0.27, 0.27, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ll84p"]
-shader = ExtResource("2_cj5bj")
-shader_parameter/custom_color = Color(1, 0.31, 0.31, 1)
+shader_parameter/custom_color = Color(0.996945, 6.23293e-06, 1.54018e-06, 1)
 
 [node name="InventoryManagerUI" type="Control"]
 layout_mode = 3
@@ -260,20 +257,11 @@ text = "x"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BoxContainer (HP)" type="HBoxContainer" parent="."]
-layout_mode = 1
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(3, 1)
-
-[node name="TextureRect (HPBorder)" type="TextureRect" parent="BoxContainer (HP)"]
-material = SubResource("ShaderMaterial_isefd")
-layout_mode = 2
-texture = ExtResource("6_6us1w")
-
-[node name="TextureRect(HPBar)" type="TextureRect" parent="BoxContainer (HP)/TextureRect (HPBorder)"]
-material = SubResource("ShaderMaterial_ll84p")
-layout_mode = 1
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+material = SubResource("ShaderMaterial_k0u01")
+layout_mode = 0
 offset_right = 64.0
-offset_bottom = 40.0
-texture = ExtResource("7_gimla")
+offset_bottom = 21.0
+texture_under = ExtResource("6_6us1w")
+texture_progress = ExtResource("7_gimla")
+script = ExtResource("10_6eorf")
