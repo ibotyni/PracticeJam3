@@ -11,8 +11,8 @@ var is_invulnerable: bool = false
 @onready var player_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var feet_hitbox: Area2D = $FeetHitbox
 
+@export var max_health = 100
 @export var health := 100:
-
 	set(new_health):
 		if new_health <= 0:
 			death()
