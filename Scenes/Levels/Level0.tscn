@@ -59,6 +59,3 @@ target = NodePath("../GameManager/Player")
 [node name="EnemyFast" parent="." node_paths=PackedStringArray("target") instance=ExtResource("5_esg7b")]
 position = Vector2(337, 106)
 target = NodePath("../GameManager/Player")
-
-[connection signal="area_entered" from="TileMap/Hole" to="TileMap/Hole" method="_on_area_entered"]
-[connection signal="area_entered" from="TileMap/CrackedFloor" to="TileMap/CrackedFloor" method="_on_area_entered"]
