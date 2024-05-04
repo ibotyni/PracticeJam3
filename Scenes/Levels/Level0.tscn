@@ -50,14 +50,17 @@ navigation_polygon = SubResource("NavigationPolygon_63b0o")
 
 [node name="EnemyDefence" parent="." node_paths=PackedStringArray("target") instance=ExtResource("5_skvi3")]
 position = Vector2(299, 69)
+SPEED = 2.0
 target = NodePath("../GameManager/Player")
 
 [node name="EnemyAttack" parent="." node_paths=PackedStringArray("target") instance=ExtResource("5_hbumd")]
 position = Vector2(360, 69)
+SPEED = 5.0
 target = NodePath("../GameManager/Player")
 
 [node name="EnemyFast" parent="." node_paths=PackedStringArray("target") instance=ExtResource("5_esg7b")]
 position = Vector2(337, 106)
+SPEED = 15.0
 target = NodePath("../GameManager/Player")
 
 [connection signal="area_entered" from="TileMap/Hole" to="TileMap/Hole" method="_on_area_entered"]

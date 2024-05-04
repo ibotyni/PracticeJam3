@@ -14,7 +14,10 @@ size = Vector2(14, 3)
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_srquh")
+SPEED = 20.0
 SHOT_SCENE = ExtResource("2_8btjr")
+damage = 15
+health = 75
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5.5)
