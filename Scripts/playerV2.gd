@@ -69,7 +69,7 @@ func set_swing(value = false):
 	#animation_tree["parameters/conditions/swing"] = value
 	
 func death() -> void:
-	queue_free()
+	print("You died");
 
 func shoot():
 	if state != STATES.READY:
