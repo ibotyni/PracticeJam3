@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c1q2e8kwrjvl2" path="res://Scenes/Managers/weapon_manager.tscn" id="3_uswlq"]
 [ext_resource type="PackedScene" uid="uid://crfccy8a2tem2" path="res://Tilemap/tile_map_2.tscn" id="4_61sgv"]
 [ext_resource type="PackedScene" uid="uid://41r7tnp8xgu0" path="res://DatabaseStructure/Items/Weapons/Database/Templates/weapon_item_template.tscn" id="5_pr7km"]
-[ext_resource type="PackedScene" uid="uid://xmqf3ev7o6i4" path="res://Scenes/Enemies/EnemyBoss.tscn" id="7_luvt2"]
+[ext_resource type="PackedScene" uid="uid://dvhhwaayaunue" path="res://Scenes/Enemies/EnemyBoss.tscn" id="7_luvt2"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_0mvpx"]
 vertices = PackedVector2Array(420, 417, 14, 419, 17, 15, 418, 15)
@@ -25,6 +25,7 @@ script = null
 [node name="WeaponManager" parent="GameManager" instance=ExtResource("3_uswlq")]
 
 [node name="Player" parent="GameManager" instance=ExtResource("3_jthre")]
+platform_wall_layers = 1
 
 [node name="Camera2D" type="Camera2D" parent="GameManager/Player"]
 position = Vector2(0, 1)
