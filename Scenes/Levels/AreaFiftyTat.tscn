@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8b2d8ciq5vmg"]
+[gd_scene load_steps=9 format=3 uid="uid://b8b2d8ciq5vmg"]
 
 [ext_resource type="PackedScene" uid="uid://bjvqhi585w773" path="res://Scenes/Pause_Menu.tscn" id="1_pu6ij"]
 [ext_resource type="PackedScene" uid="uid://bkqnv1peac3qr" path="res://Tilemap/tile_map.tscn" id="2_yojso"]
@@ -6,6 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://c1q2e8kwrjvl2" path="res://Scenes/Managers/weapon_manager.tscn" id="3_uswlq"]
 [ext_resource type="PackedScene" uid="uid://crfccy8a2tem2" path="res://Tilemap/tile_map_2.tscn" id="4_61sgv"]
 [ext_resource type="PackedScene" uid="uid://41r7tnp8xgu0" path="res://DatabaseStructure/Items/Weapons/Database/Templates/weapon_item_template.tscn" id="5_pr7km"]
+[ext_resource type="PackedScene" uid="uid://dvhhwaayaunue" path="res://Scenes/Enemies/EnemyBoss.tscn" id="7_luvt2"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_0mvpx"]
+vertices = PackedVector2Array(420, 417, 14, 419, 17, 15, 418, 15)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(8, 6, 428, 5, 431, 427, 4, 430)])
+source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="Level_1" type="Node2D"]
 
@@ -28,5 +35,12 @@ layer_0/tile_data = PackedInt32Array(65535, 65537, 0, 131071, 65537, 0, 196607, 
 
 [node name="WeaponTemplate" parent="." instance=ExtResource("5_pr7km")]
 position = Vector2(276, 132)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_0mvpx")
+
+[node name="EnemyBoss" parent="." node_paths=PackedStringArray("target") instance=ExtResource("7_luvt2")]
+position = Vector2(230, 83)
+target = NodePath("../GameManager/Player")
 
 [editable path="WeaponTemplate"]
