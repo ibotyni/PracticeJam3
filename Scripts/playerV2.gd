@@ -10,7 +10,9 @@ var is_invulnerable: bool = false
 @onready var invul_timer = $InvulnerabilityTimer
 @onready var player_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var feet_hitbox: Area2D = $FeetHitbox
+
 @export var health := 100:
+
 	set(new_health):
 		if new_health <= 0:
 			death()
@@ -27,15 +29,6 @@ var direction : Vector2 = Vector2.ZERO
 var swing : bool = false
 var last_direction = "Down"
 var state = STATES.READY
-
-func _ready():
-	var tilemap_rect = get_parent().get_parent().get_node("TileMap2").get_used_rect()
-	var tilemap_cell_size = get_parent().get_parent().get_node("TileMap2").tile_set.tile_size
-	if $Camera2D != null:
-		$Camera2D.limit_left = tilemap_rect.position.x * tilemap_cell_size.x
-		$Camera2D.limit_right = tilemap_rect.end.x * tilemap_cell_size.x
-		$Camera2D.limit_left = tilemap_rect.position.y * tilemap_cell_size.y
-		$Camera2D.limit_right = tilemap_rect.end.y * tilemap_cell_size.y
 
 # TODO: Player Spawn Position: Currently not working.
 # Turns off player hitbox and makes him red
@@ -86,7 +79,8 @@ func shoot():
 	owner.add_child(bullet)
 	bullet.transform = $ReticleHolder/Sprite2D/Aim.global_transform
 	
-	reload_timer.start()
+	if reload_timer != null:
+		reload_timer.start()
 	state = STATES.RELOADING
 	
 

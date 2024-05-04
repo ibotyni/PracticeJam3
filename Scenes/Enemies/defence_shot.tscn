@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://mc676o36muco"]
+
+[ext_resource type="Script" path="res://Scripts/Enemies/enemy_shot.gd" id="1_ko361"]
+[ext_resource type="Shader" path="res://Assets/Materials/ColourChange.gdshader" id="2_hf603"]
+[ext_resource type="Texture2D" uid="uid://b7g81t1bpqwe1" path="res://Assets/Items/Weapons/Projectiles/7x7ShotgunSlug.png" id="3_eixev"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jxk15"]
+size = Vector2(8, 3)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_823ka"]
+shader = ExtResource("2_hf603")
+shader_parameter/custom_color = Color(0.706517, 0.347986, 0.11057, 1)
+
+[node name="DefenseShot" type="Area2D"]
+collision_layer = 8
+collision_mask = 3
+script = ExtResource("1_ko361")
+SPEED = 50
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jxk15")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_823ka")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_eixev")
+offset = Vector2(0, -0.5)
+hframes = 2
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
