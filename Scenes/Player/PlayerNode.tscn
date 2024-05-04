@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://0j7vbcah10mo"]
+[gd_scene load_steps=84 format=3 uid="uid://0j7vbcah10mo"]
 
 [ext_resource type="Script" path="res://Scripts/playerV2.gd" id="1_ygms4"]
 [ext_resource type="PackedScene" uid="uid://mur837omox7r" path="res://Scenes/Primary_Bullet.tscn" id="2_1bjp5"]
@@ -14,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://mwidddosout7" path="res://mockup assets/Character Sprites/Walk/Walk_Up.png" id="12_l6j0h"]
 [ext_resource type="PackedScene" uid="uid://bjvqhi585w773" path="res://Scenes/Pause_Menu.tscn" id="13_8unap"]
 [ext_resource type="Script" path="res://Scripts/Inventory, Items, Weapons and related UI/PlayerInteraction.gd" id="14_g47cd"]
-[ext_resource type="PackedScene" uid="uid://dnhp3fgfs6en2" path="res://Scenes/Managers/inventory_ui_system.tscn" id="15_27vem"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s67ck"]
 size = Vector2(11, 11)
@@ -650,7 +649,7 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 [sub_resource type="CircleShape2D" id="CircleShape2D_lm5tn"]
 radius = 17.1172
 
-[node name="Player" type="CharacterBody2D" groups=["player"]]
+[node name="PlayerNode" type="CharacterBody2D" groups=["player"]]
 position = Vector2(0, -7)
 collision_mask = 6
 script = ExtResource("1_ygms4")
@@ -714,11 +713,5 @@ limit_right = 450
 limit_bottom = 450
 position_smoothing_enabled = true
 
-[node name="InventoryUISystem" parent="Camera2D" instance=ExtResource("15_27vem")]
-
-[node name="HBoxContainer (Main Container)" parent="Camera2D/InventoryUISystem" index="0"]
-offset_top = 300.0
-offset_bottom = 343.0
-scale = Vector2(2, 2)
-
-[editable path="Camera2D/InventoryUISystem"]
+[node name="ReloadTimer" type="Timer" parent="."]
+wait_time = 0.5

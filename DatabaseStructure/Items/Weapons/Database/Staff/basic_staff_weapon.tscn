@@ -1,0 +1,59 @@
+[gd_scene load_steps=11 format=3 uid="uid://dw0c5w0baxv1d"]
+
+[ext_resource type="Script" path="res://Scripts/Inventory, Items, Weapons and related UI/WeaponScripts/WeaponItemBehaviour.gd" id="1_r3xw3"]
+[ext_resource type="Resource" uid="uid://3y07y70capd2" path="res://DatabaseStructure/Items/Weapons/Database/Staff/basic_staff.tres" id="2_w5w4s"]
+[ext_resource type="Shader" path="res://Assets/Materials/ColourChange.gdshader" id="3_ydisb"]
+[ext_resource type="Texture2D" uid="uid://bxdbmul1t4fe" path="res://Assets/Items/Weapons/FloorIcons/Staff.png" id="4_rhdil"]
+[ext_resource type="Texture2D" uid="uid://dwbh36c8xrcss" path="res://Assets/Effects/Glow/PickupItemGlow.png" id="5_65avl"]
+[ext_resource type="Texture2D" uid="uid://bgkjghij62v6q" path="res://Assets/Effects/ButtonPrompt/X Prompt.png" id="6_neutf"]
+
+[sub_resource type="Shader" id="Shader_a75ok"]
+code = "shader_type canvas_item;
+
+uniform vec4 custom_color : source_color = vec4(0.66, 0.35, 0.00, 1.00);
+
+void fragment() {
+    COLOR = texture(TEXTURE, UV) * custom_color;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ukp6l"]
+shader = SubResource("Shader_a75ok")
+shader_parameter/custom_color = Color(0.66, 0.35, 0, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qidj3"]
+radius = 21.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iloul"]
+shader = ExtResource("3_ydisb")
+shader_parameter/custom_color = Color(0, 1, 0, 1)
+
+[node name="BasicStaffWeaponArea" type="Area2D" groups=["Items"]]
+z_index = 5
+collision_layer = 16
+script = ExtResource("1_r3xw3")
+Weapon_Data = ExtResource("2_w5w4s")
+
+[node name="WeaponItemSprite2D" type="Sprite2D" parent="." groups=["Items"]]
+z_index = 4
+material = SubResource("ShaderMaterial_ukp6l")
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_rhdil")
+
+[node name="WeaponItemCollision2D" type="CollisionShape2D" parent="." groups=["Items"]]
+z_index = 5
+shape = SubResource("CircleShape2D_qidj3")
+
+[node name="GlowEffectWeapon" type="Sprite2D" parent="." groups=["Items"]]
+z_index = 3
+material = SubResource("ShaderMaterial_iloul")
+position = Vector2(2.08165e-12, 2.08165e-12)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_65avl")
+
+[node name="ButtonPromptWeapon" type="Sprite2D" parent="." groups=["Items"]]
+z_index = 20
+position = Vector2(15, -18)
+texture = ExtResource("6_neutf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

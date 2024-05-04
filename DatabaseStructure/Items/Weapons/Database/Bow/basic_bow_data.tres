@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="WeaponDatabase" load_steps=3 format=3 uid="uid://xdmqf008nsny"]
+
+[ext_resource type="PackedScene" uid="uid://cel7ighffsrab" path="res://Prefabs/Items/Weapons/Projectiles/Arrow/arrow_projectile.tscn" id="1_11bsc"]
+[ext_resource type="Script" path="res://Scripts/Inventory, Items, Weapons and related UI/WeaponScripts/WeaponDatabase.gd" id="1_84pac"]
+
+[resource]
+script = ExtResource("1_84pac")
+base_damage = 10
+range = 10
+projectile_speed = 600.0
+has_charged_attack = true
+extra_half_charge_damage = 5
+extra_full_charge_damage = 25
+full_charge_time = 3.0
+must_reach_full_charge = false
+extra_half_charge_range = 20
+extra_full_charge_range = 30
+extra_full_charge_projectile_speed = 100.0
+FULL_CHARGE_PROJECTILE = ExtResource("1_11bsc")
+PROJECTILE = ExtResource("1_11bsc")
+isBronze = true
+isSilver = false
+isGold = false
+isDiamond = false
+isBow = true
+isSpear = false
+isStaff = false

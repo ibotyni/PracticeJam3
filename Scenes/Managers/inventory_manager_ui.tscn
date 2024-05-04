@@ -1,0 +1,279 @@
+[gd_scene load_steps=22 format=3 uid="uid://b1ben26grm853"]
+
+[ext_resource type="Texture2D" uid="uid://bitkya0mahmel" path="res://Assets/Items/Weapons/WeaponUI/WeaponBoxActive.png" id="1_d5bo7"]
+[ext_resource type="Shader" path="res://Assets/Materials/ColourChange.gdshader" id="2_cj5bj"]
+[ext_resource type="Texture2D" uid="uid://b5gma44yobxuw" path="res://Assets/Items/Weapons/FloorIcons/Bow.png" id="3_ltehd"]
+[ext_resource type="Texture2D" uid="uid://g06rww38w0q1" path="res://Assets/Items/Weapons/FloorIcons/Javelin.png" id="4_j3m1j"]
+[ext_resource type="Texture2D" uid="uid://esclk2v4r5ll" path="res://Assets/Items/Potions&Coins/CoinPickup.png" id="4_o2mk0"]
+[ext_resource type="Texture2D" uid="uid://bxdbmul1t4fe" path="res://Assets/Items/Weapons/FloorIcons/Staff.png" id="5_7n3fs"]
+[ext_resource type="Texture2D" uid="uid://c1unp7v88fqus" path="res://Assets/Items/Potions&Coins/PotionIcon.png" id="5_gkfwg"]
+[ext_resource type="Texture2D" uid="uid://ca0t80ifomfp1" path="res://Assets/User_Interface/HealthbarBorder.png" id="6_6us1w"]
+[ext_resource type="Texture2D" uid="uid://yff8igqtbdva" path="res://Assets/User_Interface/HealthbarFill.png" id="7_gimla"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wwoxq"]
+shader = ExtResource("2_cj5bj")
+shader_parameter/custom_color = Color(0.3588, 0.92, 0.3588, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3ji41"]
+shader = ExtResource("2_cj5bj")
+shader_parameter/custom_color = Color(0.37, 0.895, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vtgcm"]
+shader = ExtResource("2_cj5bj")
+shader_parameter/custom_color = Color(0.71, 0.3621, 0.71, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qhko7"]
+shader = ExtResource("2_cj5bj")
+shader_parameter/custom_color = Color(1, 1, 0.19, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0iwyy"]
+shader = ExtResource("2_cj5bj")
+shader_parameter/custom_color = Color(0.72, 0.525, 0.252, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_djs8t"]
+shader = ExtResource("2_cj5bj")
+shader_parameter/custom_color = Color(0.713726, 0.698039, 0.815686, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xpqu7"]
+shader = ExtResource("2_cj5bj")
+shader_parameter/custom_color = Color(1, 0.886275, 0.0196078, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1as36"]
+shader = ExtResource("2_cj5bj")
+shader_parameter/custom_color = Color(0.145098, 0.72549, 0.972549, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_opfjo"]
+shader = ExtResource("2_cj5bj")
+shader_parameter/custom_color = Color(0.894118, 0.839216, 0.447059, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8l7y1"]
+shader = ExtResource("2_cj5bj")
+shader_parameter/custom_color = Color(1, 1, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_isefd"]
+shader = ExtResource("2_cj5bj")
+shader_parameter/custom_color = Color(1, 0.27, 0.27, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ll84p"]
+shader = ExtResource("2_cj5bj")
+shader_parameter/custom_color = Color(1, 0.31, 0.31, 1)
+
+[node name="InventoryManagerUI" type="Control"]
+layout_mode = 3
+anchor_left = 0.05
+anchor_right = 0.95
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_top = 7.0
+offset_right = -13.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="CenterContainer (WeaponBox)" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(5, 5)
+pivot_offset = Vector2(10, 12)
+
+[node name="TextureRect(Bronze)" type="TextureRect" parent="CenterContainer (WeaponBox)"]
+visible = false
+material = SubResource("ShaderMaterial_wwoxq")
+layout_mode = 2
+texture = ExtResource("1_d5bo7")
+
+[node name="TextureRect(Silver)" type="TextureRect" parent="CenterContainer (WeaponBox)"]
+visible = false
+material = SubResource("ShaderMaterial_3ji41")
+layout_mode = 2
+texture = ExtResource("1_d5bo7")
+
+[node name="TextureRect(Gold)" type="TextureRect" parent="CenterContainer (WeaponBox)"]
+visible = false
+material = SubResource("ShaderMaterial_vtgcm")
+layout_mode = 2
+texture = ExtResource("1_d5bo7")
+
+[node name="TextureRect(Diamond)" type="TextureRect" parent="CenterContainer (WeaponBox)"]
+visible = false
+material = SubResource("ShaderMaterial_qhko7")
+layout_mode = 2
+texture = ExtResource("1_d5bo7")
+
+[node name="TextureRect(NoWeapon)" type="TextureRect" parent="CenterContainer (WeaponBox)"]
+layout_mode = 2
+texture = ExtResource("1_d5bo7")
+
+[node name="CenterContainer (WeaponIcon)" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(5, 5)
+pivot_offset = Vector2(10, 12)
+
+[node name="TextureRect(BronzeBow)" type="TextureRect" parent="CenterContainer (WeaponIcon)"]
+visible = false
+material = SubResource("ShaderMaterial_0iwyy")
+layout_mode = 2
+texture = ExtResource("3_ltehd")
+stretch_mode = 2
+
+[node name="TextureRect(SilverBow)" type="TextureRect" parent="CenterContainer (WeaponIcon)"]
+visible = false
+material = SubResource("ShaderMaterial_djs8t")
+layout_mode = 2
+texture = ExtResource("3_ltehd")
+stretch_mode = 2
+
+[node name="TextureRect(GoldBow)" type="TextureRect" parent="CenterContainer (WeaponIcon)"]
+visible = false
+material = SubResource("ShaderMaterial_xpqu7")
+layout_mode = 2
+texture = ExtResource("3_ltehd")
+stretch_mode = 2
+
+[node name="TextureRect(DiamondBow)" type="TextureRect" parent="CenterContainer (WeaponIcon)"]
+visible = false
+material = SubResource("ShaderMaterial_1as36")
+layout_mode = 2
+texture = ExtResource("3_ltehd")
+stretch_mode = 2
+
+[node name="TextureRect(BronzeSpear)" type="TextureRect" parent="CenterContainer (WeaponIcon)"]
+visible = false
+material = SubResource("ShaderMaterial_0iwyy")
+layout_mode = 2
+texture = ExtResource("4_j3m1j")
+stretch_mode = 2
+
+[node name="TextureRect(SilverSpear)" type="TextureRect" parent="CenterContainer (WeaponIcon)"]
+visible = false
+material = SubResource("ShaderMaterial_djs8t")
+layout_mode = 2
+texture = ExtResource("4_j3m1j")
+stretch_mode = 2
+
+[node name="TextureRect(GoldSpear)" type="TextureRect" parent="CenterContainer (WeaponIcon)"]
+visible = false
+material = SubResource("ShaderMaterial_xpqu7")
+layout_mode = 2
+texture = ExtResource("4_j3m1j")
+stretch_mode = 2
+
+[node name="TextureRect(DiamondSpear)" type="TextureRect" parent="CenterContainer (WeaponIcon)"]
+visible = false
+material = SubResource("ShaderMaterial_1as36")
+layout_mode = 2
+texture = ExtResource("4_j3m1j")
+stretch_mode = 2
+
+[node name="TextureRect(BronzeStaff)" type="TextureRect" parent="CenterContainer (WeaponIcon)"]
+visible = false
+material = SubResource("ShaderMaterial_0iwyy")
+layout_mode = 2
+texture = ExtResource("5_7n3fs")
+stretch_mode = 2
+
+[node name="TextureRect(SilverStaff)" type="TextureRect" parent="CenterContainer (WeaponIcon)"]
+visible = false
+material = SubResource("ShaderMaterial_djs8t")
+layout_mode = 2
+texture = ExtResource("5_7n3fs")
+stretch_mode = 2
+
+[node name="TextureRect(GoldStaff)" type="TextureRect" parent="CenterContainer (WeaponIcon)"]
+visible = false
+material = SubResource("ShaderMaterial_xpqu7")
+layout_mode = 2
+texture = ExtResource("5_7n3fs")
+stretch_mode = 2
+
+[node name="TextureRect(DiamondStaff)" type="TextureRect" parent="CenterContainer (WeaponIcon)"]
+visible = false
+material = SubResource("ShaderMaterial_1as36")
+layout_mode = 2
+texture = ExtResource("5_7n3fs")
+stretch_mode = 2
+
+[node name="HBoxContainer (Coins)" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -46.0
+offset_right = 29.0
+offset_bottom = -23.0
+grow_vertical = 0
+scale = Vector2(2, 2)
+
+[node name="TextureRect(Coins Icon)" type="TextureRect" parent="HBoxContainer (Coins)"]
+material = SubResource("ShaderMaterial_opfjo")
+layout_mode = 2
+texture = ExtResource("4_o2mk0")
+
+[node name="Label (Coin Count)" type="Label" parent="HBoxContainer (Coins)"]
+material = SubResource("ShaderMaterial_8l7y1")
+layout_mode = 2
+text = "x"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer (Potions)" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 50.0
+offset_right = 39.0
+offset_bottom = 73.0
+scale = Vector2(2.5, 2.5)
+
+[node name="TextureRect(Potion Icon)" type="TextureRect" parent="HBoxContainer (Potions)"]
+layout_mode = 2
+texture = ExtResource("5_gkfwg")
+
+[node name="Label (Potion Count)" type="Label" parent="HBoxContainer (Potions)"]
+layout_mode = 2
+text = "x"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BoxContainer (HP)" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(3, 1)
+
+[node name="TextureRect (HPBorder)" type="TextureRect" parent="BoxContainer (HP)"]
+material = SubResource("ShaderMaterial_isefd")
+layout_mode = 2
+texture = ExtResource("6_6us1w")
+
+[node name="TextureRect(HPBar)" type="TextureRect" parent="BoxContainer (HP)/TextureRect (HPBorder)"]
+material = SubResource("ShaderMaterial_ll84p")
+layout_mode = 1
+offset_right = 64.0
+offset_bottom = 40.0
+texture = ExtResource("7_gimla")
