@@ -138,7 +138,8 @@ func point_laser() -> void:
 		head.look_at(target.position)
 		
 func take_damage(dmg) -> void:
-		health -= dmg
-		
+	print("boss take damage: ", dmg)
+	health -= dmg
+
 func death() -> void:
 	queue_free()
