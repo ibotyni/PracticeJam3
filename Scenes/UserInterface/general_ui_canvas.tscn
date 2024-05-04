@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ogciymb3vuc2"]
 
-[ext_resource type="PackedScene" uid="uid://b1ben26grm853" path="res://Scenes/Managers/inventory_manager_ui.tscn" id="1_qvo5e"]
+[ext_resource type="PackedScene" uid="uid://c3xsyrvrkda6s" path="res://Scenes/Managers/inventory_manager_ui.tscn" id="1_qvo5e"]
 [ext_resource type="Script" path="res://Scripts/Inventory, Items, Weapons and related UI/InventorySystem.gd" id="2_n34d8"]
 
 [node name="GeneralUICanvas" type="CanvasLayer"]

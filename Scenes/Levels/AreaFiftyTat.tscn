@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://b8b2d8ciq5vmg"]
+[gd_scene load_steps=8 format=3 uid="uid://b8b2d8ciq5vmg"]
 
+[ext_resource type="PackedScene" uid="uid://ogciymb3vuc2" path="res://Scenes/UserInterface/general_ui_canvas.tscn" id="1_63u8l"]
 [ext_resource type="PackedScene" uid="uid://bjvqhi585w773" path="res://Scenes/Pause_Menu.tscn" id="1_pu6ij"]
 [ext_resource type="PackedScene" uid="uid://bkqnv1peac3qr" path="res://Tilemap/tile_map.tscn" id="2_yojso"]
-[ext_resource type="PackedScene" uid="uid://rvqwkmaacjb0" path="res://Scenes/Player.tscn" id="3_jthre"]
-[ext_resource type="PackedScene" uid="uid://c1q2e8kwrjvl2" path="res://Scenes/Managers/weapon_manager.tscn" id="3_uswlq"]
+[ext_resource type="PackedScene" uid="uid://rvqwkmaacjb0" path="res://Scenes/Player/Player.tscn" id="3_jthre"]
 [ext_resource type="PackedScene" uid="uid://crfccy8a2tem2" path="res://Tilemap/tile_map_2.tscn" id="4_61sgv"]
-[ext_resource type="PackedScene" uid="uid://41r7tnp8xgu0" path="res://DatabaseStructure/Items/Weapons/Database/Templates/weapon_item_template.tscn" id="5_pr7km"]
 [ext_resource type="PackedScene" uid="uid://xmqf3ev7o6i4" path="res://Scenes/Enemies/EnemyBoss.tscn" id="7_luvt2"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_0mvpx"]
@@ -18,13 +17,14 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="GameManager" type="Node" parent="."]
 
+[node name="GeneralUICanvas" parent="GameManager" instance=ExtResource("1_63u8l")]
+
 [node name="PauseMenu" parent="GameManager" instance=ExtResource("1_pu6ij")]
 process_mode = 2
 script = null
 
-[node name="WeaponManager" parent="GameManager" instance=ExtResource("3_uswlq")]
-
 [node name="Player" parent="GameManager" instance=ExtResource("3_jthre")]
+platform_wall_layers = 1
 
 [node name="Camera2D" type="Camera2D" parent="GameManager/Player"]
 position = Vector2(0, 1)
@@ -42,9 +42,6 @@ layer_0/tile_data = PackedInt32Array(1, 65536, 0, 2, 0, 0, 65538, 786432, 6, 655
 [node name="TileMap2" parent="." instance=ExtResource("4_61sgv")]
 layer_0/tile_data = PackedInt32Array(65535, 65537, 0, 131071, 65537, 0, 196607, 65537, 0, 262143, 65537, 0, 327679, 65537, 0, 393215, 65537, 0, 458751, 65537, 0, 524287, 65537, 0, 589823, 65537, 0, 655359, 65537, 0, 720895, 65537, 0, 786431, 65537, 0, 851967, 65537, 0, 917503, 65537, 0, 983039, 65537, 0, 1048575, 65537, 0, 1114111, 65537, 0, 1179647, 65537, 0, 1245183, 65537, 0, 1310719, 65537, 0, 1376255, 65537, 0, 1441791, 65537, 0, 1507327, 65537, 0, 1572863, 65537, 0, 1638399, 65537, 0, 1703935, 65537, 0, 1769471, 65537, 0, 27, 65537, 0, 65563, 65537, 0, 131099, 65537, 0, 196635, 65537, 0, 262171, 65537, 0, 327707, 65537, 0, 393243, 65537, 0, 458779, 65537, 0, 524315, 65537, 0, 589851, 65537, 0, 655387, 65537, 0, 720923, 65537, 0, 786459, 65537, 0, 851995, 65537, 0, 917531, 65537, 0, 983067, 65537, 0, 1048603, 65537, 0, 1114139, 65537, 0, 1179675, 65537, 0, 1245211, 65537, 0, 1310747, 65537, 0, 1376283, 65537, 0, 1441819, 65537, 0, 1507355, 65537, 0, 1572891, 65537, 0, 1638427, 65537, 0, 1703963, 65537, 0, 1769472, 1, 0, 1769473, 1, 0, 1769474, 1, 0, 1769475, 1, 0, 1769476, 1, 0, 1769477, 1, 0, 1769478, 1, 0, 1769479, 1, 0, 1769480, 1, 0, 1769481, 1, 0, 1769482, 1, 0, 1769483, 1, 0, 1769484, 1, 0, 1769485, 1, 0, 1769486, 1, 0, 1769487, 1, 0, 1769488, 1, 0, 1769489, 1, 0, 1769490, 1, 0, 1769491, 1, 0, 1769492, 1, 0, 1769493, 1, 0, 1769494, 1, 0, 1769495, 1, 0, 1769496, 1, 0, 1769497, 1, 0, 1769498, 1, 0, 1769499, 262145, 0, -65509, 196609, 0, -1, 131073, 0, 1835007, 327681, 0, -65536, 1, 0, -65535, 1, 0, -65534, 1, 0, -65533, 1, 0, -65532, 1, 0, -65531, 1, 0, -65530, 1, 0, -65529, 1, 0, -65528, 1, 0, -65527, 1, 0, -65526, 1, 0, -65525, 1, 0, -65524, 1, 0, -65523, 1, 0, -65522, 1, 0, -65521, 1, 0, -65520, 1, 0, -65519, 1, 0, -65518, 1, 0, -65517, 1, 0, -65516, 1, 0, -65515, 1, 0, -65514, 1, 0, -65513, 1, 0, -65512, 1, 0, -65511, 1, 0, -65510, 1, 0)
 
-[node name="WeaponTemplate" parent="." instance=ExtResource("5_pr7km")]
-position = Vector2(276, 132)
-
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_0mvpx")
 
@@ -52,5 +49,3 @@ navigation_polygon = SubResource("NavigationPolygon_0mvpx")
 position = Vector2(230, 83)
 target = NodePath("../GameManager/Player")
 health = 100
-
-[editable path="WeaponTemplate"]

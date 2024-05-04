@@ -16,5 +16,6 @@ func _on_body_entered(body):
 	queue_free()
 
 func _on_area_entered(area):
+	print("what is this")
 	if area.name != "FeetHitbox" && !(area is EnemyShot):
 		queue_free()
