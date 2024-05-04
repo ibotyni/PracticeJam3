@@ -1,11 +1,11 @@
 extends Area2D
 class_name EnemyShot
 
-@export var SPEED = 200
+@export var SPEED = 150
 
 var direction: Vector2 = Vector2()
 var damage := 5
-
+	
 func _physics_process(delta):
 	position += direction.normalized() * SPEED * delta
 
@@ -18,4 +18,3 @@ func _on_body_entered(body):
 func _on_area_entered(area):
 	if area.name != "FeetHitbox" && !(area is EnemyShot):
 		queue_free()
-	

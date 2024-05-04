@@ -5,8 +5,6 @@ class_name Enemy
 enum TYPE { FAST, ATTACK, DEFENCE }
 enum STATES { READY, FIRING, RELOADING }
 
-@export var SPEED := 25.0
-@export var enemy_type: TYPE = TYPE.FAST
 @export var target: Player
 @export var SHOT_SCENE: PackedScene
 @export var damage := 5
@@ -17,7 +15,7 @@ enum STATES { READY, FIRING, RELOADING }
 @onready var invul_timer = $InvulnerabilityTimer
 
 var state := STATES.READY
-var move_speed := SPEED
+@export var move_speed = 15
 @export var health := 50:
 	set(val):
 		if val <= 0:
@@ -31,15 +29,6 @@ var is_invul := false
 
 func _ready():
 	call_deferred("actor_setup")
-
-	# change enemy parameters depending on type
-	match enemy_type:
-		TYPE.FAST:
-			move_speed += 10
-		TYPE.DEFENCE:
-			health += 25
-		TYPE.ATTACK:
-			damage += 10
 
 func _physics_process(delta):
 	if target:
@@ -62,6 +51,7 @@ func move_towards_target(delta) -> void:
 		return
 		
 	var next_path_pos: Vector2 = nav.get_next_path_position()
+	print(move_speed);
 	velocity = global_position.direction_to(next_path_pos) * move_speed
 
 func shoot_player(delta) -> void:
@@ -76,6 +66,7 @@ func shoot_player(delta) -> void:
 	var shot = SHOT_SCENE.instantiate()
 	shot.direction = (target.position - position).normalized()
 	shot.global_position = global_position
+	shot.rotation = target.rotation
 	shot.damage = damage
 	# add the shot to the root scene so translation is in world space
 	get_tree().root.add_child(shot)

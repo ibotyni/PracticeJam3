@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://2lxv7xd83m6f"]
+
+[ext_resource type="Script" path="res://Scripts/Enemies/enemy_shot.gd" id="1_vetvx"]
+[ext_resource type="Shader" path="res://Assets/Materials/ColourChange.gdshader" id="2_a85wr"]
+[ext_resource type="Texture2D" uid="uid://cvw4en54nhcc2" path="res://Assets/Items/Weapons/Projectiles/5x5Bullets.png" id="2_omv0k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jxk15"]
+size = Vector2(8, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jifw3"]
+shader = ExtResource("2_a85wr")
+shader_parameter/custom_color = Color(0.790193, 0.193368, 0.373201, 1)
+
+[node name="AttackShot" type="Area2D"]
+collision_layer = 8
+collision_mask = 3
+script = ExtResource("1_vetvx")
+SPEED = 100
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jxk15")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_jifw3")
+position = Vector2(0, 0.4)
+scale = Vector2(0.612, 0.7)
+texture = ExtResource("2_omv0k")
+offset = Vector2(0, -0.5)
+hframes = 2
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
