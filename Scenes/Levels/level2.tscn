@@ -18,9 +18,6 @@ layer_1/tile_data = PackedInt32Array(458778, 1, 0, 24, 524289, 1, 15, 262145, 1,
 
 [node name="Player" parent="." instance=ExtResource("3_6fmnx")]
 
-[node name="AnimatedSprite2D" parent="Player" index="2"]
-frame = 1
-
 [node name="Camera2D" parent="Player" index="6"]
 limit_left = -32
 limit_top = -128

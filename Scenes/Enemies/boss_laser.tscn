@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b2yqgjl3tst54"]
+[gd_scene load_steps=6 format=3 uid="uid://cdlud6yskl6bd"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/boss_laser.gd" id="1_g7mod"]
 

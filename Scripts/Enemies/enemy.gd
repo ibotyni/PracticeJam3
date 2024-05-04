@@ -67,7 +67,7 @@ func shoot_player(delta) -> void:
 	var shot = SHOT_SCENE.instantiate()
 	shot.direction = (target.position - position).normalized()
 	shot.global_position = global_position
-	shot.rotation = target.rotation
+	shot.look_at(target.position)
 	shot.damage = damage
 	# add the shot to the root scene so translation is in world space
 	get_tree().root.add_child(shot)

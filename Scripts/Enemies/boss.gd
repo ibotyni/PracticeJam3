@@ -15,7 +15,12 @@ enum STATES { READY, FIRING, RELOADING, SPECIAL }
 @export var BULLET_SCENE: PackedScene
 @export var target: Player
 @export var damage := 10 #damage for the bullets, for laser dmg check laser scene
-@export var health := 1000
+@export var health := 1000:
+	set(val):
+		if val <= 0:
+			death()
+		health = val
+		print("boss health: ", health)
 
 const SPEED := 50.0
 
@@ -131,3 +136,9 @@ func _on_reload_timer_timeout():
 func point_laser() -> void:
 	if state != STATES.SPECIAL:
 		head.look_at(target.position)
+		
+func take_damage(dmg) -> void:
+		health -= dmg
+		
+func death() -> void:
+	queue_free()

@@ -18,7 +18,7 @@ layer_2/tile_data = PackedInt32Array(982988, 1, 1)
 position = Vector2(-792, 231)
 
 [node name="AnimatedSprite2D" parent="Player" index="2"]
-frame = 3
+frame = 2
 
 [node name="Camera2D" parent="Player" index="6"]
 limit_left = -840
