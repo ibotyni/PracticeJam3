@@ -40,12 +40,13 @@ func move_towards_target(delta) -> void:
 	if(!target):
 		return
 	var distance_to_player := position.distance_to(target.position)
+	var direction_to_player := position.direction_to(target.position)
 	
 	# tries to keep distance from the player
 	if distance_to_player > 100.0:
 		nav.target_position = target.position
 	elif distance_to_player < 60:
-		nav.target_position = target.position - position
+		nav.target_position = position - direction_to_player
 	else:
 		velocity = Vector2.ZERO
 		return
