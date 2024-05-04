@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="WeaponDatabase" load_steps=4 format=3 uid="uid://3y07y70capd2"]
+
+[ext_resource type="PackedScene" uid="uid://dflwpmk8p2u0b" path="res://Prefabs/Items/Weapons/Projectiles/Magic/magic_blast_projectile.tscn" id="1_13jwi"]
+[ext_resource type="Script" path="res://Scripts/Inventory, Items, Weapons and related UI/WeaponScripts/WeaponDatabase.gd" id="1_caadn"]
+[ext_resource type="PackedScene" uid="uid://cfrp0slo4s8pw" path="res://Prefabs/Items/Weapons/Projectiles/Magic/magic_orb_projectile.tscn" id="2_ilbr4"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_caadn")
+base_damage = 15
+range = 20
+projectile_speed = 400.0
+has_charged_attack = true
+extra_half_charge_damage = 5
+extra_full_charge_damage = 10
+full_charge_time = 5.0
+must_reach_full_charge = false
+extra_half_charge_range = 10
+extra_full_charge_range = 20
+extra_full_charge_projectile_speed = -50.0
+FULL_CHARGE_PROJECTILE = ExtResource("1_13jwi")
+PROJECTILE = ExtResource("2_ilbr4")
+isBronze = true
+isSilver = false
+isGold = false
+isDiamond = false
+isBow = false
+isSpear = false
+isStaff = true

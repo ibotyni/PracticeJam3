@@ -1,0 +1,21 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dwt8uvknb6se8"]
+
+[ext_resource type="PackedScene" uid="uid://41r7tnp8xgu0" path="res://DatabaseStructure/Items/Weapons/Database/Templates/weapon_item_template.tscn" id="1_0t2ej"]
+
+[sub_resource type="GDScript" id="GDScript_mu0fh"]
+
+[resource]
+resource_name = "WeaponDataTemplate"
+script = SubResource("GDScript_mu0fh")
+metadata/BaseDamage = 0
+metadata/Range = 0
+metadata/ProjectileSpeed = 0.0
+metadata/hasChargeAttack = false
+metadata/ExtraHalfChargeDamage = 0
+metadata/ExtraFullChargeDamage = 0
+metadata/FullChargeTime = 0.0
+metadata/MustReachFullCharge = false
+metadata/ExtraHalfChargeRange = 0
+metadata/ExtraFullChargeRange = 0
+metadata/ExtraFullChargeProjectileSpeed = 0.0
+metadata/FloorLootPrefab = ExtResource("1_0t2ej")

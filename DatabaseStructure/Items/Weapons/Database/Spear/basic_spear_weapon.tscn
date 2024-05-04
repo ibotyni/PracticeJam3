@@ -1,0 +1,50 @@
+[gd_scene load_steps=10 format=3 uid="uid://cndrw4yhs1qox"]
+
+[ext_resource type="Script" path="res://Scripts/Inventory, Items, Weapons and related UI/WeaponScripts/WeaponItemBehaviour.gd" id="1_nwo80"]
+[ext_resource type="Resource" uid="uid://xdmqf008nsny" path="res://DatabaseStructure/Items/Weapons/Database/Bow/basic_bow_data.tres" id="2_7w6sg"]
+[ext_resource type="Shader" path="res://Assets/Materials/ColourChange.gdshader" id="3_pkf5q"]
+[ext_resource type="Texture2D" uid="uid://g06rww38w0q1" path="res://Assets/Items/Weapons/FloorIcons/Javelin.png" id="4_ch3m3"]
+[ext_resource type="Texture2D" uid="uid://dwbh36c8xrcss" path="res://Assets/Effects/Glow/PickupItemGlow.png" id="5_3q5ry"]
+[ext_resource type="Texture2D" uid="uid://bgkjghij62v6q" path="res://Assets/Effects/ButtonPrompt/X Prompt.png" id="6_bpbot"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ukp6l"]
+shader = ExtResource("3_pkf5q")
+shader_parameter/custom_color = Color(0.666667, 0.352941, 0, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qidj3"]
+radius = 21.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_05gt4"]
+shader = ExtResource("3_pkf5q")
+shader_parameter/custom_color = Color(0, 1, 0, 1)
+
+[node name="BasicSpearWeaponArea" type="Area2D" groups=["Items"]]
+z_index = 5
+collision_layer = 16
+script = ExtResource("1_nwo80")
+Weapon_Data = ExtResource("2_7w6sg")
+
+[node name="WeaponItemSprite2D" type="Sprite2D" parent="." groups=["Items"]]
+z_index = 4
+material = SubResource("ShaderMaterial_ukp6l")
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_ch3m3")
+
+[node name="WeaponItemCollision2D" type="CollisionShape2D" parent="." groups=["Items"]]
+z_index = 5
+shape = SubResource("CircleShape2D_qidj3")
+
+[node name="GlowEffectWeapon" type="Sprite2D" parent="." groups=["Items"]]
+z_index = 3
+material = SubResource("ShaderMaterial_05gt4")
+position = Vector2(2.08165e-12, 2.08165e-12)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_3q5ry")
+
+[node name="ButtonPromptWeapon" type="Sprite2D" parent="." groups=["Items"]]
+z_index = 20
+position = Vector2(15, -18)
+texture = ExtResource("6_bpbot")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="WeaponDatabase" load_steps=3 format=3 uid="uid://cpcu4m65a4mu8"]
+
+[ext_resource type="PackedScene" uid="uid://b3otbejhkq8lt" path="res://Prefabs/Items/Weapons/Projectiles/Javelin/javelin_projectile.tscn" id="1_6sx03"]
+[ext_resource type="Script" path="res://Scripts/Inventory, Items, Weapons and related UI/WeaponScripts/WeaponDatabase.gd" id="1_321ck"]
+
+[resource]
+script = ExtResource("1_321ck")
+base_damage = 25
+range = 3
+projectile_speed = 200.0
+has_charged_attack = true
+extra_half_charge_damage = 0
+extra_full_charge_damage = 0
+full_charge_time = 0.0
+must_reach_full_charge = true
+extra_half_charge_range = 0
+extra_full_charge_range = 37
+extra_full_charge_projectile_speed = 400.0
+FULL_CHARGE_PROJECTILE = ExtResource("1_6sx03")
+PROJECTILE = ExtResource("1_6sx03")
+isBronze = true
+isSilver = false
+isGold = false
+isDiamond = false
+isBow = false
+isSpear = true
+isStaff = false
