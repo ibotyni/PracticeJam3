@@ -86,7 +86,8 @@ func shoot():
 	owner.add_child(bullet)
 	bullet.transform = $ReticleHolder/Sprite2D/Aim.global_transform
 	
-	reload_timer.start()
+	if reload_timer != null:
+		reload_timer.start()
 	state = STATES.RELOADING
 	
 

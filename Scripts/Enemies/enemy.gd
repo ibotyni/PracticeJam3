@@ -2,15 +2,14 @@ extends CharacterBody2D
 class_name Enemy
 # Base class for all enemies
 
-const SPEED := 25.0
 enum TYPE { FAST, ATTACK, DEFENCE }
 enum STATES { READY, FIRING, RELOADING }
 
+@export var SPEED := 25.0
 @export var enemy_type: TYPE = TYPE.FAST
 @export var target: Player
 @export var SHOT_SCENE: PackedScene
 @export var damage := 5
-#@export var health := 150
 
 @onready var reload_timer = $ReloadTimer
 @onready var sprite: Sprite2D = $Sprite2D
@@ -19,7 +18,7 @@ enum STATES { READY, FIRING, RELOADING }
 
 var state := STATES.READY
 var move_speed := SPEED
-var health := 50:
+@export var health := 50:
 	set(val):
 		if val <= 0:
 			death()
