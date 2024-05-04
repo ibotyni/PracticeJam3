@@ -23,7 +23,7 @@ shape = SubResource("RectangleShape2D_jxk15")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_jifw3")
 position = Vector2(0, 0.4)
-scale = Vector2(0.612, 0.7)
+scale = Vector2(0.9, 1.03)
 texture = ExtResource("2_omv0k")
 offset = Vector2(0, -0.5)
 hframes = 2
