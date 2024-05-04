@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b4bxrwywrc3kc"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/enemy.gd" id="1_srquh"]
-[ext_resource type="PackedScene" uid="uid://b00n7rc3wmigr" path="res://Scenes/Enemies/enemy_shot.tscn" id="2_8btjr"]
+[ext_resource type="PackedScene" uid="uid://del7wvxy1hqk7" path="res://Scenes/Enemies/fast_shot.tscn" id="2_phxo5"]
 [ext_resource type="Texture2D" uid="uid://hkrj575y2sdc" path="res://Assets/Enemies/EnemyAll.png" id="3_ctoky"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_26v4a"]
@@ -14,7 +14,9 @@ size = Vector2(14, 3)
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_srquh")
-SHOT_SCENE = ExtResource("2_8btjr")
+SHOT_SCENE = ExtResource("2_phxo5")
+damage = 15
+move_speed = 25
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5.5)
