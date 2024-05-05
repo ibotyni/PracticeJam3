@@ -50,7 +50,7 @@ func _ready():
 
 func make_invulnerable() -> void:
 	is_invulnerable = true
-	feet_hitbox.set_deferred("monitorable", false)
+	#feet_hitbox.set_deferred("monitorable", false)
 	player_sprite.modulate = Color.RED
 	invul_timer.start()
 

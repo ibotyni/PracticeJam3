@@ -421,7 +421,6 @@ shape = SubResource("RectangleShape2D_td3e3")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_yaj4n")
 animation = &"idle"
-frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
 libraries = {

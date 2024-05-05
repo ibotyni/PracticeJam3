@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/Hazards/cracked_floor.gd" id="1_rfq3r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nlsi2"]
-size = Vector2(16, 16)
+size = Vector2(14, 14)
 
 [node name="CrackedFloor" type="Area2D"]
 collision_layer = 16
@@ -21,7 +21,7 @@ frame = 7
 shape = SubResource("RectangleShape2D_nlsi2")
 
 [node name="CollapseTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 1.8
 one_shot = true
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

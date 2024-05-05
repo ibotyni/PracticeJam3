@@ -47,7 +47,8 @@ polygon = PackedVector2Array(-72, 112, -72, 208, -88, 208, -88, 112)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="TextureProgressBar" parent="CanvasLayer" instance=ExtResource("8_jbts7")]
+[node name="TextureProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("8_jbts7")]
+player = NodePath("../../GameManager/Player")
 
 [node name="GameManager" parent="." instance=ExtResource("5_3q4f1")]
 
