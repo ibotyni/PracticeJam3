@@ -1,13 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://cf6vaiwhbvcjh"]
+[gd_scene load_steps=11 format=3 uid="uid://cf6vaiwhbvcjh"]
 
 [ext_resource type="PackedScene" uid="uid://bjvqhi585w773" path="res://Scenes/Pause_Menu.tscn" id="1_gjtlm"]
+[ext_resource type="Script" path="res://Scripts/level.gd" id="1_i4niy"]
 [ext_resource type="PackedScene" uid="uid://rvqwkmaacjb0" path="res://Scenes/Player/Player.tscn" id="2_t3efx"]
 [ext_resource type="PackedScene" uid="uid://bkqnv1peac3qr" path="res://Tilemap/tile_map.tscn" id="3_rw1mx"]
 [ext_resource type="PackedScene" uid="uid://crfccy8a2tem2" path="res://Tilemap/tile_map_2.tscn" id="4_8r7rj"]
 [ext_resource type="PackedScene" uid="uid://b4bxrwywrc3kc" path="res://Scenes/Enemies/enemy_fast.tscn" id="5_esg7b"]
 [ext_resource type="PackedScene" uid="uid://cpigd21u5tftr" path="res://Scenes/Enemies/enemy_attack.tscn" id="5_hbumd"]
 [ext_resource type="PackedScene" uid="uid://bpq7apxll8c5p" path="res://Scenes/Enemies/enemy_defence.tscn" id="5_skvi3"]
-[ext_resource type="PackedScene" uid="uid://bay3nihd70o2e" path="res://Scenes/UserInterface/health.tscn" id="8_t5xre"]
+[ext_resource type="PackedScene" path="res://Scenes/UserInterface/health.tscn" id="8_t5xre"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_63b0o"]
 vertices = PackedVector2Array(141, 207, 187, 140, 421, 10, 425, 422, 10, 422, 139, 166, 152, 140, 184, 104, 93, 10, 156, 101, 10, 10, 56, 10, 57, 250, 91, 255, 102, 200, 106, 163)
@@ -16,6 +17,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(0, 0, 431, 0, 435, 432,
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="Level_2" type="Node2D"]
+script = ExtResource("1_i4niy")
 
 [node name="GameManager" type="Node" parent="."]
 
@@ -69,5 +71,6 @@ target = NodePath("../GameManager/Player")
 [node name="TextureProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("8_t5xre")]
 player = NodePath("../../GameManager/Player")
 
+[connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="area_entered" from="TileMap/CrackedFloor" to="TileMap/CrackedFloor" method="_on_area_entered"]
 [connection signal="area_entered" from="TileMap/Hole" to="TileMap/Hole" method="_on_area_entered"]
