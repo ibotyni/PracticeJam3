@@ -6,12 +6,15 @@ signal healthChanged
 enum STATES { READY, FIRING, RELOADING }
 var is_invulnerable: bool = false
 
+@export var level_health = 1
+@export var level_speed = 1
+@export var level_strength = 1
+
 @export var Bullet : PackedScene
 @onready var invul_timer = $InvulnerabilityTimer
 @onready var player_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var feet_hitbox: Area2D = $FeetHitbox
 
-@export var max_health = 100
 @export var health := 100:
 	set(new_health):
 		if new_health <= 0:
@@ -72,6 +75,7 @@ func death() -> void:
 	print("You died");
 
 func shoot():
+	print(position)
 	if state != STATES.READY:
 		return
 	state = STATES.FIRING
