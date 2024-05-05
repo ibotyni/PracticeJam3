@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b4bxrwywrc3kc" path="res://Scenes/Enemies/enemy_fast.tscn" id="5_esg7b"]
 [ext_resource type="PackedScene" uid="uid://cpigd21u5tftr" path="res://Scenes/Enemies/enemy_attack.tscn" id="5_hbumd"]
 [ext_resource type="PackedScene" uid="uid://bpq7apxll8c5p" path="res://Scenes/Enemies/enemy_defence.tscn" id="5_skvi3"]
-[ext_resource type="PackedScene" path="res://Scenes/UserInterface/health.tscn" id="8_t5xre"]
+[ext_resource type="PackedScene" uid="uid://bay3nihd70o2e" path="res://Scenes/UserInterface/health.tscn" id="8_t5xre"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_63b0o"]
 vertices = PackedVector2Array(141, 207, 187, 140, 421, 10, 425, 422, 10, 422, 139, 166, 152, 140, 184, 104, 93, 10, 156, 101, 10, 10, 56, 10, 57, 250, 91, 255, 102, 200, 106, 163)
@@ -27,7 +27,6 @@ script = null
 
 [node name="Player" parent="GameManager" instance=ExtResource("2_t3efx")]
 position = Vector2(214, 197)
-collision_mask = 14
 
 [node name="Camera2D" type="Camera2D" parent="GameManager/Player"]
 position = Vector2(0, 1)
@@ -72,5 +71,3 @@ target = NodePath("../GameManager/Player")
 player = NodePath("../../GameManager/Player")
 
 [connection signal="ready" from="." to="." method="_on_ready"]
-[connection signal="area_entered" from="TileMap/CrackedFloor" to="TileMap/CrackedFloor" method="_on_area_entered"]
-[connection signal="area_entered" from="TileMap/Hole" to="TileMap/Hole" method="_on_area_entered"]

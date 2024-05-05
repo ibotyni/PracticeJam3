@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c3xsyrvrkda6s"]
+[gd_scene load_steps=18 format=3 uid="uid://c3xsyrvrkda6s"]
 
 [ext_resource type="Texture2D" uid="uid://bitkya0mahmel" path="res://Assets/Items/Weapons/WeaponUI/WeaponBoxActive.png" id="1_d5bo7"]
 [ext_resource type="Shader" path="res://Assets/Materials/ColourChange.gdshader" id="2_cj5bj"]
@@ -7,9 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://esclk2v4r5ll" path="res://Assets/Items/Potions&Coins/CoinPickup.png" id="4_o2mk0"]
 [ext_resource type="Texture2D" uid="uid://bxdbmul1t4fe" path="res://Assets/Items/Weapons/FloorIcons/Staff.png" id="5_7n3fs"]
 [ext_resource type="Texture2D" uid="uid://c1unp7v88fqus" path="res://Assets/Items/Potions&Coins/PotionIcon.png" id="5_gkfwg"]
-[ext_resource type="Texture2D" uid="uid://ca0t80ifomfp1" path="res://Assets/User_Interface/HealthbarBorder.png" id="6_6us1w"]
-[ext_resource type="Texture2D" uid="uid://yff8igqtbdva" path="res://Assets/User_Interface/HealthbarFill.png" id="7_gimla"]
-[ext_resource type="Script" path="res://Scripts/health.gd" id="10_6eorf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wwoxq"]
 shader = ExtResource("2_cj5bj")
@@ -50,10 +47,6 @@ shader_parameter/custom_color = Color(0.894118, 0.839216, 0.447059, 1)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8l7y1"]
 shader = ExtResource("2_cj5bj")
 shader_parameter/custom_color = Color(1, 1, 0, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_k0u01"]
-shader = ExtResource("2_cj5bj")
-shader_parameter/custom_color = Color(0.996945, 6.23293e-06, 1.54018e-06, 1)
 
 [node name="InventoryManagerUI" type="Control"]
 layout_mode = 3
@@ -256,12 +249,3 @@ layout_mode = 2
 text = "x"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
-material = SubResource("ShaderMaterial_k0u01")
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 21.0
-texture_under = ExtResource("6_6us1w")
-texture_progress = ExtResource("7_gimla")
-script = ExtResource("10_6eorf")
