@@ -32,16 +32,12 @@ navigation_polygon = SubResource("NavigationPolygon_63b0o")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="TextureProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("8_jbts7")]
-player = NodePath("")
+[node name="TextureProgressBar" parent="CanvasLayer" instance=ExtResource("8_jbts7")]
 
 [node name="GameManager" parent="." instance=ExtResource("5_3q4f1")]
 
 [node name="EndOfLevel" parent="GameManager" index="0"]
 visible = false
-
-[node name="CharacterBody2D" parent="GameManager" index="1"]
-position = Vector2(220, 225)
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 
