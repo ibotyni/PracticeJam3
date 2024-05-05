@@ -1,0 +1,55 @@
+[gd_scene load_steps=12 format=3 uid="uid://dj2cg0cest475"]
+
+[ext_resource type="Script" path="res://Scripts/Stats and Portals/PowerPortalBehaviour.gd" id="1_wtjdn"]
+[ext_resource type="PackedScene" uid="uid://v075rgv87iti" path="res://Scenes/Levels/LevelSwapTest.tscn" id="2_bxhwe"]
+[ext_resource type="Shader" path="res://Assets/Materials/ColourChange.gdshader" id="3_36tvo"]
+[ext_resource type="Texture2D" uid="uid://dwbh36c8xrcss" path="res://Assets/Effects/Glow/PickupItemGlow.png" id="4_q573f"]
+[ext_resource type="Texture2D" uid="uid://ubbmaicy6q4u" path="res://Assets/Text/ChooseYourPath/Power.png" id="5_8lekq"]
+[ext_resource type="Texture2D" uid="uid://dkkof22mf6cl7" path="res://Assets/Effects/Particles/Particle1x1.png" id="6_705qa"]
+[ext_resource type="Texture2D" uid="uid://bgkjghij62v6q" path="res://Assets/Effects/ButtonPrompt/X Prompt.png" id="7_hhyg0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5c4jt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dklhm"]
+shader = ExtResource("3_36tvo")
+shader_parameter/custom_color = Color(1, 0.21, 0.21, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tkh3r"]
+shader = ExtResource("3_36tvo")
+shader_parameter/custom_color = Color(0.886275, 0, 0.301961, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pbh76"]
+shader = ExtResource("3_36tvo")
+shader_parameter/custom_color = Color(1, 0.421216, 0.352519, 1)
+
+[node name="Power" type="Area2D"]
+position = Vector2(-50, 2.08165e-12)
+script = ExtResource("1_wtjdn")
+target_level = ExtResource("2_bxhwe")
+
+[node name="PowerArea" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5c4jt")
+
+[node name="PowerPortal" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_dklhm")
+texture = ExtResource("4_q573f")
+
+[node name="PowerText" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_tkh3r")
+position = Vector2(2.08165e-12, -19)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("5_8lekq")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 500
+amount_ratio = 0.5013
+sub_emitter = NodePath(".")
+process_material = SubResource("ShaderMaterial_pbh76")
+texture = ExtResource("6_705qa")
+
+[node name="PowerInteraction" type="Sprite2D" parent="."]
+position = Vector2(2.08165e-12, 10)
+texture = ExtResource("7_hhyg0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

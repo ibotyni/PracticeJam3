@@ -1,14 +1,11 @@
-[gd_scene load_steps=27 format=3 uid="uid://tg01j74nbuvf"]
+[gd_scene load_steps=21 format=3 uid="uid://tg01j74nbuvf"]
 
 [ext_resource type="Texture2D" uid="uid://c0ycdlwbc2lj7" path="res://Assets/Statue.png" id="1_fnsog"]
 [ext_resource type="Shader" path="res://Assets/Materials/ColourChange.gdshader" id="2_ejcf7"]
-[ext_resource type="Script" path="res://Scripts/Stats and Portals/PowerPortalBehaviour.gd" id="2_i8w57"]
 [ext_resource type="Texture2D" uid="uid://c4vlql03n3n1u" path="res://Assets/StatueEyes.png" id="3_jl6qq"]
 [ext_resource type="Texture2D" uid="uid://dwbh36c8xrcss" path="res://Assets/Effects/Glow/PickupItemGlow.png" id="3_o1awa"]
-[ext_resource type="Texture2D" uid="uid://ubbmaicy6q4u" path="res://Assets/Text/ChooseYourPath/Power.png" id="4_v8qy8"]
-[ext_resource type="Texture2D" uid="uid://dkkof22mf6cl7" path="res://Assets/Effects/Particles/Particle1x1.png" id="5_4ah7g"]
+[ext_resource type="PackedScene" uid="uid://dj2cg0cest475" path="res://Scenes/PowerPortal.tscn" id="4_61aer"]
 [ext_resource type="Texture2D" uid="uid://dt735d8l8wv2w" path="res://Assets/Text/ChooseYourPath/Speed.png" id="5_wptk5"]
-[ext_resource type="PackedScene" uid="uid://v075rgv87iti" path="res://Scenes/Levels/LevelSwapTest.tscn" id="5_xebld"]
 [ext_resource type="Texture2D" uid="uid://cjr16df1l20ce" path="res://Assets/Text/ChooseYourPath/Health.png" id="6_3exgo"]
 [ext_resource type="Texture2D" uid="uid://bgkjghij62v6q" path="res://Assets/Effects/ButtonPrompt/X Prompt.png" id="7_hd6h4"]
 [ext_resource type="Texture2D" uid="uid://dalpqcgre4mt1" path="res://Assets/Text/ChooseYourPath/Choose.png" id="7_rbvcl"]
@@ -28,18 +25,6 @@ shader = ExtResource("2_ejcf7")
 shader_parameter/custom_color = Color(1, 0, 0, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5c4jt"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dklhm"]
-shader = ExtResource("2_ejcf7")
-shader_parameter/custom_color = Color(1, 0.21, 0.21, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_tkh3r"]
-shader = ExtResource("2_ejcf7")
-shader_parameter/custom_color = Color(0.886275, 0, 0.301961, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_pbh76"]
-shader = ExtResource("2_ejcf7")
-shader_parameter/custom_color = Color(1, 0.421216, 0.352519, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jwp3v"]
 shader = ExtResource("2_ejcf7")
@@ -85,35 +70,8 @@ texture = ExtResource("3_jl6qq")
 position = Vector2(2.08165e-12, 20)
 scale = Vector2(2, 2)
 
-[node name="Power" type="Area2D" parent="Portals"]
+[node name="Power" parent="Portals" instance=ExtResource("4_61aer")]
 unique_name_in_owner = true
-position = Vector2(-50, 2.08165e-12)
-script = ExtResource("2_i8w57")
-target_level = ExtResource("5_xebld")
-
-[node name="PowerArea" type="CollisionShape2D" parent="Portals/Power"]
-shape = SubResource("CircleShape2D_5c4jt")
-
-[node name="PowerPortal" type="Sprite2D" parent="Portals/Power"]
-material = SubResource("ShaderMaterial_dklhm")
-texture = ExtResource("3_o1awa")
-
-[node name="PowerText" type="Sprite2D" parent="Portals/Power"]
-material = SubResource("ShaderMaterial_tkh3r")
-position = Vector2(2.08165e-12, -19)
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("4_v8qy8")
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="Portals/Power"]
-amount = 500
-amount_ratio = 0.5013
-sub_emitter = NodePath(".")
-process_material = SubResource("ShaderMaterial_pbh76")
-texture = ExtResource("5_4ah7g")
-
-[node name="PowerInteraction" type="Sprite2D" parent="Portals/Power"]
-position = Vector2(2.08165e-12, 10)
-texture = ExtResource("7_hd6h4")
 
 [node name="Speed" type="Area2D" parent="Portals"]
 unique_name_in_owner = true
@@ -172,6 +130,3 @@ texture = ExtResource("8_6om03")
 [node name="PathText" type="Sprite2D" parent="ChooseYourPath"]
 position = Vector2(50, 2.08165e-12)
 texture = ExtResource("9_nqp40")
-
-[connection signal="body_entered" from="Portals/Power" to="Portals/Power" method="_on_body_entered"]
-[connection signal="body_exited" from="Portals/Power" to="Portals/Power" method="_on_body_exited"]
