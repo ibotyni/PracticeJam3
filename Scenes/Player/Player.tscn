@@ -676,7 +676,7 @@ texture = ExtResource("3_5k8f6")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_35t4q")
 animation = &"Idle_Down"
-frame = 3
+frame = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
 libraries = {

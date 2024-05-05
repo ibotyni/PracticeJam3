@@ -1,6 +1,9 @@
 extends CharacterBody2D
 class_name Player
 
+var game_manager
+var game_manager_script
+
 signal healthChanged
 
 enum STATES { READY, FIRING, RELOADING }
@@ -36,6 +39,15 @@ var state = STATES.READY
 		
 # TODO: Player Spawn Position: Currently not working.
 # Turns off player hitbox and makes him red
+
+func _ready():
+	game_manager = get_node("root/game_manager")
+
+	if game_manager: 
+		game_manager_script = game_manager.get_script()
+	else:
+		print("Error: GameManager not found!")
+
 func make_invulnerable() -> void:
 	is_invulnerable = true
 	feet_hitbox.set_deferred("monitorable", false)

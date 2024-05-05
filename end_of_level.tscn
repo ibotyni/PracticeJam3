@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://du0mflxrw87p8" path="res://Assets/Items/Potions&Coins/Shopkeeper.png" id="1_4a3dy"]
 [ext_resource type="Shader" path="res://Assets/Materials/ColourChange.gdshader" id="2_ejcf7"]
-[ext_resource type="Script" path="res://Scripts/Inventory, Items, Weapons and related UI/PowerPortalBehaviour.gd" id="2_i8w57"]
+[ext_resource type="Script" path="res://Scripts/Stats and Portals/PowerPortalBehaviour.gd" id="2_i8w57"]
 [ext_resource type="Texture2D" uid="uid://dwbh36c8xrcss" path="res://Assets/Effects/Glow/PickupItemGlow.png" id="3_o1awa"]
 [ext_resource type="Texture2D" uid="uid://ubbmaicy6q4u" path="res://Assets/Text/ChooseYourPath/Power.png" id="4_v8qy8"]
 [ext_resource type="Texture2D" uid="uid://dkkof22mf6cl7" path="res://Assets/Effects/Particles/Particle1x1.png" id="5_4ah7g"]
@@ -141,3 +141,6 @@ texture = ExtResource("8_6om03")
 [node name="PathText" type="Sprite2D" parent="ChooseYourPath"]
 position = Vector2(50, 2.08165e-12)
 texture = ExtResource("9_nqp40")
+
+[connection signal="body_entered" from="Portals/Power" to="Portals/Power" method="_on_body_entered"]
+[connection signal="body_exited" from="Portals/Power" to="Portals/Power" method="_on_body_exited"]
