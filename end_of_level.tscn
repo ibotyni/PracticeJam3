@@ -1,17 +1,31 @@
-[gd_scene load_steps=22 format=3 uid="uid://tg01j74nbuvf"]
+[gd_scene load_steps=27 format=3 uid="uid://tg01j74nbuvf"]
 
-[ext_resource type="Texture2D" uid="uid://du0mflxrw87p8" path="res://Assets/Items/Potions&Coins/Shopkeeper.png" id="1_4a3dy"]
+[ext_resource type="Texture2D" uid="uid://c0ycdlwbc2lj7" path="res://Assets/Statue.png" id="1_fnsog"]
 [ext_resource type="Shader" path="res://Assets/Materials/ColourChange.gdshader" id="2_ejcf7"]
 [ext_resource type="Script" path="res://Scripts/Stats and Portals/PowerPortalBehaviour.gd" id="2_i8w57"]
+[ext_resource type="Texture2D" uid="uid://c4vlql03n3n1u" path="res://Assets/StatueEyes.png" id="3_jl6qq"]
 [ext_resource type="Texture2D" uid="uid://dwbh36c8xrcss" path="res://Assets/Effects/Glow/PickupItemGlow.png" id="3_o1awa"]
 [ext_resource type="Texture2D" uid="uid://ubbmaicy6q4u" path="res://Assets/Text/ChooseYourPath/Power.png" id="4_v8qy8"]
 [ext_resource type="Texture2D" uid="uid://dkkof22mf6cl7" path="res://Assets/Effects/Particles/Particle1x1.png" id="5_4ah7g"]
 [ext_resource type="Texture2D" uid="uid://dt735d8l8wv2w" path="res://Assets/Text/ChooseYourPath/Speed.png" id="5_wptk5"]
+[ext_resource type="PackedScene" uid="uid://v075rgv87iti" path="res://Scenes/Levels/LevelSwapTest.tscn" id="5_xebld"]
 [ext_resource type="Texture2D" uid="uid://cjr16df1l20ce" path="res://Assets/Text/ChooseYourPath/Health.png" id="6_3exgo"]
 [ext_resource type="Texture2D" uid="uid://bgkjghij62v6q" path="res://Assets/Effects/ButtonPrompt/X Prompt.png" id="7_hd6h4"]
 [ext_resource type="Texture2D" uid="uid://dalpqcgre4mt1" path="res://Assets/Text/ChooseYourPath/Choose.png" id="7_rbvcl"]
 [ext_resource type="Texture2D" uid="uid://gvlvmhtk1i7x" path="res://Assets/Text/ChooseYourPath/Your.png" id="8_6om03"]
 [ext_resource type="Texture2D" uid="uid://recx10oxhvc0" path="res://Assets/Text/ChooseYourPath/Path.png" id="9_nqp40"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ubva5"]
+shader = ExtResource("2_ejcf7")
+shader_parameter/custom_color = Color(0, 1, 0.32549, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_si22d"]
+shader = ExtResource("2_ejcf7")
+shader_parameter/custom_color = Color(1, 1, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q4juj"]
+shader = ExtResource("2_ejcf7")
+shader_parameter/custom_color = Color(1, 0, 0, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5c4jt"]
 
@@ -50,17 +64,32 @@ shader_parameter/custom_color = Color(1, 1, 1, 1)
 [node name="EndOfLevel" type="Node2D"]
 
 [node name="Godess" type="Sprite2D" parent="."]
-position = Vector2(2.08165e-12, -26)
-scale = Vector2(2, 2)
-texture = ExtResource("1_4a3dy")
+position = Vector2(2.08165e-12, -10)
+texture = ExtResource("1_fnsog")
+
+[node name="GlowGreen" type="Sprite2D" parent="Godess"]
+visible = false
+material = SubResource("ShaderMaterial_ubva5")
+texture = ExtResource("3_jl6qq")
+
+[node name="GlowYellow" type="Sprite2D" parent="Godess"]
+visible = false
+material = SubResource("ShaderMaterial_si22d")
+texture = ExtResource("3_jl6qq")
+
+[node name="GlowRed" type="Sprite2D" parent="Godess"]
+material = SubResource("ShaderMaterial_q4juj")
+texture = ExtResource("3_jl6qq")
 
 [node name="Portals" type="Sprite2D" parent="."]
 position = Vector2(2.08165e-12, 20)
 scale = Vector2(2, 2)
 
 [node name="Power" type="Area2D" parent="Portals"]
+unique_name_in_owner = true
 position = Vector2(-50, 2.08165e-12)
 script = ExtResource("2_i8w57")
+target_level = ExtResource("5_xebld")
 
 [node name="PowerArea" type="CollisionShape2D" parent="Portals/Power"]
 shape = SubResource("CircleShape2D_5c4jt")
@@ -87,6 +116,7 @@ position = Vector2(2.08165e-12, 10)
 texture = ExtResource("7_hd6h4")
 
 [node name="Speed" type="Area2D" parent="Portals"]
+unique_name_in_owner = true
 position = Vector2(2.08165e-12, 20)
 
 [node name="SpeedArea" type="CollisionShape2D" parent="Portals/Speed"]
@@ -107,6 +137,7 @@ position = Vector2(2.08165e-12, -10)
 texture = ExtResource("7_hd6h4")
 
 [node name="Health" type="Area2D" parent="Portals"]
+unique_name_in_owner = true
 position = Vector2(50, 2.08165e-12)
 
 [node name="HealthArea" type="CollisionShape2D" parent="Portals/Health"]

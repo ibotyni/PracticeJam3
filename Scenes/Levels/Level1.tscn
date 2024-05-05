@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cjqbo6xhfem17"]
+[gd_scene load_steps=11 format=3 uid="uid://bblfsvypn6k5d"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_fxgwd"]
 [ext_resource type="PackedScene" uid="uid://crfccy8a2tem2" path="res://Tilemap/tile_map_2.tscn" id="2_yayuc"]
@@ -19,7 +19,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 outlines = Array[PackedVector2Array]([PackedVector2Array(0, 0, 431, 0, 435, 432, 0, 432)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
-[node name="Level_2" type="Node2D"]
+[node name="Level" type="Node2D"]
 script = ExtResource("1_fxgwd")
 
 [node name="TileMap2" parent="." instance=ExtResource("2_yayuc")]

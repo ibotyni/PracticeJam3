@@ -7,6 +7,7 @@ var speed_portal
 var health_portal
 
 var player_script 
+var end_of_level
 var power_script 
 var speed_script
 var health_script
@@ -14,9 +15,13 @@ var health_script
 func _ready():
 	# Find the player and portals (Must be children of the GameManager).
 	player = get_node("Player")
-	power_portal = get_node("Power")
-	speed_portal = get_node("Speed")
-	health_portal = get_node("Health")
+	end_of_level = get_node("EndOfLevel")
+	if end_of_level:
+		power_portal = get_node("Power")
+		speed_portal = get_node("Speed")
+		health_portal = get_node("Health")
+	else:
+		print("Error: Portals not found")
 
 	# Error Handling & Getting Scripts
 	if player: 

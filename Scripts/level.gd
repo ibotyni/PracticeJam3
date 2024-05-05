@@ -19,7 +19,6 @@ func scene_spawner():
 	print("scene_spawner")
 	var player = get_node("GameManager/Player")
 	var total_enemies = player.level_health + player.level_speed + player.level_strength
-	
 	var enemies = [ load("res://Scenes/Enemies/enemy_fast.tscn"), load("res://Scenes/Enemies/enemy_defence.tscn"), load("res://Scenes/Enemies/enemy_attack.tscn") ]
 	
 	for i in range(total_enemies):
