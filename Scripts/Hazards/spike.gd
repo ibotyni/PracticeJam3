@@ -6,6 +6,7 @@ func _process(delta):
 	for area in touching:
 		var entity = area.get_parent()
 		if entity is Player:
+			print("player stepped on spikes")
 			entity.health -= 5
 		elif entity is Enemy:
 			entity.take_damage(5)
