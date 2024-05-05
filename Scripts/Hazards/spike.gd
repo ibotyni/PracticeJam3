@@ -9,7 +9,7 @@ func _process(delta):
 		var entity = area.get_parent()
 		if entity is Player:
 			entity.health -= 5
-			entity.position = entity.position - 3*(entity.direction.normalized())
+			entity.position = entity.position - knockback_strength*(entity.direction.normalized())
 			entity.move_and_slide()
 		elif entity is Enemy:
 			entity.take_damage(5)
