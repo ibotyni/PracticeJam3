@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cjqbo6xhfem17"]
+[gd_scene load_steps=12 format=3 uid="uid://cjqbo6xhfem17"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_fxgwd"]
 [ext_resource type="PackedScene" uid="uid://crfccy8a2tem2" path="res://Tilemap/tile_map_2.tscn" id="2_yayuc"]
@@ -18,6 +18,9 @@ vertices = PackedVector2Array(421, 10, 425, 422, 292, 274, 292, 158, 10, 422, 25
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 1, 4, 5), PackedInt32Array(3, 6, 7, 0), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 13, 14, 5), PackedInt32Array(12, 5, 4, 15), PackedInt32Array(15, 4, 11, 10), PackedInt32Array(8, 11, 0, 7)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(0, 0, 431, 0, 435, 432, 0, 432)])
 source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6rdgj"]
+size = Vector2(464, 20)
 
 [node name="Level_2" type="Node2D"]
 script = ExtResource("1_fxgwd")
@@ -117,6 +120,28 @@ position = Vector2(0, 64)
 
 [node name="CrackedFloor5" parent="CrackedFloor" instance=ExtResource("8_mv8id")]
 position = Vector2(0, 80)
+
+[node name="Walls" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+position = Vector2(216, -9)
+shape = SubResource("RectangleShape2D_6rdgj")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls"]
+position = Vector2(219, 444)
+shape = SubResource("RectangleShape2D_6rdgj")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(444, 214)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_6rdgj")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-11, 220)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_6rdgj")
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 
