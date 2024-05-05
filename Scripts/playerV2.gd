@@ -33,6 +33,7 @@ var swing : bool = false
 var last_direction = "Down"
 var state = STATES.READY
 
+		
 # TODO: Player Spawn Position: Currently not working.
 # Turns off player hitbox and makes him red
 func make_invulnerable() -> void:

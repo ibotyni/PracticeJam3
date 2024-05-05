@@ -52,7 +52,6 @@ func move_towards_target(delta) -> void:
 		return
 		
 	var next_path_pos: Vector2 = nav.get_next_path_position()
-	#print(move_speed);
 	velocity = global_position.direction_to(next_path_pos) * move_speed
 
 func shoot_player(delta) -> void:

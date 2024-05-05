@@ -1,17 +1,23 @@
-[gd_scene load_steps=8 format=3 uid="uid://b8b2d8ciq5vmg"]
+[gd_scene load_steps=11 format=3 uid="uid://dobbr2b5uacr2"]
 
 [ext_resource type="PackedScene" uid="uid://ogciymb3vuc2" path="res://Scenes/UserInterface/general_ui_canvas.tscn" id="1_63u8l"]
 [ext_resource type="PackedScene" uid="uid://bjvqhi585w773" path="res://Scenes/Pause_Menu.tscn" id="1_pu6ij"]
 [ext_resource type="PackedScene" uid="uid://bkqnv1peac3qr" path="res://Tilemap/tile_map.tscn" id="2_yojso"]
 [ext_resource type="PackedScene" uid="uid://rvqwkmaacjb0" path="res://Scenes/Player/Player.tscn" id="3_jthre"]
 [ext_resource type="PackedScene" uid="uid://crfccy8a2tem2" path="res://Tilemap/tile_map_2.tscn" id="4_61sgv"]
+[ext_resource type="PackedScene" uid="uid://bay3nihd70o2e" path="res://Scenes/UserInterface/health.tscn" id="7_8xtqe"]
 [ext_resource type="PackedScene" uid="uid://xmqf3ev7o6i4" path="res://Scenes/Enemies/EnemyBoss.tscn" id="7_luvt2"]
+[ext_resource type="Shader" path="res://Assets/Materials/ColourChange.gdshader" id="8_o7byl"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_0mvpx"]
 vertices = PackedVector2Array(420, 417, 14, 419, 17, 15, 418, 15)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(8, 6, 428, 5, 431, 427, 4, 430)])
 source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qoxqu"]
+shader = ExtResource("8_o7byl")
+shader_parameter/custom_color = Color(1, 0.0405034, 0.0223529, 1)
 
 [node name="Level_1" type="Node2D"]
 
@@ -24,6 +30,7 @@ process_mode = 2
 script = null
 
 [node name="Player" parent="GameManager" instance=ExtResource("3_jthre")]
+position = Vector2(41, 42)
 platform_wall_layers = 1
 
 [node name="Camera2D" type="Camera2D" parent="GameManager/Player"]
@@ -47,5 +54,28 @@ navigation_polygon = SubResource("NavigationPolygon_0mvpx")
 
 [node name="EnemyBoss" parent="." node_paths=PackedStringArray("target") instance=ExtResource("7_luvt2")]
 position = Vector2(230, 83)
+collision_mask = 27
 target = NodePath("../GameManager/Player")
-health = 100
+health = 800
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PlayerHealth" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("7_8xtqe")]
+max_value = 100.0
+player = NodePath("../../GameManager/Player")
+
+[node name="BossHealth" parent="CanvasLayer" node_paths=PackedStringArray("boss") instance=ExtResource("7_8xtqe")]
+material = SubResource("ShaderMaterial_qoxqu")
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -21.0
+offset_right = 32.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+max_value = 800.0
+boss = NodePath("../../EnemyBoss")

@@ -26,7 +26,6 @@ script = null
 
 [node name="Player" parent="GameManager" instance=ExtResource("2_t3efx")]
 position = Vector2(214, 197)
-collision_mask = 14
 
 [node name="Camera2D" type="Camera2D" parent="GameManager/Player"]
 position = Vector2(0, 1)
