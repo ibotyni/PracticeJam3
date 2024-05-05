@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name EnemyBoss
 
+signal healthChanged
+
 enum STATES { READY, FIRING, RELOADING, SPECIAL }
 
 @onready var anim_tree: AnimationTree = $AnimatedSprite2D/AnimationTree
@@ -20,6 +22,7 @@ enum STATES { READY, FIRING, RELOADING, SPECIAL }
 		if val <= 0:
 			death()
 		health = val
+		healthChanged.emit()
 		print("boss health: ", health)
 
 const SPEED := 50.0
@@ -121,6 +124,7 @@ func shoot_laser() -> void:
 	
 	state = STATES.SPECIAL
 	anim_tree.set("parameters/conditions/shoot_laser", true)
+	target.health -= 20
 	laser_scene.shoot()
 	anim_tree.animation_finished.connect(stop_laser)
 
@@ -143,3 +147,4 @@ func take_damage(dmg) -> void:
 
 func death() -> void:
 	queue_free()
+	print("You win")
