@@ -12,7 +12,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32
 outlines = Array[PackedVector2Array]([PackedVector2Array(0, 0, 431, 0, 435, 432, 0, 432), PackedVector2Array(165, 112, 163, 130, 176, 130, 175, 113), PackedVector2Array(130, 195, 129, 175, 115, 174, 113, 192), PackedVector2Array(66, 7, 67, 241, 81, 243, 83, 5)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
-[node name="Level_2" type="Node2D"]
+[node name="Level_3" type="Node2D"]
 script = ExtResource("1_i4niy")
 
 [node name="GameManager" type="Node" parent="."]

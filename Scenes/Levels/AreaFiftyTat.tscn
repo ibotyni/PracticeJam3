@@ -61,7 +61,6 @@ health = 800
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PlayerHealth" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("7_8xtqe")]
-max_value = 100.0
 player = NodePath("../../GameManager/Player")
 
 [node name="BossHealth" parent="CanvasLayer" node_paths=PackedStringArray("boss") instance=ExtResource("7_8xtqe")]
