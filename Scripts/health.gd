@@ -13,9 +13,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func updatePlayerHealth():
+	max_value = player.level_health * 4
 	value = player.health
 	
 func updateBossHealth():
+	max_value = player.level_health * 12
+	if boss.health > max_value:
+		boss.health = max_value
 	value = boss.health
 	
 

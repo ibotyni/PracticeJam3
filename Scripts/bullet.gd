@@ -2,7 +2,7 @@ extends Area2D
 class_name PrimaryBullet
 
 @export var speed = 600
-@export var damage = 15
+@export var damage = 1
 
 func _physics_process(delta):
 	position += transform.x * speed * delta
