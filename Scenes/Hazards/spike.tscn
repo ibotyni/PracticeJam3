@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://6xf6wjukjwhj"]
 
-[ext_resource type="Texture2D" uid="uid://ccpflaa57o804" path="res://Assets/Tilesheet/SpireShit.png" id="1_g0o6h"]
+[ext_resource type="Texture2D" uid="uid://baukk2pbadgp4" path="res://Assets/Tilesheet/SpireShit.png" id="1_g0o6h"]
 [ext_resource type="Script" path="res://Scripts/Hazards/spike.gd" id="1_sruif"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qpfha"]
