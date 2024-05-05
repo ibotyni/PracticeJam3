@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://iwwkjlwlo8an"]
+[gd_scene load_steps=4 format=3 uid="uid://iwwkjlwlo8an"]
 
+[ext_resource type="PackedScene" uid="uid://tg01j74nbuvf" path="res://end_of_level.tscn" id="1_6tpw5"]
 [ext_resource type="PackedScene" uid="uid://rvqwkmaacjb0" path="res://Scenes/Player/Player.tscn" id="1_syf65"]
 [ext_resource type="PackedScene" uid="uid://bjvqhi585w773" path="res://Scenes/Pause_Menu.tscn" id="2_tau8p"]
 
 [node name="GameManager" type="Node"]
+
+[node name="EndOfLevel" parent="." instance=ExtResource("1_6tpw5")]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_syf65")]
 

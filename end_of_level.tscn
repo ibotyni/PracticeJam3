@@ -1,12 +1,14 @@
-[gd_scene load_steps=20 format=3 uid="uid://tg01j74nbuvf"]
+[gd_scene load_steps=22 format=3 uid="uid://tg01j74nbuvf"]
 
 [ext_resource type="Texture2D" uid="uid://du0mflxrw87p8" path="res://Assets/Items/Potions&Coins/Shopkeeper.png" id="1_4a3dy"]
 [ext_resource type="Shader" path="res://Assets/Materials/ColourChange.gdshader" id="2_ejcf7"]
+[ext_resource type="Script" path="res://Scripts/Inventory, Items, Weapons and related UI/PowerPortalBehaviour.gd" id="2_i8w57"]
 [ext_resource type="Texture2D" uid="uid://dwbh36c8xrcss" path="res://Assets/Effects/Glow/PickupItemGlow.png" id="3_o1awa"]
 [ext_resource type="Texture2D" uid="uid://ubbmaicy6q4u" path="res://Assets/Text/ChooseYourPath/Power.png" id="4_v8qy8"]
 [ext_resource type="Texture2D" uid="uid://dkkof22mf6cl7" path="res://Assets/Effects/Particles/Particle1x1.png" id="5_4ah7g"]
 [ext_resource type="Texture2D" uid="uid://dt735d8l8wv2w" path="res://Assets/Text/ChooseYourPath/Speed.png" id="5_wptk5"]
 [ext_resource type="Texture2D" uid="uid://cjr16df1l20ce" path="res://Assets/Text/ChooseYourPath/Health.png" id="6_3exgo"]
+[ext_resource type="Texture2D" uid="uid://bgkjghij62v6q" path="res://Assets/Effects/ButtonPrompt/X Prompt.png" id="7_hd6h4"]
 [ext_resource type="Texture2D" uid="uid://dalpqcgre4mt1" path="res://Assets/Text/ChooseYourPath/Choose.png" id="7_rbvcl"]
 [ext_resource type="Texture2D" uid="uid://gvlvmhtk1i7x" path="res://Assets/Text/ChooseYourPath/Your.png" id="8_6om03"]
 [ext_resource type="Texture2D" uid="uid://recx10oxhvc0" path="res://Assets/Text/ChooseYourPath/Path.png" id="9_nqp40"]
@@ -48,13 +50,17 @@ shader_parameter/custom_color = Color(1, 1, 1, 1)
 [node name="EndOfLevel" type="Node2D"]
 
 [node name="Godess" type="Sprite2D" parent="."]
-position = Vector2(2.08165e-12, -40)
+position = Vector2(2.08165e-12, -26)
+scale = Vector2(2, 2)
 texture = ExtResource("1_4a3dy")
 
 [node name="Portals" type="Sprite2D" parent="."]
+position = Vector2(2.08165e-12, 20)
+scale = Vector2(2, 2)
 
 [node name="Power" type="Area2D" parent="Portals"]
 position = Vector2(-50, 2.08165e-12)
+script = ExtResource("2_i8w57")
 
 [node name="PowerArea" type="CollisionShape2D" parent="Portals/Power"]
 shape = SubResource("CircleShape2D_5c4jt")
@@ -76,7 +82,12 @@ sub_emitter = NodePath(".")
 process_material = SubResource("ShaderMaterial_pbh76")
 texture = ExtResource("5_4ah7g")
 
+[node name="PowerInteraction" type="Sprite2D" parent="Portals/Power"]
+position = Vector2(2.08165e-12, 10)
+texture = ExtResource("7_hd6h4")
+
 [node name="Speed" type="Area2D" parent="Portals"]
+position = Vector2(2.08165e-12, 20)
 
 [node name="SpeedArea" type="CollisionShape2D" parent="Portals/Speed"]
 shape = SubResource("CircleShape2D_5c4jt")
@@ -90,6 +101,10 @@ material = SubResource("ShaderMaterial_gte5c")
 position = Vector2(2.08165e-12, 20)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("5_wptk5")
+
+[node name="SpeedInteraction" type="Sprite2D" parent="Portals/Speed"]
+position = Vector2(2.08165e-12, -10)
+texture = ExtResource("7_hd6h4")
 
 [node name="Health" type="Area2D" parent="Portals"]
 position = Vector2(50, 2.08165e-12)
@@ -106,6 +121,10 @@ material = SubResource("ShaderMaterial_0b77e")
 position = Vector2(2.08165e-12, -20)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("6_3exgo")
+
+[node name="HealthInteraction" type="Sprite2D" parent="Portals/Health"]
+position = Vector2(2.08165e-12, 10)
+texture = ExtResource("7_hd6h4")
 
 [node name="ChooseYourPath" type="Node2D" parent="."]
 position = Vector2(2.08165e-12, -50)
