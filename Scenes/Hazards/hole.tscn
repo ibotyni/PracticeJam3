@@ -15,7 +15,7 @@ hframes = 10
 vframes = 10
 frame = 22
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_wieq6")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
