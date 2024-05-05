@@ -129,4 +129,3 @@ func _on_invulnerability_timer_timeout():
 	is_invulnerable = false
 	player_sprite.modulate = Color.WHITE
 	feet_hitbox.monitorable = true
-	

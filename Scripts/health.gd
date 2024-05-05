@@ -4,10 +4,10 @@ extends TextureProgressBar
 @export var boss: EnemyBoss
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if(boss==null):
+	if player != null:
 		player.healthChanged.connect(updatePlayerHealth) # Replace with function body.
 		updatePlayerHealth()
-	elif(player == null):
+	elif boss != null:
 		boss.healthChanged.connect(updateBossHealth) # Replace with function body.
 		updateBossHealth()
 
