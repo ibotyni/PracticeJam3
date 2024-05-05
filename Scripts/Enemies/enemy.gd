@@ -26,11 +26,17 @@ var state := STATES.READY
 @onready var nav: NavigationAgent2D = $NavigationAgent2D
 
 var is_invul := false
+var nav_loaded: bool = false
+
 
 func _ready():
 	call_deferred("actor_setup")
 
 func _physics_process(delta):
+	if !nav_loaded:
+		nav_loaded = true
+		return
+
 	if target:
 		move_towards_target(delta)
 		shoot_player(delta)
@@ -50,7 +56,8 @@ func move_towards_target(delta) -> void:
 	else:
 		velocity = Vector2.ZERO
 		return
-		
+	
+	
 	var next_path_pos: Vector2 = nav.get_next_path_position()
 	velocity = global_position.direction_to(next_path_pos) * move_speed
 

@@ -14,8 +14,14 @@ var is_invulnerable: bool = false
 		level_health = new_health
 		health += ( (level_health * 4) - health )
 		
-@export var level_speed: int = 1
-@export var level_strength: int = 1
+@export var level_speed: int = 1:
+	set(new_speed):
+		level_speed = new_speed
+		$ReloadTimer.wait_time = 1.1 - (level_speed/10)
+
+@export var level_strength: int = 1:
+	set(new_strength):
+		level_strength = new_strength
 
 @export var Bullet : PackedScene
 @onready var invul_timer = $InvulnerabilityTimer
@@ -100,6 +106,8 @@ func shoot():
 		return
 	state = STATES.FIRING
 	var bullet = Bullet.instantiate()
+	bullet.damage = level_strength
+	
 	owner.add_child(bullet)
 	bullet.transform = $ReticleHolder/Sprite2D/Aim.global_transform
 	

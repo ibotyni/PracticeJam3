@@ -63,7 +63,9 @@ visible = false
 [node name="Player" parent="GameManager" index="2"]
 position = Vector2(200, 200)
 collision_mask = 15
-level_health = 8
+level_health = 1
+level_speed = 8
+level_strength = 1
 
 [node name="Spike" parent="." instance=ExtResource("6_pyx1x")]
 position = Vector2(136, 176)
