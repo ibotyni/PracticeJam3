@@ -41,7 +41,7 @@ var state = STATES.READY
 # Turns off player hitbox and makes him red
 
 func _ready():
-	game_manager = get_node("root/game_manager")
+	game_manager = get_parent()
 
 	if game_manager: 
 		game_manager_script = game_manager.get_script()
