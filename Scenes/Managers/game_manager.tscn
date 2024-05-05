@@ -10,6 +10,9 @@ script = ExtResource("1_do6eo")
 
 [node name="EndOfLevel" parent="." instance=ExtResource("1_6tpw5")]
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_syf65")]
-
 [node name="PauseMenu" parent="." instance=ExtResource("2_tau8p")]
+
+[node name="Player" parent="." instance=ExtResource("1_syf65")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(2, 2)
