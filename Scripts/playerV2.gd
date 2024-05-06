@@ -17,7 +17,7 @@ var is_invulnerable: bool = false
 
 var player_vars
 
-@export var health := 8:
+@export var health := 4:
 	set(new_health):
 		if new_health <= 0:
 			death()
