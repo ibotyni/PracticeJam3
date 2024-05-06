@@ -23,3 +23,6 @@ func updateBossHealth():
 	if boss.health > max_value:
 		boss.health = max_value
 	value = boss.health
+
+func _on_body_entered(body):
+	pass # Replace with function body.

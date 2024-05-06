@@ -185,6 +185,7 @@ autoplay = "fade_in"
 script = ExtResource("1_fxgwd")
 
 [node name="ColorRect" type="ColorRect" parent="Fade"]
+visible = false
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
