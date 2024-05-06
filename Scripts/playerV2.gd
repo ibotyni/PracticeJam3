@@ -50,6 +50,10 @@ func _ready():
 	if player_vars.level_strength == 0:
 		player_vars.level_strength = 1
 		
+	$ReloadTimer.wait_time = 1.1 - (player_vars.level_speed / 10.0)
+	if $ReloadTimer.wait_time <= 0:
+		$ReloadTimer.wait_time = 0.001
+
 	game_manager = get_parent()
 
 	if game_manager: 
@@ -102,6 +106,7 @@ func shoot():
 		return
 	state = STATES.FIRING
 	var bullet = Bullet.instantiate()
+	bullet.damage = player_vars.level_strength
 	owner.add_child(bullet)
 	bullet.transform = $ReticleHolder/Sprite2D/Aim.global_transform
 	

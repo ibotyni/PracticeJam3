@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dx3e4k7vrx2jd"]
+[gd_scene load_steps=14 format=3 uid="uid://coxnuj17w1gxa"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_bjmie"]
 [ext_resource type="PackedScene" uid="uid://crfccy8a2tem2" path="res://Tilemap/tile_map_2.tscn" id="2_k7cxw"]

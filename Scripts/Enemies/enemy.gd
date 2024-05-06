@@ -92,6 +92,8 @@ func shoot_player(delta) -> void:
 
 
 func death() -> void:
+	var player_vars = get_node("/root/PlayerVariables")
+	player_vars.total_levels += 1
 	if get_tree().get_nodes_in_group("enemy").size() == 1:
 		print("level complete")
 		get_tree().change_scene_to_file("res://Scenes/Levels/ChoosePath.tscn")

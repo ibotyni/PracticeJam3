@@ -7,6 +7,7 @@ func _on_button_retry_pressed():
 	player_vars.level_speed = 1
 	player_vars.level_strength = 1
 	player_vars.health = 4
+	player_vars.total_levels = 0
 	get_tree().change_scene_to_file(level)
 
 func _on_button_main_menu_pressed():
@@ -15,4 +16,10 @@ func _on_button_main_menu_pressed():
 	player_vars.level_speed = 1
 	player_vars.level_strength = 1
 	player_vars.health = 4
+	player_vars.total_levels = 0
 	get_tree().change_scene_to_file("res://Scenes/Main_Menu.tscn")
+
+
+func _on_ready():
+	var player_vars = get_node("/root/PlayerVariables")
+	$Label.text = "Your Score:\n{total_levels}".format({"total_levels": player_vars.total_levels * 100})

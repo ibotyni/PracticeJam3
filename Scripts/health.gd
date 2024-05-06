@@ -14,6 +14,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func updatePlayerHealth():
 	var player_vars = get_node("/root/PlayerVariables")
+	if player_vars == null:
+		return
 	max_value = player_vars.level_health * 4
 	value = player_vars.health
 
