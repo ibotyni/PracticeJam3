@@ -22,4 +22,5 @@ func _on_button_main_menu_pressed():
 
 func _on_ready():
 	var player_vars = get_node("/root/PlayerVariables")
-	$Label.text = "Your Score:\n{total_levels}".format({"total_levels": player_vars.total_levels * 100})
+	if $Label != null:
+		$Label.text = "Your Score:\n{total_levels}".format({"total_levels": player_vars.total_levels * 100})
