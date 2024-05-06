@@ -17,7 +17,7 @@ var is_invulnerable: bool = false
 
 var player_vars
 
-@export var health := 100:
+@export var health := 8:
 	set(new_health):
 		if new_health <= 0:
 			death()
@@ -94,10 +94,10 @@ func set_swing(value = false):
 	#animation_tree["parameters/conditions/swing"] = value
 	
 func death() -> void:
-	print("You died");
+	get_tree().change_scene_to_file("res://Scenes/death_screen.tscn")
 
 func shoot():
-	print(position)
+	#print(position)
 	if state != STATES.READY:
 		return
 	state = STATES.FIRING
