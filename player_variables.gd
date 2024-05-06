@@ -1,9 +1,10 @@
 extends Node
 
 @export var level_health = 1
-@export var level_speed = 12
+@export var level_speed = 1
 @export var level_strength = 1
 @export var health = 1
+@export var total_levels = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
