@@ -5,7 +5,7 @@
 [ext_resource type="Shader" path="res://Assets/Materials/ColourChange.gdshader" id="3_w43rn"]
 [ext_resource type="PackedScene" uid="uid://bay3nihd70o2e" path="res://Scenes/UserInterface/health.tscn" id="4_i6rrm"]
 [ext_resource type="PackedScene" uid="uid://iwwkjlwlo8an" path="res://Scenes/Managers/game_manager.tscn" id="5_cva4e"]
-[ext_resource type="PackedScene" uid="uid://cmjg1hep7g5g" path="res://Scenes/Hazards/cracked_floor_2x_2.tscn" id="6_pvad7"]
+[ext_resource type="PackedScene" path="res://Scenes/Hazards/cracked_floor_2x_2.tscn" id="6_pvad7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v7rgq"]
 shader = ExtResource("3_w43rn")
@@ -103,11 +103,9 @@ player = NodePath("../../GameManager/Player")
 
 [node name="GameManager" parent="." instance=ExtResource("5_cva4e")]
 
-[node name="EndOfLevel" parent="GameManager" index="0"]
-visible = false
-
-[node name="Player" parent="GameManager" index="2"]
+[node name="Player" parent="GameManager" index="1"]
 position = Vector2(215, 216)
+collision_mask = 15
 
 [node name="Walls" type="StaticBody2D" parent="."]
 collision_layer = 2
@@ -203,64 +201,66 @@ position = Vector2(41.4999, 327.75)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_sr461")
 
-[node name="CrackedFloor2x2" parent="." instance=ExtResource("6_pvad7")]
+[node name="Hazards" type="Node2D" parent="."]
+
+[node name="CrackedFloor2x2" parent="Hazards" instance=ExtResource("6_pvad7")]
 position = Vector2(-1, -1)
 
-[node name="CrackedFloor2x3" parent="." instance=ExtResource("6_pvad7")]
+[node name="CrackedFloor2x3" parent="Hazards" instance=ExtResource("6_pvad7")]
 position = Vector2(30, -1)
 
-[node name="CrackedFloor2x4" parent="." instance=ExtResource("6_pvad7")]
+[node name="CrackedFloor2x4" parent="Hazards" instance=ExtResource("6_pvad7")]
 position = Vector2(61, -1)
 
-[node name="CrackedFloor2x5" parent="." instance=ExtResource("6_pvad7")]
+[node name="CrackedFloor2x5" parent="Hazards" instance=ExtResource("6_pvad7")]
 position = Vector2(92, -1)
 
-[node name="CrackedFloor2x6" parent="." instance=ExtResource("6_pvad7")]
+[node name="CrackedFloor2x6" parent="Hazards" instance=ExtResource("6_pvad7")]
 position = Vector2(122, -1)
 
-[node name="CrackedFloor2x7" parent="." instance=ExtResource("6_pvad7")]
+[node name="CrackedFloor2x7" parent="Hazards" instance=ExtResource("6_pvad7")]
 position = Vector2(-1, 399)
 
-[node name="CrackedFloor2x8" parent="." instance=ExtResource("6_pvad7")]
+[node name="CrackedFloor2x8" parent="Hazards" instance=ExtResource("6_pvad7")]
 position = Vector2(30, 399)
 
-[node name="CrackedFloor2x9" parent="." instance=ExtResource("6_pvad7")]
+[node name="CrackedFloor2x9" parent="Hazards" instance=ExtResource("6_pvad7")]
 position = Vector2(61, 399)
 
-[node name="CrackedFloor2x10" parent="." instance=ExtResource("6_pvad7")]
+[node name="CrackedFloor2x10" parent="Hazards" instance=ExtResource("6_pvad7")]
 position = Vector2(92, 399)
 
-[node name="CrackedFloor2x11" parent="." instance=ExtResource("6_pvad7")]
+[node name="CrackedFloor2x11" parent="Hazards" instance=ExtResource("6_pvad7")]
 position = Vector2(122, 399)
 
-[node name="CrackedFloor2x12" parent="." instance=ExtResource("6_pvad7")]
+[node name="CrackedFloor2x12" parent="Hazards" instance=ExtResource("6_pvad7")]
 position = Vector2(219, 399)
 
-[node name="CrackedFloor2x13" parent="." instance=ExtResource("6_pvad7")]
+[node name="CrackedFloor2x13" parent="Hazards" instance=ExtResource("6_pvad7")]
 position = Vector2(250, 399)
 
-[node name="CrackedFloor2x14" parent="." instance=ExtResource("6_pvad7")]
+[node name="CrackedFloor2x14" parent="Hazards" instance=ExtResource("6_pvad7")]
 position = Vector2(281, 399)
 
-[node name="CrackedFloor2x15" parent="." instance=ExtResource("6_pvad7")]
+[node name="CrackedFloor2x15" parent="Hazards" instance=ExtResource("6_pvad7")]
 position = Vector2(312, 399)
 
-[node name="CrackedFloor2x16" parent="." instance=ExtResource("6_pvad7")]
+[node name="CrackedFloor2x16" parent="Hazards" instance=ExtResource("6_pvad7")]
 position = Vector2(342, 399)
 
-[node name="CrackedFloor2x17" parent="." instance=ExtResource("6_pvad7")]
+[node name="CrackedFloor2x17" parent="Hazards" instance=ExtResource("6_pvad7")]
 position = Vector2(219, -1)
 
-[node name="CrackedFloor2x18" parent="." instance=ExtResource("6_pvad7")]
+[node name="CrackedFloor2x18" parent="Hazards" instance=ExtResource("6_pvad7")]
 position = Vector2(250, -1)
 
-[node name="CrackedFloor2x19" parent="." instance=ExtResource("6_pvad7")]
+[node name="CrackedFloor2x19" parent="Hazards" instance=ExtResource("6_pvad7")]
 position = Vector2(281, -1)
 
-[node name="CrackedFloor2x20" parent="." instance=ExtResource("6_pvad7")]
+[node name="CrackedFloor2x20" parent="Hazards" instance=ExtResource("6_pvad7")]
 position = Vector2(312, -1)
 
-[node name="CrackedFloor2x21" parent="." instance=ExtResource("6_pvad7")]
+[node name="CrackedFloor2x21" parent="Hazards" instance=ExtResource("6_pvad7")]
 position = Vector2(342, -1)
 
 [connection signal="ready" from="." to="." method="_on_ready"]

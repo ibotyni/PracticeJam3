@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dt08okxnvb7y8"]
+[gd_scene load_steps=20 format=3 uid="uid://dt08okxnvb7y8"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_kpofe"]
 [ext_resource type="PackedScene" uid="uid://crfccy8a2tem2" path="res://Tilemap/tile_map_2.tscn" id="2_uua68"]
@@ -37,7 +37,47 @@ size = Vector2(240, 33)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cirac"]
 size = Vector2(46, 81)
 
-[node name="Level_2" type="Node2D"]
+[sub_resource type="Animation" id="Animation_l1skw"]
+resource_name = "fade_in"
+length = 0.5
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_e36o4"]
+resource_name = "fade_out"
+length = 0.5
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_87huv"]
+_data = {
+"fade_in": SubResource("Animation_l1skw"),
+"fade_out": SubResource("Animation_e36o4")
+}
+
+[node name="Level" type="Node2D"]
 position = Vector2(1, 0)
 script = ExtResource("1_kpofe")
 
@@ -80,10 +120,7 @@ player = NodePath("../../GameManager/Player")
 
 [node name="GameManager" parent="." instance=ExtResource("5_2atxb")]
 
-[node name="EndOfLevel" parent="GameManager" index="0"]
-visible = false
-
-[node name="Player" parent="GameManager" index="2"]
+[node name="Player" parent="GameManager" index="1"]
 position = Vector2(226, 140)
 
 [node name="Walls" type="StaticBody2D" parent="."]
@@ -166,6 +203,32 @@ position = Vector2(164, -73)
 [node name="SpikeStrip" parent="." instance=ExtResource("8_1nu5u")]
 position = Vector2(5, 264)
 
+[node name="Fade" type="AnimationPlayer" parent="."]
+root_node = NodePath("ColorRect")
+libraries = {
+"": SubResource("AnimationLibrary_87huv")
+}
+autoplay = "fade_in"
+script = ExtResource("1_kpofe")
+
+[node name="ColorRect" type="ColorRect" parent="Fade"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+script = ExtResource("1_kpofe")
+
 [connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="animation_finished" from="Fade" to="Fade" method="_on_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="GameManager"]
