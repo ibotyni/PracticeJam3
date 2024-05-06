@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ciiccxmtlaqjq"]
+[gd_scene load_steps=19 format=3 uid="uid://ciiccxmtlaqjq"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_uvp5h"]
 [ext_resource type="PackedScene" uid="uid://crfccy8a2tem2" path="res://Tilemap/tile_map_2.tscn" id="2_w0810"]
@@ -40,6 +40,10 @@ size = Vector2(156, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xioau"]
 size = Vector2(143, 54)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t5704"]
+shader = ExtResource("3_47160")
+shader_parameter/custom_color = Color(1, 0.0405034, 0.0223529, 1)
 
 [node name="Level_2" type="Node2D"]
 script = ExtResource("1_uvp5h")
@@ -240,8 +244,31 @@ shape = SubResource("RectangleShape2D_6rdgj")
 stream = ExtResource("6_lhu3e")
 autoplay = true
 
-[node name="EnemyBoss" parent="." instance=ExtResource("7_ywqni")]
+[node name="EnemyBoss" parent="." node_paths=PackedStringArray("target") instance=ExtResource("7_ywqni")]
 position = Vector2(213, 122)
+target = NodePath("../GameManager/Player")
+health = 800
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="PlayerHealth" parent="CanvasLayer2" node_paths=PackedStringArray("player") instance=ExtResource("4_ap04j")]
+player = NodePath("../../GameManager/Player")
+
+[node name="BossHealth" parent="CanvasLayer2" node_paths=PackedStringArray("boss") instance=ExtResource("4_ap04j")]
+material = SubResource("ShaderMaterial_t5704")
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -21.0
+offset_right = 32.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+max_value = 800.0
+boss = NodePath("../../EnemyBoss")
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 
