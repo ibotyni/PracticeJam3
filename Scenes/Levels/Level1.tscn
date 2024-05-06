@@ -38,17 +38,14 @@ position = Vector2(-2, 0)
 navigation_polygon = SubResource("NavigationPolygon_63b0o")
 
 [node name="Polygon2D" type="Polygon2D" parent="NavigationRegion2D"]
-visible = false
 position = Vector2(282, 8)
 polygon = PackedVector2Array(-32, 136, -32, 152, -128, 152, -128, 136)
 
 [node name="Polygon2D2" type="Polygon2D" parent="NavigationRegion2D"]
-visible = false
 position = Vector2(218, 56)
 polygon = PackedVector2Array(-72, 112, -72, 192, -88, 192, -88, 112)
 
 [node name="Polygon2D3" type="Polygon2D" parent="NavigationRegion2D"]
-visible = false
 position = Vector2(354, 56)
 polygon = PackedVector2Array(-72, 112, -72, 208, -88, 208, -88, 112)
 
@@ -67,7 +64,7 @@ visible = false
 position = Vector2(200, 200)
 collision_mask = 15
 level_health = 1
-level_speed = 8
+level_speed = 1
 level_strength = 1
 
 [node name="Spike" parent="." instance=ExtResource("6_pyx1x")]

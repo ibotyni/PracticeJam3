@@ -17,7 +17,11 @@ var is_invulnerable: bool = false
 @export var level_speed: int = 1:
 	set(new_speed):
 		level_speed = new_speed
-		$ReloadTimer.wait_time = 1.1 - (level_speed/10)
+		var diff = level_speed/10.0
+		var wt = 1.1 - diff
+		if wt == 0:
+			wt = 0.001
+		$ReloadTimer.wait_time = wt
 
 @export var level_strength: int = 1:
 	set(new_strength):
