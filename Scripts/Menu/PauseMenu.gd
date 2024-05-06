@@ -12,10 +12,9 @@ func _input(event):
 #On Resume Button
 func _on_pause_resume_pressed():
 	pause_menu.visible = false
-	get_tree().paused = false
+	get_tree().paused = false	
 
 #Back to Main Menu
 func _on_pause_quit_pressed():
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Scenes/Main_Menu.tscn")
-	

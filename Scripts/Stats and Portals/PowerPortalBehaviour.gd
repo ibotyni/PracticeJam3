@@ -1,16 +1,24 @@
 extends Area2D
 
-var interaction_prompt
-@export var target_level : Resource
-
-func _ready():
-	interaction_prompt = $PowerInteraction
-	interaction_prompt.visible = false
-	add_to_group("interactables")  # Add this Area2D to the "interactables" group
+var latch: bool = false
 
 func _on_body_entered(body):
-	var player_vars = get_node("/root/PlayerVariables")
-	player_vars.level_strength += 1
-	
-	var level = "res://Scenes/Levels/level{level}.tscn".format({"level": randi_range(0,15)})
-	get_tree().change_scene_to_file(level)
+	if latch == false:
+		latch = true
+
+		var player_vars = get_node("/root/PlayerVariables")
+		if name == "Power":
+			player_vars.level_strength += 1
+		if name == "Speed":
+			player_vars.level_speed += 1
+		if name == "Health":
+			player_vars.level_health += 1
+			$"../../CanvasLayer/TextureProgressBar".max_value = player_vars.level_health * 4
+			body.health += 1
+		
+		var level = "res://Scenes/Levels/level{level}.tscn".format({"level": randi_range(0,15)})
+		get_tree().change_scene_to_file(level)
+
+
+func _on_body_exited(body):
+	latch = false

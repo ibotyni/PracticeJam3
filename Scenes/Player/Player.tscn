@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=3 uid="uid://rvqwkmaacjb0"]
+[gd_scene load_steps=85 format=3 uid="uid://rvqwkmaacjb0"]
 
 [ext_resource type="Script" path="res://Scripts/playerV2.gd" id="1_jcfhl"]
 [ext_resource type="PackedScene" uid="uid://mur837omox7r" path="res://Scenes/Player/Primary_Bullet.tscn" id="2_5jlgv"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://daalq1akb3omv" path="res://mockup assets/Character Sprites/Walk/Walk_Right.png" id="8_ke15h"]
 [ext_resource type="Texture2D" uid="uid://mwidddosout7" path="res://mockup assets/Character Sprites/Walk/Walk_Up.png" id="9_3237c"]
 [ext_resource type="Script" path="res://Scripts/Inventory, Items, Weapons and related UI/PlayerInteraction.gd" id="13_qg1jv"]
+[ext_resource type="AudioStream" uid="uid://bqg6iejg8w4eu" path="res://Assets/Audio/frantic_pedantic.mp3" id="14_h1i8k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s67ck"]
 size = Vector2(11, 17)
@@ -656,9 +657,6 @@ z_index = 2
 position = Vector2(0, -7)
 collision_mask = 14
 script = ExtResource("1_jcfhl")
-level_health = null
-level_speed = null
-level_strength = null
 Bullet = ExtResource("2_5jlgv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -679,6 +677,7 @@ texture = ExtResource("3_5k8f6")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_35t4q")
 animation = &"Idle_Down"
+frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
 libraries = {
@@ -715,6 +714,10 @@ script = ExtResource("13_qg1jv")
 shape = SubResource("CircleShape2D_l48b7")
 disabled = true
 one_way_collision_margin = 0.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_h1i8k")
+bus = &"Music"
 
 [connection signal="timeout" from="InvulnerabilityTimer" to="." method="_on_invulnerability_timer_timeout"]
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]

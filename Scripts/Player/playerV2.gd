@@ -13,10 +13,11 @@ var is_invulnerable: bool = false
 @onready var invul_timer = $InvulnerabilityTimer
 @onready var player_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var feet_hitbox: Area2D = $FeetHitbox
+@onready var bgm = $AudioStreamPlayer
 
 var player_vars
 
-@export var health := 100:
+@export var health := 4:
 	set(new_health):
 		if new_health <= 0:
 			death()
@@ -40,6 +41,7 @@ var state = STATES.READY
 # Turns off player hitbox and makes him red
 
 func _ready():
+	bgm.play()
 	player_vars = get_node("/root/PlayerVariables")
 	if player_vars.level_health == 0:
 		player_vars.level_health = 1
@@ -92,10 +94,10 @@ func set_swing(value = false):
 	#animation_tree["parameters/conditions/swing"] = value
 	
 func death() -> void:
-	print("You died");
+	get_tree().change_scene_to_file("res://Scenes/death_screen.tscn")
 
 func shoot():
-	print(position)
+	#print(position)
 	if state != STATES.READY:
 		return
 	state = STATES.FIRING
@@ -136,3 +138,4 @@ func _on_invulnerability_timer_timeout():
 	is_invulnerable = false
 	player_sprite.modulate = Color.WHITE
 	feet_hitbox.monitorable = true
+

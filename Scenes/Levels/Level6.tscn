@@ -1301,6 +1301,7 @@ autoplay = "fade_in"
 script = ExtResource("1_i2wej")
 
 [node name="ColorRect" type="ColorRect" parent="Fade"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

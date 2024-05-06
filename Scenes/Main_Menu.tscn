@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmvul552ynuxw"]
+[gd_scene load_steps=8 format=3 uid="uid://cmvul552ynuxw"]
 
 [ext_resource type="Script" path="res://Scripts/Main_Menu.gd" id="1_0gics"]
+[ext_resource type="Script" path="res://Scripts/Master Vol.gd" id="2_4ckq8"]
 [ext_resource type="AudioStream" uid="uid://djb3hcy3d5j5r" path="res://Assets/Audio/practise jam 3 menu.mp3" id="2_el6tg"]
 [ext_resource type="AudioStream" uid="uid://cnm5ui15bw0hs" path="res://Assets/Audio/menu_hover.wav" id="3_6cru7"]
+[ext_resource type="Script" path="res://Scripts/SFX Vol.gd" id="3_a6jfw"]
 [ext_resource type="AudioStream" uid="uid://cahe5i2pgir2j" path="res://Assets/Audio/menu_confirm.wav" id="4_chmj2"]
+[ext_resource type="Script" path="res://Scripts/Music Vol.gd" id="4_rlwp1"]
 
 [node name="Node" type="Node"]
 
@@ -106,11 +109,46 @@ layout_mode = 2
 [node name="Label" type="Label" parent="CanvasLayer/Settings/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 7
-text = "Settings!
-In Progress. :)
+text = "Master Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Master Vol" type="HSlider" parent="CanvasLayer/Settings/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 1.0
+script = ExtResource("2_4ckq8")
+bus_name = "Master"
+
+[node name="Label2" type="Label" parent="CanvasLayer/Settings/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 7
+text = "SFX Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SFX Vol" type="HSlider" parent="CanvasLayer/Settings/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("3_a6jfw")
+bus_name = "SFX"
+
+[node name="Label3" type="Label" parent="CanvasLayer/Settings/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 7
+text = "Music Volume
 "
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Music Vol" type="HSlider" parent="CanvasLayer/Settings/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("4_rlwp1")
+bus_name = "Music"
 
 [node name="ButtonSettingsBack" type="Button" parent="CanvasLayer/Settings/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -127,7 +165,7 @@ bus = &"SFX"
 
 [node name="On_Confirm" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_chmj2")
-bus = &"SFX"
+bus = &"Music"
 
 [connection signal="mouse_exited" from="CanvasLayer/Main" to="CanvasLayer" method="_on_main_mouse_exited"]
 [connection signal="focus_entered" from="CanvasLayer/Main/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ButtonStart" to="CanvasLayer" method="_on_button_start_focus_entered"]
