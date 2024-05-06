@@ -13,6 +13,7 @@ var is_invulnerable: bool = false
 @onready var invul_timer = $InvulnerabilityTimer
 @onready var player_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var feet_hitbox: Area2D = $FeetHitbox
+@onready var bgm = $AudioStreamPlayer
 
 var player_vars
 
@@ -40,6 +41,7 @@ var state = STATES.READY
 # Turns off player hitbox and makes him red
 
 func _ready():
+	bgm.play()
 	player_vars = get_node("/root/PlayerVariables")
 	if player_vars.level_health == 0:
 		player_vars.level_health = 1
@@ -136,3 +138,4 @@ func _on_invulnerability_timer_timeout():
 	is_invulnerable = false
 	player_sprite.modulate = Color.WHITE
 	feet_hitbox.monitorable = true
+

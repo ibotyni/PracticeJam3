@@ -5,8 +5,9 @@
 [ext_resource type="Shader" path="res://Assets/Materials/ColourChange.gdshader" id="3_47160"]
 [ext_resource type="PackedScene" uid="uid://bay3nihd70o2e" path="res://Scenes/UserInterface/health.tscn" id="4_ap04j"]
 [ext_resource type="PackedScene" uid="uid://iwwkjlwlo8an" path="res://Scenes/Managers/game_manager.tscn" id="5_mj6oy"]
-[ext_resource type="AudioStream" uid="uid://bqg6iejg8w4eu" path="res://frantic_pedantic.mp3" id="6_lhu3e"]
+[ext_resource type="AudioStream" uid="uid://bqg6iejg8w4eu" path="res://Assets/Audio/frantic_pedantic.mp3" id="6_lhu3e"]
 [ext_resource type="PackedScene" uid="uid://xmqf3ev7o6i4" path="res://Scenes/Enemies/EnemyBoss.tscn" id="7_ywqni"]
+
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v7rgq"]
 shader = ExtResource("3_47160")
