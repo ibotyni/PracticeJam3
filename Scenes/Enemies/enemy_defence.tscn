@@ -1,8 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://bpq7apxll8c5p"]
+[gd_scene load_steps=8 format=3 uid="uid://bpq7apxll8c5p"]
 
 [ext_resource type="Texture2D" uid="uid://hkrj575y2sdc" path="res://Assets/Enemies/EnemyAll.png" id="1_02qpk"]
 [ext_resource type="Script" path="res://Scripts/Enemies/enemy.gd" id="1_6bqc1"]
 [ext_resource type="PackedScene" uid="uid://mc676o36muco" path="res://Scenes/Enemies/defence_shot.tscn" id="2_ds05m"]
+[ext_resource type="Shader" path="res://Assets/Materials/ColourChange.gdshader" id="3_2laok"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hungn"]
+shader = ExtResource("3_2laok")
+shader_parameter/custom_color = Color(0.6942, 0.89, 0.814943, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qdivo"]
 size = Vector2(14, 12)
@@ -19,6 +24,7 @@ damage = 1
 health = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_hungn")
 texture = ExtResource("1_02qpk")
 hframes = 4
 
