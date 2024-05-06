@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1ukouv0bcyc7"]
+
+[ext_resource type="PackedScene" uid="uid://brn7pahgq847t" path="res://Scenes/Hazards/cracked_floor.tscn" id="1_1itad"]
+
+[node name="CrackedPit1" type="Node2D"]
+
+[node name="CrackedFloor" parent="." instance=ExtResource("1_1itad")]
+position = Vector2(70, 296)
+
+[node name="CrackedFloor2" parent="." instance=ExtResource("1_1itad")]
+position = Vector2(70, 280)
+
+[node name="CrackedFloor3" parent="." instance=ExtResource("1_1itad")]
+position = Vector2(84, 296)
+
+[node name="CrackedFloor4" parent="." instance=ExtResource("1_1itad")]
+position = Vector2(84, 280)
+
+[node name="CrackedFloor5" parent="." instance=ExtResource("1_1itad")]
+position = Vector2(98, 296)
+
+[node name="CrackedFloor6" parent="." instance=ExtResource("1_1itad")]
+position = Vector2(98, 280)
+
+[node name="CrackedFloor7" parent="." instance=ExtResource("1_1itad")]
+position = Vector2(112, 296)
+
+[node name="CrackedFloor8" parent="." instance=ExtResource("1_1itad")]
+position = Vector2(112, 280)
+
+[node name="CrackedFloor9" parent="." instance=ExtResource("1_1itad")]
+position = Vector2(124, 296)
+
+[node name="CrackedFloor10" parent="." instance=ExtResource("1_1itad")]
+position = Vector2(124, 280)
+
+[node name="CrackedFloor11" parent="." instance=ExtResource("1_1itad")]
+position = Vector2(138, 296)
+
+[node name="CrackedFloor12" parent="." instance=ExtResource("1_1itad")]
+position = Vector2(138, 280)
+
+[node name="CrackedFloor14" parent="." instance=ExtResource("1_1itad")]
+position = Vector2(70, 265)
+
+[node name="CrackedFloor16" parent="." instance=ExtResource("1_1itad")]
+position = Vector2(84, 265)
+
+[node name="CrackedFloor18" parent="." instance=ExtResource("1_1itad")]
+position = Vector2(98, 265)
+
+[node name="CrackedFloor20" parent="." instance=ExtResource("1_1itad")]
+position = Vector2(112, 265)
+
+[node name="CrackedFloor22" parent="." instance=ExtResource("1_1itad")]
+position = Vector2(124, 265)
+
+[node name="CrackedFloor24" parent="." instance=ExtResource("1_1itad")]
+position = Vector2(138, 265)
