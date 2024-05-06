@@ -17,7 +17,7 @@ func _process(delta):
 		if !touching.is_empty() && collapse_timer.is_stopped():
 			for area in touching:
 				var entity = area.get_parent()
-				if entity is Player || entity is Enemy:
+				if entity is Player:
 					is_collapsing = true
 					collapse_timer.start()
 
@@ -29,5 +29,5 @@ func collapse() -> void:
 
 func _on_area_entered(area):
 	if collapsed:
-		if area.get_parent() is Player || area.get_parent() is Enemy:
+		if area.get_parent() is Player:
 			area.get_parent().death()
