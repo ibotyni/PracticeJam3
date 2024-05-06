@@ -26,6 +26,7 @@ var state := STATES.READY
 @onready var nav: NavigationAgent2D = $NavigationAgent2D
 
 var is_invul := false
+var nav_loaded: bool = false
 
 func _ready():
 	call_deferred("actor_setup")
@@ -37,6 +38,10 @@ func _physics_process(delta):
 		move_and_slide()
 
 func move_towards_target(delta) -> void:
+	if !nav_loaded:
+		nav_loaded = true
+		return
+			
 	if(!target):
 		return
 	var distance_to_player := position.distance_to(target.position)
