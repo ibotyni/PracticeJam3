@@ -11,5 +11,5 @@ func _process(delta):
 		if entity is Player:
 			entity.health -= damage
 			entity.position = entity.position - knockback_strength*(entity.direction.normalized())
-		elif entity is Enemy:
-			entity.take_damage(5)
+		#elif entity is Enemy:
+			#entity.take_damage(5)

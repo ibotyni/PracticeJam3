@@ -4,7 +4,7 @@ class_name EnemyShot
 @export var SPEED = 150
 
 var direction: Vector2 = Vector2()
-var damage := 5
+var damage := 1
 	
 func _physics_process(delta):
 	position += direction.normalized() * SPEED * delta

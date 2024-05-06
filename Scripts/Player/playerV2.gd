@@ -9,16 +9,30 @@ signal healthChanged
 enum STATES { READY, FIRING, RELOADING }
 var is_invulnerable: bool = false
 
-@export var level_health = 1
-@export var level_speed = 1
-@export var level_strength = 1
+@export var level_health: int = 1:
+	set(new_health):
+		level_health = new_health
+		health += ( (level_health * 4) - health )
+		
+@export var level_speed: int = 1:
+	set(new_speed):
+		level_speed = new_speed
+		var diff = level_speed/10.0
+		var wt = 1.1 - diff
+		if wt == 0:
+			wt = 0.001
+		$ReloadTimer.wait_time = wt
+
+@export var level_strength: int = 1:
+	set(new_strength):
+		level_strength = new_strength
 
 @export var Bullet : PackedScene
 @onready var invul_timer = $InvulnerabilityTimer
 @onready var player_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var feet_hitbox: Area2D = $FeetHitbox
 
-@export var health := 100:
+@export var health := level_health * 4:
 	set(new_health):
 		if new_health <= 0:
 			death()
@@ -49,9 +63,12 @@ func _ready():
 		print("Error: GameManager not found!")
 
 func make_invulnerable() -> void:
-	is_invulnerable = true
+	if player_sprite == null:
+		return
+	#is_invulnerable = true
 	#feet_hitbox.set_deferred("monitorable", false)
-	player_sprite.modulate = Color.RED
+	player_sprite.set_deferred("modulate", Color.RED)
+	#player_sprite.modulate = Color.RED
 	invul_timer.start()
 
 func _physics_process(_delta):
@@ -93,6 +110,8 @@ func shoot():
 		return
 	state = STATES.FIRING
 	var bullet = Bullet.instantiate()
+	bullet.damage = level_strength
+	
 	owner.add_child(bullet)
 	bullet.transform = $ReticleHolder/Sprite2D/Aim.global_transform
 	

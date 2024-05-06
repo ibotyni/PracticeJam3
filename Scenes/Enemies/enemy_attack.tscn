@@ -15,7 +15,8 @@ collision_layer = 4
 collision_mask = 11
 script = ExtResource("1_8wbqh")
 SHOT_SCENE = ExtResource("2_ww42q")
-damage = 30
+damage = 4
+health = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6)
@@ -27,7 +28,7 @@ hframes = 4
 frame = 1
 
 [node name="ReloadTimer" type="Timer" parent="."]
-wait_time = 1.25
+wait_time = 0.8
 one_shot = true
 
 [node name="FeetHitbox" type="Area2D" parent="."]
