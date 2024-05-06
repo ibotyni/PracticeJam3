@@ -1,11 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4bxrwywrc3kc"]
+[gd_scene load_steps=8 format=3 uid="uid://b4bxrwywrc3kc"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/enemy.gd" id="1_srquh"]
 [ext_resource type="PackedScene" uid="uid://del7wvxy1hqk7" path="res://Scenes/Enemies/fast_shot.tscn" id="2_phxo5"]
 [ext_resource type="Texture2D" uid="uid://hkrj575y2sdc" path="res://Assets/Enemies/EnemyAll.png" id="3_ctoky"]
+[ext_resource type="Shader" path="res://Assets/Materials/ColourChange.gdshader" id="3_w5a0s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_26v4a"]
 size = Vector2(16, 13)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tyadb"]
+shader = ExtResource("3_w5a0s")
+shader_parameter/custom_color = Color(0.611765, 0.788235, 1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dmj77"]
 size = Vector2(14, 3)
@@ -23,6 +28,7 @@ position = Vector2(0, 5.5)
 shape = SubResource("RectangleShape2D_26v4a")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_tyadb")
 texture = ExtResource("3_ctoky")
 hframes = 4
 frame = 2

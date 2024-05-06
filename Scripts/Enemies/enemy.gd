@@ -5,6 +5,8 @@ class_name Enemy
 enum TYPE { FAST, ATTACK, DEFENCE }
 enum STATES { READY, FIRING, RELOADING }
 
+signal levelComplete
+
 @export var target: Player
 @export var SHOT_SCENE: PackedScene
 @export var damage := 5
@@ -13,6 +15,8 @@ enum STATES { READY, FIRING, RELOADING }
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var feet_hitbox: Area2D = $FeetHitbox
 @onready var invul_timer = $InvulnerabilityTimer
+
+
 
 var state := STATES.READY
 @export var move_speed = 15
@@ -85,9 +89,12 @@ func shoot_player(delta) -> void:
 	state = STATES.RELOADING
 	reload_timer.start()
 
+
+
 func death() -> void:
 	if get_tree().get_nodes_in_group("enemy").size() == 1:
 		print("level complete")
+		get_tree().change_scene_to_file("res://Scenes/Levels/ChoosePath.tscn")
 	queue_free()
 
 func actor_setup():

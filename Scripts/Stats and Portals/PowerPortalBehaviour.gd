@@ -9,13 +9,8 @@ func _ready():
 	add_to_group("interactables")  # Add this Area2D to the "interactables" group
 
 func _on_body_entered(body):
-	if body.is_in_group("player"):  
-		interaction_prompt.visible = true
-
-func _on_body_exited(body):
-	if body.is_in_group("player"): 
-		interaction_prompt.visible = false
-
-func _process(delta):
-	if Input.is_action_just_pressed("interact"):
-		var player = get_tree().get_nodes_in_group("player")[0]  # Get the player
+	var player_vars = get_node("/root/PlayerVariables")
+	player_vars.level_strength += 1
+	
+	var level = "res://Scenes/Levels/level{level}.tscn".format({"level": randi_range(0,15)})
+	get_tree().change_scene_to_file(level)

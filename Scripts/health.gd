@@ -13,13 +13,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func updatePlayerHealth():
-	max_value = player.level_health * 4
-	value = player.health
-	
+	var player_vars = get_node("/root/PlayerVariables")
+	max_value = player_vars.level_health * 4
+	value = player_vars.health
+
 func updateBossHealth():
-	max_value = player.level_health * 12
+	var player_vars = get_node("/root/PlayerVariables")
+	max_value = player_vars.level_health * 12
 	if boss.health > max_value:
 		boss.health = max_value
 	value = boss.health
-	
-

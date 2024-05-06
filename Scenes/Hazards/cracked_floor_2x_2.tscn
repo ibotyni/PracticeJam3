@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmjg1hep7g5g"]
+
+[ext_resource type="PackedScene" uid="uid://brn7pahgq847t" path="res://Scenes/Hazards/cracked_floor.tscn" id="1_1lidm"]
+
+[node name="CrackedFloor2x2" type="Node2D"]
+
+[node name="CrackedFloor" parent="." instance=ExtResource("1_1lidm")]
+position = Vector2(40, 24)
+
+[node name="CrackedFloor2" parent="." instance=ExtResource("1_1lidm")]
+position = Vector2(40, 9)
+
+[node name="CrackedFloor3" parent="." instance=ExtResource("1_1lidm")]
+position = Vector2(55, 9)
+
+[node name="CrackedFloor4" parent="." instance=ExtResource("1_1lidm")]
+position = Vector2(55, 24)

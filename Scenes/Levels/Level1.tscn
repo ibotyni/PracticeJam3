@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cjqbo6xhfem17"]
+[gd_scene load_steps=15 format=3 uid="uid://cjqbo6xhfem17"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_fxgwd"]
 [ext_resource type="PackedScene" uid="uid://crfccy8a2tem2" path="res://Tilemap/tile_map_2.tscn" id="2_yayuc"]
@@ -22,7 +22,47 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6rdgj"]
 size = Vector2(464, 20)
 
-[node name="Level_2" type="Node2D"]
+[sub_resource type="Animation" id="Animation_l1skw"]
+resource_name = "fade_in"
+length = 0.5
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_e36o4"]
+resource_name = "fade_out"
+length = 0.5
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_87huv"]
+_data = {
+"fade_in": SubResource("Animation_l1skw"),
+"fade_out": SubResource("Animation_e36o4")
+}
+
+[node name="Level" type="Node2D"]
 script = ExtResource("1_fxgwd")
 
 [node name="TileMap2" parent="." instance=ExtResource("2_yayuc")]
@@ -57,65 +97,61 @@ player = NodePath("../../GameManager/Player")
 
 [node name="GameManager" parent="." instance=ExtResource("5_3q4f1")]
 
-[node name="EndOfLevel" parent="GameManager" index="0"]
-visible = false
-
-[node name="Player" parent="GameManager" index="2"]
+[node name="Player" parent="GameManager" index="1"]
 position = Vector2(200, 200)
 collision_mask = 15
-level_health = 1
-level_speed = 1
-level_strength = 1
 
-[node name="Spike" parent="." instance=ExtResource("6_pyx1x")]
+[node name="Hazards" type="Node2D" parent="."]
+
+[node name="Spike" parent="Hazards" instance=ExtResource("6_pyx1x")]
 position = Vector2(136, 176)
 
-[node name="Spike2" parent="Spike" instance=ExtResource("6_pyx1x")]
+[node name="Spike2" parent="Hazards/Spike" instance=ExtResource("6_pyx1x")]
 position = Vector2(0, 16)
 
-[node name="Spike3" parent="Spike" instance=ExtResource("6_pyx1x")]
+[node name="Spike3" parent="Hazards/Spike" instance=ExtResource("6_pyx1x")]
 position = Vector2(0, 32)
 
-[node name="Spike4" parent="Spike" instance=ExtResource("6_pyx1x")]
+[node name="Spike4" parent="Hazards/Spike" instance=ExtResource("6_pyx1x")]
 position = Vector2(0, 48)
 
-[node name="Spike5" parent="Spike" instance=ExtResource("6_pyx1x")]
+[node name="Spike5" parent="Hazards/Spike" instance=ExtResource("6_pyx1x")]
 position = Vector2(0, 64)
 
-[node name="Hole" parent="." instance=ExtResource("7_mu44n")]
+[node name="Hole" parent="Hazards" instance=ExtResource("7_mu44n")]
 position = Vector2(160, 152)
 
-[node name="Hole" parent="Hole" instance=ExtResource("7_mu44n")]
+[node name="Hole" parent="Hazards/Hole" instance=ExtResource("7_mu44n")]
 position = Vector2(16, 0)
 
-[node name="Hole2" parent="Hole" instance=ExtResource("7_mu44n")]
+[node name="Hole2" parent="Hazards/Hole" instance=ExtResource("7_mu44n")]
 position = Vector2(32, 0)
 
-[node name="Hole3" parent="Hole" instance=ExtResource("7_mu44n")]
+[node name="Hole3" parent="Hazards/Hole" instance=ExtResource("7_mu44n")]
 position = Vector2(48, 0)
 
-[node name="Hole4" parent="Hole" instance=ExtResource("7_mu44n")]
+[node name="Hole4" parent="Hazards/Hole" instance=ExtResource("7_mu44n")]
 position = Vector2(64, 0)
 
-[node name="Hole5" parent="Hole" instance=ExtResource("7_mu44n")]
+[node name="Hole5" parent="Hazards/Hole" instance=ExtResource("7_mu44n")]
 position = Vector2(80, 0)
 
-[node name="CrackedFloor" parent="." instance=ExtResource("8_mv8id")]
+[node name="CrackedFloor" parent="Hazards" instance=ExtResource("8_mv8id")]
 position = Vector2(272, 176)
 
-[node name="CrackedFloor" parent="CrackedFloor" instance=ExtResource("8_mv8id")]
+[node name="CrackedFloor" parent="Hazards/CrackedFloor" instance=ExtResource("8_mv8id")]
 position = Vector2(0, 16)
 
-[node name="CrackedFloor2" parent="CrackedFloor" instance=ExtResource("8_mv8id")]
+[node name="CrackedFloor2" parent="Hazards/CrackedFloor" instance=ExtResource("8_mv8id")]
 position = Vector2(0, 32)
 
-[node name="CrackedFloor3" parent="CrackedFloor" instance=ExtResource("8_mv8id")]
+[node name="CrackedFloor3" parent="Hazards/CrackedFloor" instance=ExtResource("8_mv8id")]
 position = Vector2(0, 48)
 
-[node name="CrackedFloor4" parent="CrackedFloor" instance=ExtResource("8_mv8id")]
+[node name="CrackedFloor4" parent="Hazards/CrackedFloor" instance=ExtResource("8_mv8id")]
 position = Vector2(0, 64)
 
-[node name="CrackedFloor5" parent="CrackedFloor" instance=ExtResource("8_mv8id")]
+[node name="CrackedFloor5" parent="Hazards/CrackedFloor" instance=ExtResource("8_mv8id")]
 position = Vector2(0, 80)
 
 [node name="Walls" type="StaticBody2D" parent="."]
@@ -140,6 +176,32 @@ position = Vector2(-11, 220)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_6rdgj")
 
+[node name="Fade" type="AnimationPlayer" parent="."]
+root_node = NodePath("ColorRect")
+libraries = {
+"": SubResource("AnimationLibrary_87huv")
+}
+autoplay = "fade_in"
+script = ExtResource("1_fxgwd")
+
+[node name="ColorRect" type="ColorRect" parent="Fade"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+script = ExtResource("1_fxgwd")
+
 [connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="animation_finished" from="Fade" to="Fade" method="_on_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="GameManager"]

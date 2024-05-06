@@ -1,8 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8ds0y6dw4o6h"]
+[gd_scene load_steps=4 format=3 uid="uid://c8ds0y6dw4o6h"]
 
+[ext_resource type="Shader" path="res://Assets/Materials/ColourChange.gdshader" id="1_7j3vs"]
 [ext_resource type="Texture2D" uid="uid://hkrj575y2sdc" path="res://Assets/Enemies/EnemyAll.png" id="1_wvdhx"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ej6l4"]
+shader = ExtResource("1_7j3vs")
+shader_parameter/custom_color = Color(1, 0, 1, 1)
+
 [node name="FastEnemy" type="Sprite2D" groups=["enemy"]]
+material = SubResource("ShaderMaterial_ej6l4")
 texture = ExtResource("1_wvdhx")
 region_enabled = true
 region_rect = Rect2(32, 2.08165e-12, 16, 24)
