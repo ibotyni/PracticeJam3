@@ -7,7 +7,9 @@
 size = Vector2(16, 16)
 
 [node name="Hole" type="Area2D"]
+collision_layer = 32
 script = ExtResource("1_laa3o")
+knockback_strength = 6
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_3i7qw")
@@ -17,3 +19,5 @@ frame = 22
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_wieq6")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
